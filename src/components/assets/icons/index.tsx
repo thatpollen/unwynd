@@ -9,4 +9,188 @@ const NavLogo = ({ className }: { className?: string }) => (
   </svg>
 );
 
-export { NavLogo };
+const HandHeart = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+      d="M13.993 4.253c2.458-1.523 4.603-.909 5.892.069.529.4.793.601.948.601.156 0 .42-.2.949-.601 1.288-.978 3.434-1.592 5.892-.069 3.226 2 3.956 8.593-3.485 14.157C22.77 19.47 22.063 20 20.833 20s-1.938-.53-3.355-1.59c-7.441-5.563-6.711-12.158-3.485-14.157Z"
+    ></path>
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M6.667 23.333h3.991c.49 0 .974.11 1.412.323l3.404 1.647c.438.212.922.322 1.412.322h1.738c1.68 0 3.043 1.319 3.043 2.945a.15.15 0 0 1-.11.142l-4.235 1.17c-.76.21-1.574.137-2.28-.205l-3.638-1.76"
+    ></path>
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="m21.667 27.5 7.654-2.352c1.357-.423 2.824.079 3.674 1.256.615.85.365 2.07-.53 2.586l-12.527 7.228a3.32 3.32 0 0 1-2.613.311L6.667 33.367"
+    ></path>
+  </svg>
+);
+
+const Slider = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M5 11.667h5M5 28.333h10m15 0h5M25 11.667h10"
+    ></path>
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeWidth="2"
+      d="M10 11.667c0-1.553 0-2.33.254-2.943a3.33 3.33 0 0 1 1.804-1.804c.612-.253 1.389-.253 2.942-.253s2.33 0 2.942.253a3.33 3.33 0 0 1 1.804 1.804c.254.613.254 1.39.254 2.943s0 2.33-.254 2.942a3.33 3.33 0 0 1-1.804 1.804c-.612.254-1.389.254-2.942.254s-2.33 0-2.942-.254a3.33 3.33 0 0 1-1.804-1.804C10 13.996 10 13.219 10 11.667Zm10 16.666c0-1.553 0-2.33.254-2.942a3.33 3.33 0 0 1 1.804-1.804c.612-.254 1.389-.254 2.942-.254s2.33 0 2.942.254a3.33 3.33 0 0 1 1.804 1.804c.254.613.254 1.39.254 2.942 0 1.554 0 2.33-.254 2.943a3.33 3.33 0 0 1-1.804 1.804c-.612.253-1.389.253-2.942.253s-2.33 0-2.942-.253a3.33 3.33 0 0 1-1.804-1.804C20 30.663 20 29.886 20 28.333Z"
+    ></path>
+  </svg>
+);
+
+const HeartBeat = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+      d="M32.438 6.656c-4.47-2.742-8.37-1.637-10.714.123-.96.722-1.441 1.082-1.724 1.082s-.763-.36-1.724-1.082c-2.343-1.76-6.244-2.865-10.713-.123C1.697 10.254.37 22.124 13.9 32.138c2.577 1.907 3.865 2.86 6.1 2.86 2.236 0 3.524-.953 6.101-2.86 13.53-10.014 12.203-21.884 6.337-25.482Z"
+    ></path>
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M26.667 21.667H25c-.759 0-1.558.058-2.239-.465-.26-.2-.431-.475-.776-1.026L19.167 15l-5 8.333-2.595-3.613c-.427-.512-.843-1.032-1.408-1.237-.41-.15-.884-.15-1.83-.15H5"
+    ></path>
+  </svg>
+);
+
+const ScanSearch = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="m32.334 32.333 4.333 4.334M34.5 24.75c0-5.385-4.365-9.75-9.75-9.75S15 19.365 15 24.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75"
+    ></path>
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+      d="M3.333 10c.218-2.226.71-3.723 1.828-4.84C6.277 4.044 7.774 3.55 10 3.333m0 33.334c-2.227-.218-3.724-.71-4.84-1.827-1.117-1.117-1.61-2.614-1.827-4.84m33.333-20c-.218-2.226-.71-3.723-1.827-4.84s-2.614-1.61-4.84-1.827M3.334 16.667v6.666m20-20h-6.667"
+    ></path>
+  </svg>
+);
+
+const Wind = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+      d="M3.333 9.902c5.834 5.72 14.293 3.269 16.221 0 .284-.48.446-1.038.446-1.634C20 6.463 18.508 5 16.667 5s-3.334 1.463-3.334 3.268m15 6.612c0-2.695 1.866-4.88 4.167-4.88s4.167 2.185 4.167 4.88c0 1.195-.367 2.29-.976 3.138-3.447 5.634-20.23 3.51-29.024 1.742M21.81 33.146c.342 1.08 1.268 1.854 2.357 1.854 1.38 0 2.5-1.245 2.5-2.782 0-.522-.13-1.01-.355-1.428-2.145-4.136-12.979-6.917-22.979.501"
+    ></path>
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M31.667 25.833H35"
+    ></path>
+  </svg>
+);
+
+const Pause = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+      d="M6.667 11.667c0-2.357 0-3.536.732-4.268s1.91-.732 4.268-.732 3.535 0 4.267.732.733 1.91.733 4.268v16.666c0 2.357 0 3.536-.733 4.268-.732.732-1.91.732-4.267.732s-3.536 0-4.268-.732-.732-1.91-.732-4.268zm16.666-.001c0-2.357 0-3.535.733-4.267.732-.732 1.91-.732 4.267-.732s3.536 0 4.268.732.732 1.91.732 4.267v16.667c0 2.357 0 3.536-.732 4.268s-1.91.732-4.268.732-3.535 0-4.267-.732-.733-1.91-.733-4.268V11.667Z"
+    ></path>
+  </svg>
+);
+
+const Lamp = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+    <path
+      className={className}
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeWidth="2"
+      d="M20 3.333c2.725 0 4.087 0 5.275.483.639.26 1.234.618 1.763 1.064.983.827 1.628 2.038 2.917 4.46l1.334 2.505c2.334 4.384 3.502 6.576 2.54 8.199s-3.428 1.623-8.36 1.623H14.53c-4.932 0-7.398 0-8.36-1.623s.206-3.815 2.54-8.199l1.334-2.505c1.29-2.422 1.934-3.633 2.917-4.46a6.6 6.6 0 0 1 1.763-1.064c1.188-.483 2.55-.483 5.275-.483Zm0 18.334v10m-4.24 2.165c.449-.758.673-1.137 1.001-1.42.334-.285.744-.5 1.196-.623.445-.122.947-.122 1.95-.122h.187c1.003 0 1.505 0 1.95.122.452.124.862.338 1.196.624.328.282.552.661 1 1.42.536.904.804 1.356.754 1.725-.05.37-.293.703-.663.907-.368.202-.966.202-2.164.202h-4.334c-1.197 0-1.796 0-2.164-.202-.37-.204-.613-.537-.663-.907-.05-.369.218-.821.754-1.726Z"
+    ></path>
+  </svg>
+);
+
+const Vector = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="48"
+    height="42"
+    fill="none"
+    viewBox="0 0 48 42"
+  >
+    <path
+      fill="url(#paint0_linear_3070_152)"
+      d="M41.63 2.32c-6.335-3.838-11.865-2.292-15.186.172C25.082 3.502 24.4 4.007 24 4.007s-1.082-.505-2.444-1.515C18.235.028 12.706-1.518 6.37 2.32c-8.315 5.037-10.196 21.655 8.982 35.675C19.005 40.665 20.832 42 24 42c3.169 0 4.995-1.335 8.648-4.005C51.826 23.975 49.945 7.357 41.63 2.32"
+    ></path>
+    <defs>
+      <linearGradient
+        id="paint0_linear_3070_152"
+        x1="0.375"
+        x2="42.086"
+        y1="0"
+        y2="46.924"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stopColor="#1F3FEA"></stop>
+        <stop offset="0.2" stopColor="#671FEA"></stop>
+        <stop offset="0.4" stopColor="#EA1FC9"></stop>
+        <stop offset="0.6" stopColor="#EA1F5E"></stop>
+        <stop offset="0.8" stopColor="#EAAD1F"></stop>
+        <stop offset="1" stopColor="#AAEA1F"></stop>
+      </linearGradient>
+    </defs>
+  </svg>
+);
+
+const Graphic = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+    <path
+      className={className}
+      fill="currentColor"
+      d="M12.569 6.077q-7.53 4.836-8.367 11.258c-.869 6.665 5.091 9.927 8.111 6.996s1.21-6.651-.976-7.668S7.813 16 8.046 14.641c.233-1.36 3.344-5.127 6.077-6.882a.5.5 0 0 0 .076-.68l-.676-.879c-.293-.381-.574-.367-.954-.123m13.217 0q-7.53 4.836-8.367 11.258C16.55 24 22.51 27.262 25.53 24.331s1.21-6.651-.977-7.668c-2.188-1.018-3.524-.663-3.291-2.022.233-1.36 3.345-5.127 6.078-6.882a.5.5 0 0 0 .075-.68L26.74 6.2c-.293-.381-.575-.367-.954-.123"
+    ></path>
+  </svg>
+);
+
+export {
+  NavLogo,
+  HandHeart,
+  Slider,
+  HeartBeat,
+  ScanSearch,
+  Wind,
+  Pause,
+  Lamp,
+  Vector,
+  Graphic,
+};

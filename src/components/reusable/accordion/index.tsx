@@ -6,20 +6,25 @@ import { Plus, Minus } from "lucide-react";
 
 import cn from "../../../lib/utils/classname";
 
+interface AccordionProps {
+  isBottomLine?: boolean;
+}
+
 const Accordion = AccordionPrimitive.Root;
 
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
->(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={cn(
-      "rounded-xl border border-stroke-12-dark bg-bgColor-secondary-dark data-[state=open]:shadow-[0_1px_4px_0_rgba(0,0,0,0.08)]",
-      className
-    )}
-    {...props}
-  />
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> &
+    AccordionProps
+>(({ isBottomLine, className, ...props }, ref) => (
+  <div>
+    <AccordionPrimitive.Item
+      ref={ref}
+      className={cn("", className)}
+      {...props}
+    />
+    {isBottomLine && <div className="w-full h-px bg-[rgba(0,0,0,0.05)]"></div>}
+  </div>
 ));
 AccordionItem.displayName = "AccordionItem";
 
@@ -31,7 +36,7 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "group flex flex-1 items-center justify-between p-4 text-sm font-medium text-left cursor-pointer",
+        "group flex flex-1 items-center justify-between py-4 text-base leading-[1.5em] font-medium text-[rgb(51,51,51)] text-left cursor-pointer",
         className
       )}
       {...props}
@@ -50,10 +55,10 @@ const AccordionContent = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <AccordionPrimitive.Content
     ref={ref}
-    className="overflow-hidden text-sm font-normal text-textColor-secondary-dark data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
+    className="overflow-hidden text-base leading-[1.5em] font-normal text-[rgb(163,163,163)] data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn("pt-0 px-4 pb-4", className)}>{children}</div>
+    <div className={cn("pt-0 pb-4", className)}>{children}</div>
   </AccordionPrimitive.Content>
 ));
 AccordionContent.displayName = AccordionPrimitive.Content.displayName;

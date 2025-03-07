@@ -3,43 +3,46 @@ import SubscribeButton from "../assets/buttons/SubscribeButton";
 import NextLink from "next/link";
 import { AnimateButton } from "../assets/buttons/AnimateButton";
 import NextImage from "next/image";
+import LargeContainer from "../container/largeContainer";
 
 export default function Footer() {
   return (
     <footer className="p-2">
-      <div className="max-w-[1440px] mx-auto">
+      <LargeContainer>
         <div className="flex flex-col">
           <div className="h-[200px] relative">
-            <div className="absolute z-1 top-[-128px] left-[32px]">
-              <figure className="relative">
+            {/* center absolute img for tablet and mobile */}
+            {/* <div className="absolute z-1 top-[-128px] lg:left-[32px] right-0 left-0 m-auto w-fit lg:m-0 lg:w-auto lg:right-auto"> */}
+            <div className="absolute z-1 top-[-128px] lg:left-[32px] left-1/2 -translate-x-1/2 lg:translate-x-0">
+              <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
                 <NextImage
                   src="/images/unwynd-footer-lamp.avif"
                   alt="footer-lamp"
                   width={340}
                   height={540}
-                  className="max-w-full"
+                  className="max-w-full w-auto h-auto"
                   priority
                 />
-                <div className="absolute w-[720px] top-[-134px] bottom-[-134px] right-[-160px] left-[-160px] blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
+                <div className="absolute w-[540px] md:w-[720px] top-[-101px] bottom-[-102px] left-[-120px] right-[-120px] md:top-[-134px] md:bottom-[-134px] md:right-[-160px] md:left-[-160px] blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
               </figure>
             </div>
           </div>
 
           <div className="bg-surface-inverted-primary rounded-2xl relative z-2">
-            <div className="flex gap-20 p-20">
+            <div className="flex flex-col lg:flex-row gap-20 p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
-                <h2 className="text-H2 leading-14 tracking-[-0.04em] text-text-inverted-primary">
+                <h2 className="text-H2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
                   Subscribe to the
                   <br />
                   <span className="text-transparent bg-[linear-gradient(to_bottom_right,rgb(89,106,255),rgb(211,144,225),rgb(232,109,84),rgb(255,187,108))] bg-clip-text">
                     Unwynd newsletter
                   </span>
                 </h2>
-                <p className="text-sm text-text-inverted-tertiary tracking">
+                <p className="text-sm text-text-inverted-tertiary tracking-tight text-center md:text-left">
                   Sign up to receive the latest news and important announcements
                   directly in your inbox.
                 </p>
-                <form className="relative flex items-center">
+                <form className="w-auto md:w-[525px] relative flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
                   <label className="relative w-full inline-flex items-center">
                     <input
                       className="w-full text-white placeholder:text-text-secondary rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:ring-1 focus:ring-brand focus:ring-offeset-1 autofill"
@@ -50,13 +53,16 @@ export default function Footer() {
                       required
                     />
                   </label>
-                  <SubscribeButton className="absolute right-2.5" type="submit">
+                  <SubscribeButton
+                    className="relative md:absolute md:right-2.5"
+                    type="submit"
+                  >
                     Subscribe
                   </SubscribeButton>
                 </form>
               </div>
               <div className="flex flex-col gap-12 w-1/1">
-                <div className="flex justify-between">
+                <div className="flex justify-start lg:justify-between gap-16 lg:gap-0">
                   <div className="flex flex-col gap-4">
                     <span className="text-xs text-text-tertiary">Sitemap</span>
                     <ul className="flex flex-col items-start gap-4 text-sm text-text-inverted-primary">
@@ -92,7 +98,7 @@ export default function Footer() {
                     </ul>
                   </div>
                 </div>
-                <div className="flex justify-between items-center">
+                <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 md:gap-0">
                   <div className="flex flex-col justify-center">
                     <span className="text-sm text-[rgba(255,255,255,0.5)]">
                       Please contact us for support
@@ -104,7 +110,7 @@ export default function Footer() {
                       contact@unwynd.net
                     </NextLink>
                   </div>
-                  <div className="flex items-center gap-6">
+                  <div className="flex justify-between md:justify-start  items-center gap-6">
                     <div className="flex items-center gap-1.25 bg-neutral-800 text-sm text-text-inverted-primary p-2.5 rounded-[10px] border border-transparent hover:border-surface-inverted-primary focus:ring-1 focus:ring-surface-inverted-tertiary focus:outline-none cursor-pointer">
                       <span className="">
                         <Globe size={18} />
@@ -126,7 +132,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-      </div>
+      </LargeContainer>
     </footer>
   );
 }
