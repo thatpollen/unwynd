@@ -71,10 +71,12 @@ export default function Testimonials() {
       <div className="rounded-2xl bg-background-tertiary pt-50 pb-12 px-4">
         <Container>
           <div className="flex flex-col justify-center items-center gap-12 flex-nowrap">
-            <div className="flex justify-between items-center w-full p-4">
+            <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-12 md:gap-0 w-full p-4">
               <div className="flex flex-col gap-4">
-                <h2 className="text-H2 font-medium">Our testimonials</h2>
-                <p className="text-base text-text-secondary">
+                <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center md:text-left">
+                  Our testimonials
+                </h2>
+                <p className="text-base text-text-secondary text-center md:text-left">
                   Happy customers that enjoy our lamp
                 </p>
               </div>

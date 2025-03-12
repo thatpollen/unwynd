@@ -182,6 +182,94 @@ const Graphic = ({ className }: { className?: string }) => (
   </svg>
 );
 
+const HealthCare = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeMiterlimit="10"
+      strokeWidth="2.5"
+      d="M29.878 10c0 3.314-2.632 6-5.878 6s-5.878-2.686-5.878-6S20.754 4 24 4s5.878 2.686 5.878 6ZM34.512 33.676v-8.735c0-4.386-3.621-7.941-8.088-7.941h-4.852c-4.466 0-8.087 3.555-8.087 7.941v8.735l7.279 5.559m13.748-5.558c2.83-.662 8.41-1.271 8.087 1.588-.35 3.092-5.242 7.374-14.153 8.471m6.066-10.059-8.896 6.352m0 0 2.83 3.707m-2.83-3.707-1.618-.794m4.448 4.501a36 36 0 0 1-4.448.264s-3.058-.093-4.444-.264c-8.911-1.097-13.803-5.379-14.153-8.471-.323-2.859 5.257-2.25 8.087-1.588l7.276 5.558m3.234 0v-3.176m0 3.176h-3.234m3.234-3.176 5.661-6.353v-3.574m-5.661 9.927-5.661-6.353v-3.574"
+    ></path>
+  </svg>
+);
+
+const Elements = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="37" height="37" fill="none">
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M27.874 15.793a10 10 0 0 0-2.654-.353 10.08 10.08 0 0 0-9.374 6.367m12.028-6.014c4.279 1.165 7.426 5.079 7.426 9.727 0 5.567-4.513 10.08-10.08 10.08-2.582 0-4.937-.97-6.72-2.567m9.374-17.24c.455-1.149.706-2.402.706-3.713C28.58 6.513 24.067 2 18.5 2S8.42 6.513 8.42 12.08c0 1.311.25 2.564.706 3.713m6.72 6.014a10 10 0 0 0-.706 3.713 10.05 10.05 0 0 0 3.36 7.513m-2.654-11.226a10.1 10.1 0 0 1-6.72-6.014m0 0C4.846 16.958 1.7 20.872 1.7 25.52c0 5.567 4.513 10.08 10.08 10.08 2.581 0 4.936-.97 6.72-2.567"
+    ></path>
+  </svg>
+);
+
+const Music = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="43" height="44" fill="none">
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M11.5 17a5 5 0 1 1-10.001-.001A5 5 0 0 1 11.5 17m0 0V2c.667 1 1.2 5.2 6 6M13.5 37a5 5 0 1 1 10.001.001A5 5 0 0 1 13.5 37M33.5 34a4 4 0 1 1 8 0 4 4 0 0 1-8 0"
+    ></path>
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M23.5 37V16c9.6 0 16-4.617 18-6v23.852"
+    ></path>
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M23.5 24c9.6 0 16-4.667 18-6"
+    ></path>
+  </svg>
+);
+
+const Flow = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="39" height="32" fill="none">
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M37.5 3.265c-2.273-1.637-5.181-1.637-7.454 0-1.371 1.004-3.209.967-4.579-.037-2.273-1.637-5.182-1.637-7.421 0-1.404 1.004-3.176 1.004-4.546 0M1.5 10.753c2.337 1.637 5.326 1.637 7.663 0a4 4 0 0 1 4.674 0c2.337 1.637 5.361 1.675 7.663.038M37.5 21.247c-2.273-1.637-5.181-1.637-7.454 0a3.81 3.81 0 0 1-4.546 0c-2.273-1.637-5.215-1.675-7.454-.038-1.404 1.005-3.176 1.005-4.546 0M1.5 28.753c2.337 1.637 5.326 1.637 7.663 0a4 4 0 0 1 4.674 0c2.337 1.637 5.361 1.675 7.663.038"
+    ></path>
+  </svg>
+);
+
+const HandPrayer = ({ className }: { className?: string }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none">
+    <path
+      className={className}
+      fill="transparent"
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2.5"
+      d="M24 40.984c-6.26.285-19.224-3.247-21-19.654 2.279-.12 5.397.229 8.537 1.448M24 40.984c6.26.285 19.224-3.247 21-19.653-2.279-.12-5.397.228-8.537 1.447M24 40.985c.797-10.732 6.667-15.955 12.463-18.207M24 40.985c-.198-2.662-.707-4.985-1.451-7.007m-11.012-11.2c-.171-1.394-.137-5.036 1.365-8.454 1.262.62 3.026 1.657 4.781 2.986m-6.146 5.468c4.359 1.694 8.759 5.067 11.012 11.2M24 25.432c-1.423-3.371-3.401-5.914-6.317-8.122M24 25.432c1.423-3.371 3.401-5.914 6.317-8.122M24 25.432c-1.01 2.393-1.792 6.085-1.451 8.546M17.683 17.31C18.48 15.232 20.859 10.461 24 8c3.142 2.461 5.52 7.232 6.317 9.31m6.146 5.468c.171-1.394.137-5.036-1.365-8.454-1.262.62-3.026 1.657-4.781 2.986"
+    ></path>
+  </svg>
+);
+
 export {
   NavLogo,
   HandHeart,
@@ -193,4 +281,9 @@ export {
   Lamp,
   Vector,
   Graphic,
+  HealthCare,
+  Elements,
+  Music,
+  Flow,
+  HandPrayer,
 };

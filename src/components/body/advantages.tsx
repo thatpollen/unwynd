@@ -66,12 +66,15 @@ export default function Advantages() {
       <Container>
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
           <div className="w-auto lg:w-1/3 relative lg:sticky lg:top-[192px]">
-            <h2 className="text-H2 font-medium">Advantages</h2>
+            <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center">
+              <span className="hidden md:block lg:hidden">Unwynd</span>
+              Advantages
+            </h2>
           </div>
           <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 items-stretch gap-2">
             {advantages?.map((advantage, index) => (
               <div
-                className="w-full h-[280px] flex flex-col gap-4 p-8 rounded-2xl bg-background-tertiary hover:bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F0D,rgba(170,234,31,0.05))] hover:cursor-default transition-all ease-in-out duration-300 "
+                className="w-full flex flex-col gap-4 p-8 rounded-2xl bg-background-tertiary hover:bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F0D,rgba(170,234,31,0.05))] hover:cursor-default transition-all ease-in-out duration-300 "
                 key={index}
               >
                 <span className="">{advantage?.icon}</span>

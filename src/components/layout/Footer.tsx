@@ -13,7 +13,7 @@ export default function Footer() {
           <div className="h-[200px] relative">
             {/* center absolute img for tablet and mobile */}
             {/* <div className="absolute z-1 top-[-128px] lg:left-[32px] right-0 left-0 m-auto w-fit lg:m-0 lg:w-auto lg:right-auto"> */}
-            <div className="absolute z-1 top-[-128px] lg:left-[32px] left-1/2 -translate-x-1/2 lg:translate-x-0">
+            <div className="absolute z-1 top-[-128px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
               <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
                 <NextImage
                   src="/images/unwynd-footer-lamp.avif"
@@ -23,13 +23,13 @@ export default function Footer() {
                   className="max-w-full w-auto h-auto"
                   priority
                 />
-                <div className="absolute w-[540px] md:w-[720px] top-[-101px] bottom-[-102px] left-[-120px] right-[-120px] md:top-[-134px] md:bottom-[-134px] md:right-[-160px] md:left-[-160px] blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
+                <div className="absolute w-[540px] max-w-[100vw] h-[150%] md:w-[720px] left-1/2 top-1/2 -translate-1/2 blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
               </figure>
             </div>
           </div>
 
           <div className="bg-surface-inverted-primary rounded-2xl relative z-2">
-            <div className="flex flex-col lg:flex-row gap-20 p-20">
+            <div className="flex flex-col lg:flex-row gap-20 px-6 py-12 md:p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
                 <h2 className="text-H2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
                   Subscribe to the

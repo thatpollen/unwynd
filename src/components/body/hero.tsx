@@ -23,7 +23,7 @@ export default function Hero() {
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
         <div className="h-[56vh] flex flex-col justify-end items-center gap-6">
-          <h1 className="text-H1-display text-center font-medium">
+          <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium">
             <span className="text-text-tertiary">Unwynd</span>
             <br />
             The Breathing Lamp
