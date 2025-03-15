@@ -7,7 +7,7 @@ function SmoothScroll({ children }: { children: React.ReactNode }) {
     <ReactLenis
       root
       options={{
-        lerp: 0.2,
+        lerp: 0.1,
         wheelMultiplier: 0.8,
         infinite: false,
         gestureOrientation: "vertical",

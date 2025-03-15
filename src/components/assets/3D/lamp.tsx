@@ -8,10 +8,17 @@ import { OrbitControls } from "@react-three/drei";
 function LampScene() {
   const { scene } = useGLTF("/models/lamp.glb");
   const [scale, setScale] = useState(1);
+  const [positionY, setPositionY] = useState(1.2);
 
   useEffect(() => {
     function updateSize() {
-      setScale(window.innerWidth < 810 ? 0.7 : 1);
+      if (window.innerWidth < 810) {
+        setScale(6);
+        setPositionY(-0.8);
+      } else {
+        setScale(10);
+        setPositionY(-1.2);
+      }
     }
 
     window.addEventListener("resize", updateSize);
@@ -19,7 +26,13 @@ function LampScene() {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  return <primitive object={scene} scale={scale} position={[0, -0.12, 0]} />;
+  useEffect(() => {
+    if (scene) {
+      scene.position.set(0, positionY, 0);
+    }
+  }, [scene, positionY]);
+
+  return <primitive object={scene} scale={scale} />;
 }
 
 export default function Lamp({ ...props }) {
@@ -34,7 +47,7 @@ export default function Lamp({ ...props }) {
         {/* <primitive object={scene} scale={1} position={[0, -0.12, 0]} /> */}
         <LampScene />
       </group>
-      <OrthographicCamera makeDefault position={[0, 0, 5]} zoom={1800} />
+      <OrthographicCamera makeDefault position={[0, 0, 5]} zoom={200} />
       <OrbitControls
         enableZoom={false}
         rotateSpeed={2}

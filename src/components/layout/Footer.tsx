@@ -7,28 +7,32 @@ import LargeContainer from "../container/largeContainer";
 
 export default function Footer() {
   return (
-    <footer className="p-2">
-      <LargeContainer>
-        <div className="flex flex-col">
-          <div className="h-[200px] relative">
+    <footer className="w-full p-2">
+      <div className="flex flex-col">
+        <div className="h-[200px]">
+          <LargeContainer>
+            <div className="relative">
+              <div className="absolute z-1 top-[-128px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
+                <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
+                  <NextImage
+                    src="/images/unwynd-footer-lamp.avif"
+                    alt="footer-lamp"
+                    width={340}
+                    height={540}
+                    className="max-w-full w-auto h-auto"
+                    priority
+                  />
+                  <div className="absolute w-[540px] max-w-[100vw] h-[150%] md:w-[720px] left-1/2 top-1/2 -translate-1/2 blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
+                </figure>
+              </div>
+            </div>
             {/* center absolute img for tablet and mobile */}
             {/* <div className="absolute z-1 top-[-128px] lg:left-[32px] right-0 left-0 m-auto w-fit lg:m-0 lg:w-auto lg:right-auto"> */}
-            <div className="absolute z-1 top-[-128px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
-              <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
-                <NextImage
-                  src="/images/unwynd-footer-lamp.avif"
-                  alt="footer-lamp"
-                  width={340}
-                  height={540}
-                  className="max-w-full w-auto h-auto"
-                  priority
-                />
-                <div className="absolute w-[540px] max-w-[100vw] h-[150%] md:w-[720px] left-1/2 top-1/2 -translate-1/2 blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
-              </figure>
-            </div>
-          </div>
+          </LargeContainer>
+        </div>
 
-          <div className="bg-surface-inverted-primary rounded-2xl relative z-2">
+        <div className="bg-surface-inverted-primary rounded-2xl relative z-2">
+          <LargeContainer>
             <div className="flex flex-col lg:flex-row gap-20 px-6 py-12 md:p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
                 <h2 className="text-H2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
@@ -130,9 +134,9 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </LargeContainer>
         </div>
-      </LargeContainer>
+      </div>
     </footer>
   );
 }
