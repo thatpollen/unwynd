@@ -72,8 +72,14 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
 
   const animationVariants = {
     wave: {
+      // background:
+      //   backgroundType === "gradient"
+      //     ? getGradientBackground()
+      //     : getRadialGradientBackground(),
       background:
-        backgroundType === "gradient"
+        backgroundType === "solid"
+          ? solidColor
+          : backgroundType === "gradient"
           ? getGradientBackground()
           : getRadialGradientBackground(),
       transition: {
@@ -123,6 +129,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
             : backgroundType === "gradient"
             ? getGradientBackground()
             : getRadialGradientBackground(),
+        transition: "background 800ms ease-in-out",
       }}
       animate={
         autoAnimate &&

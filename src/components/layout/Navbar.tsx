@@ -14,13 +14,13 @@ export default function Navbar() {
               </span>
             </NextLink>
             <ul className="flex items-center gap-6">
-              <li className="text-xs font-medium text-text-primary">
+              <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
                 <NextLink href="/">Features</NextLink>
               </li>
-              <li className="text-xs font-medium text-text-primary">
+              <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
                 <NextLink href="/">3D view</NextLink>
               </li>
-              <li className="text-xs font-medium text-text-primary">
+              <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
                 <NextLink href="/">Advantages</NextLink>
               </li>
             </ul>

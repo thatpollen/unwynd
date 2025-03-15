@@ -1,24 +1,26 @@
 "use client";
 
 import Container from "../container/container";
-import { useEffect, useRef } from "react";
+import { useRef, useLayoutEffect } from "react";
 import SplitType from "split-type";
 import { gsap, ScrollTrigger } from "gsap/all";
+import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function LargeText() {
   const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     if (elementsToSplitRef.current) {
-      const splitTypes = elementsToSplitRef.current;
+      const splitTypes = new SplitType(elementsToSplitRef.current, {
+        types: "words",
+      });
 
-      const text = new SplitType(splitTypes, { types: "words" });
-
-      gsap.from(text.words, {
+      gsap.from(splitTypes.words, {
         scrollTrigger: {
-          trigger: splitTypes,
+          trigger: elementsToSplitRef.current,
           start: "top 80%",
           end: "bottom 50%",
           scrub: 2,
@@ -33,22 +35,94 @@ export default function LargeText() {
     return;
   }, []);
 
+  const useHoverMotion = () => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    const smoothX = useSpring(x, { stiffness: 200, damping: 20, mass: 0.5 });
+    const smoothY = useSpring(y, { stiffness: 200, damping: 20, mass: 0.5 });
+
+    const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
+      const { currentTarget, clientX, clientY } = event;
+      const { left, top, width, height } =
+        currentTarget.getBoundingClientRect();
+
+      // Restrict movement within the wrapper (max ±15px)
+      const moveX = Math.min(
+        Math.max((clientX - (left + width / 2)) * 0.3, -15),
+        15
+      );
+      const moveY = Math.min(
+        Math.max((clientY - (top + height / 2)) * 0.3, -15),
+        15
+      );
+
+      x.set(moveX);
+      y.set(moveY);
+    };
+
+    const handleMouseLeave = () => {
+      x.set(0);
+      y.set(0);
+    };
+
+    return { x: smoothX, y: smoothY, handleMouseMove, handleMouseLeave };
+  };
+
+  // Reusable Animated Icon Component
+  const AnimatedIcon = ({
+    Icon,
+  }: {
+    Icon: React.ElementType<{ className?: string }>;
+  }) => {
+    const { x, y, handleMouseMove, handleMouseLeave } = useHoverMotion();
+
+    return (
+      <motion.span
+        className="inline-flex justify-center items-center"
+        style={{ x, y, transformOrigin: "center" }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+      >
+        <div className="aspect-square relative overflow-visible w-12 h-12">
+          <Icon className="stroke-neutral-600 w-full h-full" />
+        </div>
+      </motion.span>
+    );
+  };
+
   return (
     <section className="w-full py-32 px-2">
       <Container>
         <div>
-          <p
-            className="text-H3 lg:text-H2 leading-[1.1em] font-light text-text-primary text-center whitespace-pre-wrap"
+          <div
+            className="text-H3 lg:text-H2 leading-[1.3em] font-light text-text-primary text-center whitespace-pre-wrap"
             ref={elementsToSplitRef}
           >
-            Unwynd: the ultimate [] meditation companion that elevates your
-            practice to new heights. Choose from a spectrum of light [] colors
-            to match your mood, while selecting from a variety of serene []
-            sounds to deepen your focus. Let your [] breath be guided by a
-            pulsating light that reflects your custom breathing patterns or
-            follow guided meditations. Let the Unwynd lamp guide your journey to
-            inner [] peace - one breath at a time.
-          </p>
+            Unwynd: the ultimate{" "}
+            <span className="inline-block">
+              <AnimatedIcon Icon={HealthCare} />
+            </span>{" "}
+            meditation companion that elevates your practice to new heights.
+            Choose from a spectrum of light{" "}
+            <span className="inline-block">
+              <AnimatedIcon Icon={Elements} />
+            </span>{" "}
+            colors to match your mood, while selecting from a variety of serene{" "}
+            <span className="inline-block">
+              <AnimatedIcon Icon={Music} />
+            </span>{" "}
+            sounds to deepen your focus. Let your{" "}
+            <span className="inline-block">
+              <AnimatedIcon Icon={Flow} />
+            </span>{" "}
+            breath be guided by a pulsating light that reflects your custom
+            breathing patterns or follow guided meditations. Let the Unwynd lamp
+            guide your journey to inner{" "}
+            <span className="inline-block">
+              <AnimatedIcon Icon={HandPrayer} />
+            </span>{" "}
+            peace - one breath at a time.
+          </div>
         </div>
       </Container>
     </section>

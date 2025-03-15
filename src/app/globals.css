@@ -105,6 +105,12 @@
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
 
+  /* dialog */
+  --animate-overlay-in: overlayIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-overlay-out: overlayOut 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-content-in: contentIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-content-out: contentOut 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+
   @keyframes accordion-down {
     from {
       height: 0px;
@@ -120,6 +126,46 @@
     }
     to {
       height: 0px;
+    }
+  }
+
+  @keyframes overlayIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes overlayOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes contentIn {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes contentOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.96);
     }
   }
 }
