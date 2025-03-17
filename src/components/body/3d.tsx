@@ -16,7 +16,7 @@ export default function ThreeD() {
               <br />
               Three Dimensions
             </h1>
-            <p className="tex-sm text-text-secondary text-center">
+            <p className="max-w-[580px] mx-auto text-sm text-text-secondary text-center">
               Crafted with meticulous attention to detail, the Unwynd lamp is
               more than just an illuminating presence — it&apos;s a serene
               sanctuary in itself. Every aspect of its design has been
