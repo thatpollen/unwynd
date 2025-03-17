@@ -10,7 +10,7 @@ import {
   CarouselPrevious,
 } from "../reusable/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 import { Plus } from "lucide-react";
 import {
   Dialog,
@@ -20,7 +20,6 @@ import {
   DialogHeader,
   DialogFooter,
 } from "../reusable/dialog";
-import { useLenis } from "lenis/react";
 
 interface CarouselItemProps {
   id?: number;
@@ -172,20 +171,6 @@ export default function Features() {
     setIsOpen(true);
   };
 
-  const lenis = useLenis(); // Access Lenis instance
-
-  useEffect(() => {
-    if (isOpen) {
-      lenis?.stop(); // Pause smooth scrolling
-    } else {
-      lenis?.start(); // Resume scrolling
-    }
-
-    return () => {
-      lenis?.start(); // Ensure scroll is re-enabled when unmounted
-    };
-  }, [isOpen, lenis]);
-
   return (
     <section className="w-full">
       <LargeContainer>
@@ -198,7 +183,7 @@ export default function Features() {
               {carouselItems?.map((item) => (
                 <CarouselItem
                   key={item?.id}
-                  className="basis-full md:basis-1/2 lg:basis-auto"
+                  className="basis-[calc(100%-10%)] md:basis-[calc(50%-5%)] lg:basis-auto"
                 >
                   <figure className="group w-full lg:w-auto h-[524px] aspect-3/4 rounded-2xl overflow-hidden relative cursor-pointer">
                     <div className="text absolute top-8 left-8 right-8 flex flex-col gap-2.5">
@@ -236,12 +221,12 @@ export default function Features() {
       </LargeContainer>
 
       <Dialog open={isOpen} onOpenChange={() => setIsOpen(false)}>
-        <DialogContent className="w-[98vw] min-[360px]:w-[358px] max-w-[358px] flex flex-col gap-4">
+        <DialogContent className="w-[98vw] min-[360px]:w-[840px] mx-auto flex flex-col gap-4">
           <DialogHeader>
             <DialogTitle className="text-sm text-text-secondary">
               {selectedItem?.title}
             </DialogTitle>
-            <DialogTitle className="text-H6 font-semibold text-text-primary">
+            <DialogTitle className="text-2xl font-semibold text-text-primary">
               {selectedItem?.subtitle}
             </DialogTitle>
           </DialogHeader>
@@ -249,7 +234,7 @@ export default function Features() {
           <DialogFooter>
             {selectedItem?.description &&
               selectedItem.description.map((p, index) => (
-                <DialogDescription key={index} className="mb-2">
+                <DialogDescription key={index} className="mb-2 text-base">
                   {p}
                 </DialogDescription>
               ))}

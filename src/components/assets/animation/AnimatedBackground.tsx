@@ -22,6 +22,14 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
   backgroundType = "gradient",
   solidColor = "#ffffff",
   gradientColors = ["#ff7e5f", "#feb47b", "#6a11cb"],
+  // gradientColors = [
+  //   "#1F3FEA",
+  //   "#671FEA",
+  //   "#EA1FC9",
+  //   "#EA1F5E",
+  //   "#EAAD1F",
+  //   "#AAEA1F",
+  // ],
   radialColors = ["#6a11cb", "#2575fc", "#ff7e5f"],
   autoAnimate = true,
   animationDuration = 2,
@@ -61,8 +69,11 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
   ]);
 
   const getGradientBackground = () => {
-    const nextIndex = (currentBackgroundIndex + 1) % gradientColors.length;
-    return `linear-gradient(${animationAngle}deg, ${gradientColors[currentBackgroundIndex]}, ${gradientColors[nextIndex]})`;
+    // const nextIndex = (currentBackgroundIndex + 1) % gradientColors.length;
+    // return `linear-gradient(${animationAngle}deg, ${gradientColors[currentBackgroundIndex]}, ${gradientColors[nextIndex]})`;
+    return `linear-gradient(${animationAngle}deg, ${gradientColors.join(
+      ", "
+    )})`;
   };
 
   const getRadialGradientBackground = () => {
@@ -131,12 +142,20 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
             : getRadialGradientBackground(),
         transition: "background 800ms ease-in-out",
       }}
-      animate={
-        autoAnimate &&
+      animate={{
+        ...(autoAnimate &&
         (backgroundType === "gradient" || backgroundType === "radial")
           ? animationVariants[animationStyle]
-          : {}
-      }
+          : {}),
+        opacity: [0.5, 1],
+        scale: [1, 1.2],
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      }}
     />
   );
 };

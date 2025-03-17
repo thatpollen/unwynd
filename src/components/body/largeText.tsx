@@ -9,6 +9,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function LargeText() {
   const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
+  const iconRefs = useRef<HTMLSpanElement[]>([]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -31,6 +32,26 @@ export default function LargeText() {
         duration: 0.4,
       });
     }
+
+    // Animate icons on scroll
+    iconRefs.current.forEach((icon) => {
+      gsap.fromTo(
+        icon,
+        { y: 20, opacity: 0 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: icon,
+            start: "top 85%",
+            end: "top 70%",
+            scrub: 2,
+          },
+        }
+      );
+    });
 
     return;
   }, []);
@@ -71,8 +92,10 @@ export default function LargeText() {
   // Reusable Animated Icon Component
   const AnimatedIcon = ({
     Icon,
+    index,
   }: {
     Icon: React.ElementType<{ className?: string }>;
+    index?: number;
   }) => {
     const { x, y, handleMouseMove, handleMouseLeave } = useHoverMotion();
 
@@ -82,6 +105,9 @@ export default function LargeText() {
         style={{ x, y, transformOrigin: "center" }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        ref={(el) => {
+          if (el && index !== undefined) iconRefs.current[index] = el;
+        }}
       >
         <div className="aspect-square relative overflow-visible w-12 h-12">
           <Icon className="stroke-neutral-600 w-full h-full" />
@@ -100,26 +126,26 @@ export default function LargeText() {
           >
             Unwynd: the ultimate{" "}
             <span className="inline-block">
-              <AnimatedIcon Icon={HealthCare} />
+              <AnimatedIcon Icon={HealthCare} index={0} />
             </span>{" "}
             meditation companion that elevates your practice to new heights.
             Choose from a spectrum of light{" "}
             <span className="inline-block">
-              <AnimatedIcon Icon={Elements} />
+              <AnimatedIcon Icon={Elements} index={1} />
             </span>{" "}
             colors to match your mood, while selecting from a variety of serene{" "}
             <span className="inline-block">
-              <AnimatedIcon Icon={Music} />
+              <AnimatedIcon Icon={Music} index={2} />
             </span>{" "}
             sounds to deepen your focus. Let your{" "}
             <span className="inline-block">
-              <AnimatedIcon Icon={Flow} />
+              <AnimatedIcon Icon={Flow} index={3} />
             </span>{" "}
             breath be guided by a pulsating light that reflects your custom
             breathing patterns or follow guided meditations. Let the Unwynd lamp
             guide your journey to inner{" "}
             <span className="inline-block">
-              <AnimatedIcon Icon={HandPrayer} />
+              <AnimatedIcon Icon={HandPrayer} index={4} />
             </span>{" "}
             peace - one breath at a time.
           </div>

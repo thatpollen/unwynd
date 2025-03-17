@@ -1,6 +1,10 @@
+"use client";
+
 import Container from "../container/container";
 import NextImage from "next/image";
 import { Graphic, Vector } from "../assets/icons";
+// import { useState, useEffect } from "react";
+// import { motion } from "framer-motion";
 
 interface TestimonialsProps {
   title?: string;
@@ -66,6 +70,37 @@ const testimonials: TestimonialsProps[] = [
 ];
 
 export default function Testimonials() {
+  // const [isMobile, setIsMobile] = useState(false);
+
+  // useEffect(() => {
+  //   const updateSize = () => setIsMobile(window.innerWidth < 810);
+  //   window.addEventListener("resize", updateSize);
+  //   updateSize();
+  //   return () => window.removeEventListener("resize", updateSize);
+  // }, []);
+
+  // const verticalVariants = (direction: number) => ({
+  //   animate: {
+  //     y: ["0%", `${direction * -50}%`, "0%"], // Moves continuously
+  //     transition: {
+  //       repeat: Infinity,
+  //       duration: 60, // Slower movement
+  //       ease: "linear",
+  //     },
+  //   },
+  // });
+
+  // const horizontalVariants = {
+  //   animate: {
+  //     x: ["0%", "-50%", "0%"],
+  //     transition: {
+  //       repeat: Infinity,
+  //       duration: 60, // Slower horizontal scroll
+  //       ease: "linear",
+  //     },
+  //   },
+  // };
+
   return (
     <section className="w-full px-2">
       <div className="rounded-2xl bg-background-tertiary pt-50 pb-12 px-4">
@@ -194,6 +229,76 @@ export default function Testimonials() {
                     </div>
                   ))}
                 </div>
+                {/* {isMobile ? (
+                  <motion.div
+                    className="flex space-x-4 w-max"
+                    variants={horizontalVariants}
+                    animate="animate"
+                  >
+                    {[...testimonials, ...testimonials].map(
+                      (testimonial, index) => (
+                        <div
+                          className="bg-background-primary overflow-hidden rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
+                          key={index}
+                        >
+                          <div className="flex flex-col items-start gap-6 px-6 py-8">
+                            <span className="w-8 h-8">
+                              <Graphic />
+                            </span>
+                            <div className="w-full flex flex-col gap-2">
+                              <h6 className="text-H6 font-medium">
+                                {testimonial?.title}
+                              </h6>
+                              <p className="text-sm text-text-secondary">
+                                {testimonial?.description}
+                              </p>
+                            </div>
+                            <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
+                              {testimonial?.author}
+                            </span>
+                          </div>
+                        </div>
+                      )
+                    )}
+                  </motion.div>
+                ) : (
+                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full">
+                    {[1, -1, 1].map((direction, i) => (
+                      <motion.div
+                        key={i}
+                        className="space-y-4"
+                        variants={verticalVariants(direction)}
+                        animate="animate"
+                      >
+                        {[...testimonials, ...testimonials].map(
+                          (testimonial, index) => (
+                            <div
+                              className="bg-background-primary overflow-hidden rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
+                              key={index}
+                            >
+                              <div className="flex flex-col items-start gap-6 px-6 py-8">
+                                <span className="w-8 h-8">
+                                  <Graphic />
+                                </span>
+                                <div className="w-full flex flex-col gap-2">
+                                  <h6 className="text-H6 font-medium">
+                                    {testimonial?.title}
+                                  </h6>
+                                  <p className="text-sm text-text-secondary">
+                                    {testimonial?.description}
+                                  </p>
+                                </div>
+                                <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
+                                  {testimonial?.author}
+                                </span>
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
+                )} */}
               </div>
             </div>
           </div>

@@ -2,10 +2,21 @@
 
 import NextImage from "next/image";
 import AnimatedBackground from "../assets/animation/AnimatedBackground";
-import { useState } from "react";
-import { TypeAnimation } from "react-type-animation";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+// import { translateText } from "@/lib/utils/translate";
 
 export default function Hero() {
+  // const [heading, setHeading] = useState("");
+
+  // useEffect(() => {
+  //   async function fetchHeading() {
+  //     const translatedHeading = await translateText("The Breathing Lamp", "en");
+  //     setHeading(translatedHeading);
+  //   }
+  //   fetchHeading();
+  // }, []);
+
   const [backgroundType, setBackgroundType] = useState<
     "solid" | "gradient" | "radial"
   >("gradient");
@@ -19,16 +30,30 @@ export default function Hero() {
     "#AAEA1F",
   ]);
 
+  const [text, setText] = useState("in");
+
+  useEffect(() => {
+    const sequence = ["in", "out"];
+    let index = 0;
+
+    const interval = setInterval(() => {
+      index = (index + 1) % sequence.length;
+      setText(sequence[index]);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
-        <div className="h-[56vh] flex flex-col justify-end items-center gap-6">
+        <div className="h-[56vh] flex flex-col justify-end items-center gap-6 relative z-1">
           <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium">
             <span className="text-text-tertiary">Unwynd</span>
             <br />
             The Breathing Lamp
           </h1>
-          <p className="text-base text-text-secondary text-center">
+          <p className="max-w-[580px] mx-auto text-base text-text-secondary text-center">
             Experience the effortless serenity of meditation with Unwynd –
             elevate your practice today and discover how easy finding your calm
             can be.
@@ -65,7 +90,7 @@ export default function Hero() {
               gradientColors={gradientColors}
               animationDuration={3}
               animationStyle="wave"
-              className="absolute inset-0"
+              className="lamp-bg-gradient absolute inset-0"
             />
 
             {/* Color Selection */}
@@ -153,25 +178,24 @@ export default function Hero() {
               </figure>
 
               <div className="absolute z-2 inset-0 flex justify-center items-center">
-                <div className="text-base text-text-secondary">
-                  <TypeAnimation
-                    preRenderFirstString={true}
-                    sequence={[
-                      1000,
-                      "Breath in",
-                      1500,
-                      "",
-                      1500,
-                      "Breath out",
-                      1000,
-                      "",
-                    ]}
-                    cursor={false}
-                    wrapper="span"
-                    speed={15}
-                    repeat={Infinity}
-                    style={{ width: "100%", textAlign: "center" }}
-                  />
+                <div className="flex items-center gap-1 text-base text-text-secondary">
+                  Breath
+                  <span className="min-w-7 inline-block">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key={text} // Re-mounts when text changes to trigger animation
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5, ease: "easeInOut" }} // Smooth fade effect
+                        style={{
+                          display: "block",
+                        }}
+                      >
+                        {text}
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
                 </div>
               </div>
             </figure>
