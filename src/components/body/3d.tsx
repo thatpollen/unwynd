@@ -3,7 +3,7 @@
 import { Canvas } from "@react-three/fiber";
 import Lamp from "../assets/3D/lamp";
 import Container from "../container/container";
-import { DragToRotate } from "../assets/icons";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function ThreeD() {
   return (
@@ -30,12 +30,17 @@ export default function ThreeD() {
                 <Lamp />
               </Canvas>
             </div>
-            <div className="w-full flex flex-col justify-center items-center gap-2.5 relative">
+            <div className="w-full flex justify-center items-center relative px-6">
+              <span>
+                <ChevronLeft size={16} className="text-neutral-400" />
+              </span>
+              <div className="h-px grow bg-neutral-300"></div>
               <div className="p-2.5 text-sm text-text-inverted-primary bg-black overflow-hidden rounded-4xl border border-[rgba(255,255,255,0.1)]">
                 Drag to rotate
               </div>
-              <span className="absolute w-full h-9 top-[-15px] flex justify-center items-center -z-1 px-6">
-                <DragToRotate />
+              <div className="h-px grow bg-neutral-300"></div>
+              <span>
+                <ChevronRight size={16} className="text-neutral-400" />
               </span>
             </div>
           </div>
