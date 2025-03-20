@@ -4,19 +4,56 @@ import NextImage from "next/image";
 import AnimatedBackground from "../assets/animation/AnimatedBackground";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { translateText } from "@/lib/utils/translate";
+import { translateTexts } from "@/lib/utils/translate";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
 
 export default function Hero() {
-  // const [heading, setHeading] = useState("");
+  const { language } = useLanguageStore();
 
-  // useEffect(() => {
-  //   async function fetchHeading() {
-  //     const translatedHeading = await translateText("The Breathing Lamp", "en");
-  //     setHeading(translatedHeading);
-  //   }
-  //   fetchHeading();
-  // }, []);
+  // Translation
+  const [heading, setHeading] = useState("The Breathing Lamp");
+  const [subtext, setSubtext] = useState(
+    "Experience the effortless serenity of meditation with Unwynd – elevate your practice today and discover how easy finding your calm can be."
+  );
 
+  // Breath in and out fade in out
+  const [text, setText] = useState("Breath in");
+
+  useEffect(() => {
+    async function fetchTranslation() {
+      const texts = [
+        "The Breathing Lamp",
+        "Experience the effortless serenity of meditation with Unwynd – elevate your practice today and discover how easy finding your calm can be.",
+        "Breath in",
+        "Breath out",
+      ];
+
+      const [
+        translatedHeading,
+        translatedSubtext,
+        translatedBreathIn,
+        translatedBreathOut,
+      ] = await translateTexts(texts, language);
+
+      setHeading(translatedHeading);
+      setSubtext(translatedSubtext);
+
+      const sequence = [translatedBreathIn, translatedBreathOut];
+      let index = 0;
+      setText(sequence[index]); // Set initial value
+
+      const interval = setInterval(() => {
+        index = (index + 1) % sequence.length;
+        setText(sequence[index]);
+      }, 4000);
+
+      return () => clearInterval(interval);
+    }
+
+    fetchTranslation();
+  }, [language]);
+
+  // Background Animation
   const [backgroundType, setBackgroundType] = useState<
     "solid" | "gradient" | "radial"
   >("gradient");
@@ -30,20 +67,6 @@ export default function Hero() {
     "#AAEA1F",
   ]);
 
-  const [text, setText] = useState("Breath in");
-
-  useEffect(() => {
-    const sequence = ["Breath in", "Breath out"];
-    let index = 0;
-
-    const interval = setInterval(() => {
-      index = (index + 1) % sequence.length;
-      setText(sequence[index]);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
@@ -51,12 +74,10 @@ export default function Hero() {
           <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium">
             <span className="text-text-tertiary">Unwynd</span>
             <br />
-            The Breathing Lamp
+            {heading}
           </h1>
           <p className="max-w-[580px] mx-auto text-base text-text-secondary text-center">
-            Experience the effortless serenity of meditation with Unwynd –
-            elevate your practice today and discover how easy finding your calm
-            can be.
+            {subtext}
           </p>
         </div>
 
