@@ -1,15 +1,16 @@
 "use client";
 
 import Container from "../container/container";
-import { useRef, useLayoutEffect } from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import SplitType from "split-type";
 import { gsap, ScrollTrigger } from "gsap/all";
 import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
 import { motion, useMotionValue, useSpring } from "framer-motion";
+// import { translateText } from "@/lib/utils/translate";
 
 export default function LargeText() {
   const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
-  const iconRefs = useRef<HTMLSpanElement[]>([]);
+  const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -19,7 +20,7 @@ export default function LargeText() {
         types: "words",
       });
 
-      gsap.from(splitTypes.words, {
+      const wordsAnimation = gsap.from(splitTypes.words, {
         scrollTrigger: {
           trigger: elementsToSplitRef.current,
           start: "top 80%",
@@ -31,29 +32,34 @@ export default function LargeText() {
         stagger: 0.1,
         duration: 0.4,
       });
+
+      const iconAnimations = iconRefs.current
+        .filter((icon) => icon !== null)
+        .map((icon) =>
+          gsap.fromTo(
+            icon,
+            { y: 20, opacity: 0 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.6,
+              ease: "power2.out",
+              scrollTrigger: {
+                trigger: icon,
+                start: "top 85%",
+                end: "top 70%",
+                scrub: 2,
+              },
+            }
+          )
+        );
+
+      return () => {
+        splitTypes.revert();
+        wordsAnimation.kill();
+        iconAnimations.forEach((anim) => anim.kill());
+      };
     }
-
-    // Animate icons on scroll
-    iconRefs.current.forEach((icon) => {
-      gsap.fromTo(
-        icon,
-        { y: 20, opacity: 0 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 0.6,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: icon,
-            start: "top 85%",
-            end: "top 70%",
-            scrub: 2,
-          },
-        }
-      );
-    });
-
-    return;
   }, []);
 
   const useHoverMotion = () => {
@@ -101,12 +107,17 @@ export default function LargeText() {
 
     return (
       <motion.span
+        // initial={{ scale: 0.8, opacity: 0 }}
+        // animate={{ scale: 1, opacity: 1 }}
+        // transition={{ duration: 0.3, ease: "easeOut" }}
         className="inline-flex justify-center items-center"
         style={{ x, y, transformOrigin: "center" }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         ref={(el) => {
-          if (el && index !== undefined) iconRefs.current[index] = el;
+          if (el && index !== undefined) {
+            iconRefs.current[index] = el;
+          }
         }}
       >
         <div className="aspect-square relative overflow-visible w-12 h-12">

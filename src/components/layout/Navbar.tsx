@@ -1,8 +1,42 @@
+"use client";
+
 import OrderButton from "../assets/buttons/OrderButton";
 import { NavLogo } from "../assets/icons";
 import NextLink from "next/link";
+import { translateTexts } from "@/lib/utils/translate";
+import { useEffect, useState } from "react";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
 
 export default function Navbar() {
+  const { language } = useLanguageStore();
+
+  const [navItemOne, setNavItemOne] = useState("Features");
+  const [navItemTwo, setNavItemTwo] = useState("3D view");
+  const [navItemThree, setNavItemThree] = useState("Advantages");
+  const [headingText, setHeadingText] = useState("Meditation lamp");
+  const [orderNow, setOrderNow] = useState("Order now");
+
+  useEffect(() => {
+    async function fetchTranslation() {
+      const texts = [
+        "Features",
+        "3D view",
+        "Advantages",
+        "Meditation lamp",
+        "Order now",
+      ];
+      const translations = await translateTexts(texts, language);
+
+      setNavItemOne(translations[0]);
+      setNavItemTwo(translations[1]);
+      setNavItemThree(translations[2]);
+      setHeadingText(translations[3]);
+      setOrderNow(translations[4]);
+    }
+
+    fetchTranslation();
+  }, [language]);
+
   return (
     <nav className="w-full fixed top-4 z-10">
       <div className="max-w-5xl mx-auto w-full px-6">
@@ -15,13 +49,13 @@ export default function Navbar() {
             </NextLink>
             <ul className="flex items-center gap-6">
               <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
-                <NextLink href="/">Features</NextLink>
+                <NextLink href="/">{navItemOne}</NextLink>
               </li>
               <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
-                <NextLink href="/">3D view</NextLink>
+                <NextLink href="/">{navItemTwo}</NextLink>
               </li>
               <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
-                <NextLink href="/">Advantages</NextLink>
+                <NextLink href="/">{navItemThree}</NextLink>
               </li>
             </ul>
           </div>
@@ -31,12 +65,12 @@ export default function Navbar() {
                 Unwynd
               </span>
               <span className="text-xs leading-4 text-text-tertiary">
-                Meditation lamp
+                {headingText}
               </span>
             </div>
             <div className="hidden md:block grow w-px bg-stroke-opacity16"></div>
             <OrderButton variant="primary" type="button">
-              Order now
+              {orderNow}
             </OrderButton>
           </div>
         </div>

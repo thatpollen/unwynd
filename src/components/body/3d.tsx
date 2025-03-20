@@ -4,23 +4,54 @@ import { Canvas } from "@react-three/fiber";
 import Lamp from "../assets/3D/lamp";
 import Container from "../container/container";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState, useEffect } from "react";
+import {
+  useLanguageStore,
+  useInitializeLanguage,
+} from "@/lib/hooks/useLanguageStore";
+import { translateTexts } from "@/lib/utils/translate";
 
 export default function ThreeD() {
+  useInitializeLanguage();
+  const { language } = useLanguageStore();
+
+  const [headingSpan, setHeadingSpan] = useState("Harmony in");
+  const [heading, setHeading] = useState("Three Dimensions");
+  const [content, setContent] = useState(
+    " Crafted with meticulous attention to detail, the Unwynd lamp is more than just an illuminating presence — it's a serene sanctuary in itself. Every aspect of design has been thoughtfully considered to enhance meditation experience."
+  );
+
+  useEffect(() => {
+    async function fetchTranslation() {
+      const texts = [
+        "Harmony in",
+        "Three Dimensions",
+        "Crafted with meticulous attention to detail, the Unwynd lamp is more than just an illuminating presence — it's a serene sanctuary in itself. Every aspect of the design has been thoughtfully considered to enhance the meditation experience.",
+      ];
+
+      const [translatedHeadingSpan, translatedHeading, translatedContent] =
+        await translateTexts(texts, language);
+
+      setHeadingSpan(translatedHeadingSpan);
+      setHeading(translatedHeading);
+      setContent(translatedContent);
+    }
+
+    fetchTranslation();
+  }, [language]);
+
   return (
     <section className="w-full py-24">
       <Container>
         <div className="flex flex-col items-center gap-16">
           <div className="flex flex-col justify-center items-center gap-2.5">
             <h1 className="text-H3 md:text-[44px] lg:text-[52px] text-center">
-              <span className="text-text-tertiary">Harmony in</span>
+              <span className="text-text-tertiary">{headingSpan}</span>
               <br />
-              Three Dimensions
+              {heading}
             </h1>
-            <p className="tex-sm text-text-secondary text-center">
-              Crafted with meticulous attention to detail, the Unwynd lamp is
-              more than just an illuminating presence — it&apos;s a serene
-              sanctuary in itself. Every aspect of its design has been
-              thoughtfully considered to enhance your meditation experience.
+            <p className="max-w-[580px] mx-auto text-sm text-text-secondary text-center">
+              {content}
             </p>
           </div>
 

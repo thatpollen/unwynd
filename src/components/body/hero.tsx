@@ -4,19 +4,56 @@ import NextImage from "next/image";
 import AnimatedBackground from "../assets/animation/AnimatedBackground";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-// import { translateText } from "@/lib/utils/translate";
+import { translateTexts } from "@/lib/utils/translate";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
 
 export default function Hero() {
-  // const [heading, setHeading] = useState("");
+  const { language } = useLanguageStore();
 
-  // useEffect(() => {
-  //   async function fetchHeading() {
-  //     const translatedHeading = await translateText("The Breathing Lamp", "en");
-  //     setHeading(translatedHeading);
-  //   }
-  //   fetchHeading();
-  // }, []);
+  // Translation
+  const [heading, setHeading] = useState("The Breathing Lamp");
+  const [subtext, setSubtext] = useState(
+    "Experience the effortless serenity of meditation with Unwynd – elevate your practice today and discover how easy finding your calm can be."
+  );
 
+  // Breath in and out fade in out
+  const [text, setText] = useState("Breath in");
+
+  useEffect(() => {
+    async function fetchTranslation() {
+      const texts = [
+        "The Breathing Lamp",
+        "Experience the effortless serenity of meditation with Unwynd – elevate your practice today and discover how easy finding your calm can be.",
+        "Breath in",
+        "Breath out",
+      ];
+
+      const [
+        translatedHeading,
+        translatedSubtext,
+        translatedBreathIn,
+        translatedBreathOut,
+      ] = await translateTexts(texts, language);
+
+      setHeading(translatedHeading);
+      setSubtext(translatedSubtext);
+
+      const sequence = [translatedBreathIn, translatedBreathOut];
+      let index = 0;
+      setText(sequence[index]); // Set initial value
+
+      const interval = setInterval(() => {
+        index = (index + 1) % sequence.length;
+        setText(sequence[index]);
+      }, 4000);
+
+      return () => clearInterval(interval);
+    }
+
+    fetchTranslation();
+  }, [language]);
+
+  // Background Animation
   const [backgroundType, setBackgroundType] = useState<
     "solid" | "gradient" | "radial"
   >("gradient");
@@ -30,20 +67,6 @@ export default function Hero() {
     "#AAEA1F",
   ]);
 
-  const [text, setText] = useState("in");
-
-  useEffect(() => {
-    const sequence = ["in", "out"];
-    let index = 0;
-
-    const interval = setInterval(() => {
-      index = (index + 1) % sequence.length;
-      setText(sequence[index]);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
@@ -51,36 +74,13 @@ export default function Hero() {
           <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium">
             <span className="text-text-tertiary">Unwynd</span>
             <br />
-            The Breathing Lamp
+            {heading}
           </h1>
           <p className="max-w-[580px] mx-auto text-base text-text-secondary text-center">
-            Experience the effortless serenity of meditation with Unwynd –
-            elevate your practice today and discover how easy finding your calm
-            can be.
+            {subtext}
           </p>
         </div>
-        {/* <div className="w-full h-[44vh] flex flex-col justify-end items-center gap-2.5 relative">
-          <div className="color-selection absolute bottom-10 flex justify-center items-center gap-2 p-2 bg-white rounded-full border border-stroke-opacity12 backdrop-blur-[2px] z-3">
-            <div className="solid w-8 h-8 flex justify-center items-center cursor-pointer rounded-full border border-stroke-opacity12 transition-opacity duration-200 hover:bg-[rgba(255,113,0,0.08)] group">
-              <div className="color w-4 h-4 rounded-full bg-brand-orange group-hover:scale-[1.06]"></div>
-            </div>
-            <div className="rainbow w-8 h-8 flex justify-center items-center cursor-pointer rounded-full border border-stroke-opacity12  transition-opacity duration-200 hover:bg-[linear-gradient(to_bottom_right,rgba(31,63,234,0.08),rgba(103,31,234,0.08),rgba(234,31,201,0.08),rgba(234,31,94,0.08),rgba(234,173,31,0.08),rgba(170,234,31,0.08))] group">
-              <div className="color w-4 h-4 rounded-full bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] group-hover:scale-[1.06]"></div>
-            </div>
-          </div>
-          <div className="animated-background absolute inset-0"></div>
-          <figure className="overflow-hidden relative">
-            <div className="lamp-gradient absolute inset-0 opacity-80 z-2"></div>
-            <NextImage
-              src="/images/unwynd-lamp.avif"
-              alt="hero-image"
-              width={400}
-              height={300}
-              className="max-w-full"
-              priority
-            />
-          </figure>
-        </div> */}
+
         <div className="grow flex flex-col justify-end w-full h-[44vh] relative">
           <div className="flex flex-col justify-end items-center gap-2.5 relative h-[400px]">
             {/* Background Animation */}
@@ -178,24 +178,21 @@ export default function Hero() {
               </figure>
 
               <div className="absolute z-2 inset-0 flex justify-center items-center">
-                <div className="flex items-center gap-1 text-base text-text-secondary">
-                  Breath
-                  <span className="min-w-7 inline-block">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={text} // Re-mounts when text changes to trigger animation
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 1.5, ease: "easeInOut" }} // Smooth fade effect
-                        style={{
-                          display: "block",
-                        }}
-                      >
-                        {text}
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
+                <div className="text-base text-text-secondary">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key={text} // Re-mounts when text changes to trigger animation
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 1.5, ease: "easeInOut" }} // Smooth fade effect
+                      style={{
+                        display: "block",
+                      }}
+                    >
+                      {text}
+                    </motion.span>
+                  </AnimatePresence>
                 </div>
               </div>
             </figure>
