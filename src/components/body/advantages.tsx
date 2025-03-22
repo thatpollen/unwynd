@@ -1,3 +1,5 @@
+"use client";
+
 import {
   HandHeart,
   HeartBeat,
@@ -8,6 +10,9 @@ import {
   Lamp,
 } from "../assets/icons";
 import Container from "../container/container";
+import { useState, useEffect } from "react";
+import { translateTexts } from "@/lib/utils/translate";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
 
 interface AdvantagesProps {
   title?: string;
@@ -15,7 +20,7 @@ interface AdvantagesProps {
   icon?: React.ReactNode;
 }
 
-const advantages: AdvantagesProps[] = [
+const defaultAdvantages: AdvantagesProps[] = [
   {
     title: "Improve your well-being",
     description:
@@ -61,14 +66,61 @@ const advantages: AdvantagesProps[] = [
 ];
 
 export default function Advantages() {
+  const { language } = useLanguageStore();
+  const [headingOne, setHeadingOne] = useState("Unwynd");
+  const [headingTwo, setHeadingTwo] = useState("Advantages");
+  const [advantages, setAdvantages] =
+    useState<AdvantagesProps[]>(defaultAdvantages);
+
+  // Translate text when language changes
+  useEffect(() => {
+    async function translateAdvantages() {
+      const [translatedHeadingOne, translatedHeadingTwo] = await translateTexts(
+        ["Unwynd", "Advantages"],
+        language
+      );
+
+      if (language !== "en") {
+        const titles = await translateTexts(
+          defaultAdvantages
+            .map((item) => item.title)
+            .filter((title): title is string => title !== undefined),
+          language
+        );
+        const descriptions = await translateTexts(
+          defaultAdvantages
+            .map((item) => item.description)
+            .filter(
+              (description): description is string => description !== undefined
+            ),
+          language
+        );
+
+        setHeadingOne(translatedHeadingOne);
+        setHeadingTwo(translatedHeadingTwo);
+        setAdvantages(
+          defaultAdvantages.map((item, index) => ({
+            ...item,
+            title: titles[index],
+            description: descriptions[index],
+          }))
+        );
+      } else {
+        setAdvantages(defaultAdvantages);
+      }
+    }
+
+    translateAdvantages();
+  }, [language]);
+
   return (
     <section className="w-full py-24 px-4">
       <Container>
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
           <div className="w-auto lg:w-1/3 relative lg:sticky lg:top-[192px]">
             <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center">
-              <span className="hidden md:block lg:hidden">Unwynd</span>
-              Advantages
+              <span className="hidden md:block lg:hidden">{headingOne}</span>
+              {headingTwo}
             </h2>
           </div>
           <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 items-stretch gap-2">

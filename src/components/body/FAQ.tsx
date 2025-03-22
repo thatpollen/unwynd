@@ -1,3 +1,5 @@
+"use client";
+
 import Container from "../container/container";
 import {
   Accordion,
@@ -5,15 +7,80 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "../reusable/accordion";
+import { translateTexts } from "@/lib/utils/translate";
+import { useEffect, useState } from "react";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
+
+const faqs = [
+  {
+    question:
+      "Would the Unwynd Lamp be a good fit for someone new to meditation?",
+    answer:
+      "Absolutely! Our customers have consistently affirmed that the Unwynd Lamp is incredibly helpful for beginners. Through the companion app, users can access a wide range of breathing exercises and guided meditations that provide easy guidance for those just starting out on their meditation journey.",
+  },
+  {
+    question: "Can I use my own meditation music with the Unwynd Lamp?",
+    answer:
+      "Yes, you can utilize the Unwynd Lamp as a speaker and easily play your preferred meditation music.",
+  },
+  {
+    question: "Can I practice my own breathing exercises with the Unwynd Lamp?",
+    answer:
+      "Certainly! With the companion app, you can effortlessly set up your personalized breathing intervals. If you wish to reuse your custom breathing exercise, you can save it and even access it directly from the Unwynd Lamp without needing the app.",
+  },
+  {
+    question: "What sets the Unwynd Lamp apart from regular baby lamps?",
+    answer:
+      "The Unwynd Lamp stands out for its focus on providing the ultimate meditation experience. From its harmonious design and option for digital detox through the direct control of the lamp without requiring the companion app, to the thoughtfully curated selection of nature sounds, guided meditations, and relaxing lighting modes, every aspect is tailored to enhance meditation. The companion app further facilitates customization, enabling users to easily adapt and save favorite meditation exercises, including personalized breathing intervals.",
+  },
+  {
+    question: "What benefits can I expect from using the Unwynd Lamp?",
+    answer:
+      "Engaging in meditation can lead to stress reduction, improved focus, and a heightened sense of well-being. The Unwynd Lamp can assist you in your meditation by creating a peaceful environment and help you concentrate on your meditation with the guided meditations and the breathing light.",
+  },
+  {
+    question: "In which languages are the guided meditations offered?",
+    answer:
+      "Currently, the guided meditations are available in English and German.",
+  },
+];
 
 export default function FAQ() {
+  const { language } = useLanguageStore();
+  const [translatedFaqs, setTranslatedFaqs] = useState(faqs);
+
+  useEffect(() => {
+    const fetchTranslations = async () => {
+      const textsToTranslate = faqs.flatMap((faq) => [
+        faq.question,
+        faq.answer,
+      ]);
+      const translatedTexts = await translateTexts(textsToTranslate, language);
+
+      if (translatedTexts.length === textsToTranslate.length) {
+        setTranslatedFaqs(
+          faqs.map((faq, index) => ({
+            question: translatedTexts[index * 2], // Every even index is a question
+            answer: translatedTexts[index * 2 + 1], // Every odd index is an answer
+          }))
+        );
+      }
+    };
+
+    if (language !== "en") {
+      fetchTranslations();
+    } else {
+      setTranslatedFaqs(faqs);
+    }
+  }, [language]);
+
   return (
     <section className="w-full py-32 relative z-2">
       <Container>
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-start lg:justify-between px-4">
           <h2 className="text-H4 md:text-H3 lg:text-[42px]">FAQ</h2>
           <div className="w-full lg:w-[70%] max-w-full">
-            <Accordion className="w-full space-y-2" type="single" collapsible>
+            {/* <Accordion className="w-full space-y-2" type="single" collapsible>
               <AccordionItem value="item-1" isBottomLine>
                 <AccordionTrigger>
                   Would the Unwynd Lamp be a good fit for someone new to
@@ -87,6 +154,18 @@ export default function FAQ() {
                   German.
                 </AccordionContent>
               </AccordionItem>
+            </Accordion> */}
+            <Accordion className="w-full space-y-2" type="single" collapsible>
+              {translatedFaqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index + 1}`}
+                  isBottomLine
+                >
+                  <AccordionTrigger>{faq.question}</AccordionTrigger>
+                  <AccordionContent>{faq.answer}</AccordionContent>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </div>

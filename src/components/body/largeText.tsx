@@ -1,6 +1,249 @@
 "use client";
 
 import Container from "../container/container";
+import React, { useRef, useLayoutEffect, useState, useEffect } from "react";
+import SplitType from "split-type";
+import { gsap, ScrollTrigger } from "gsap/all";
+import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
+import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
+import { translateTexts } from "@/lib/utils/translate";
+
+export default function LargeText() {
+  const { language } = useLanguageStore();
+  const [translatedText, setTranslatedText] = useState<string[]>([]);
+  const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
+  const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
+
+  // Original text
+  const originalText = useRef([
+    "Unwynd: the ultimate",
+    "meditation companion that elevates your practice to new heights. Choose from a spectrum of light",
+    "colors to match your mood, while selecting from a variety of serene",
+    "sounds to deepen your focus. Let your",
+    "breath be guided by a pulsating light that reflects your custom breathing patterns or follow guided meditations. Let the Unwynd lamp guide your journey to inner",
+    "peace - one breath at a time.",
+  ]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function fetchTranslations() {
+      if (language === "en") {
+        if (isMounted) setTranslatedText(originalText.current); // Default English text
+      } else {
+        const translations = await translateTexts(
+          originalText.current,
+          language
+        );
+        if (isMounted) setTranslatedText(translations);
+      }
+    }
+
+    fetchTranslations();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [language]);
+
+  useLayoutEffect(() => {
+    if (!elementsToSplitRef.current || translatedText.length === 0) return;
+
+    gsap.registerPlugin(ScrollTrigger);
+    elementsToSplitRef.current.innerHTML = translatedText.join(" ");
+
+    const splitTypes = new SplitType(elementsToSplitRef.current, {
+      types: "words",
+    });
+
+    const wordsAnimation = gsap.from(splitTypes.words, {
+      scrollTrigger: {
+        trigger: elementsToSplitRef.current,
+        start: "top 80%",
+        end: "bottom 50%",
+        scrub: 2,
+        markers: false,
+      },
+      opacity: 0.24,
+      stagger: 0.1,
+      duration: 0.4,
+    });
+
+    if (
+      iconRefs.current.length === 0 ||
+      iconRefs.current.every((icon) => icon === null)
+    )
+      return;
+
+    const iconAnimations = iconRefs.current
+      .filter((icon) => icon !== null)
+      .map((icon) =>
+        gsap.fromTo(
+          icon,
+          { y: 20, opacity: 0 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: icon,
+              start: "top 85%",
+              end: "top 70%",
+              scrub: 2,
+            },
+          }
+        )
+      );
+
+    return () => {
+      splitTypes.revert();
+      wordsAnimation.kill();
+      iconAnimations.forEach((anim) => anim.kill());
+    };
+  }, [translatedText]);
+
+  const useHoverMotion = () => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+    const smoothX = useSpring(x, { stiffness: 200, damping: 20, mass: 0.5 });
+    const smoothY = useSpring(y, { stiffness: 200, damping: 20, mass: 0.5 });
+
+    const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
+      const { currentTarget, clientX, clientY } = event;
+      const { left, top, width, height } =
+        currentTarget.getBoundingClientRect();
+
+      // Restrict movement within the wrapper (max ±15px)
+      const moveX = Math.min(
+        Math.max((clientX - (left + width / 2)) * 0.3, -15),
+        15
+      );
+      const moveY = Math.min(
+        Math.max((clientY - (top + height / 2)) * 0.3, -15),
+        15
+      );
+
+      x.set(moveX);
+      y.set(moveY);
+    };
+
+    const handleMouseLeave = () => {
+      x.set(0);
+      y.set(0);
+    };
+
+    return { x: smoothX, y: smoothY, handleMouseMove, handleMouseLeave };
+  };
+
+  // Reusable Animated Icon Component
+  const AnimatedIcon = ({
+    Icon,
+    index,
+  }: {
+    Icon: React.ElementType<{ className?: string }>;
+    index: number;
+  }) => {
+    const { x, y, handleMouseMove, handleMouseLeave } = useHoverMotion();
+    const iconRef = useRef<HTMLSpanElement | null>(null);
+
+    useEffect(() => {
+      if (iconRef.current) {
+        iconRefs.current[index] = iconRef.current;
+      }
+    }, [index]);
+
+    return (
+      <motion.span
+        // initial={{ scale: 0.8, opacity: 0 }}
+        // animate={{ scale: 1, opacity: 1 }}
+        // transition={{ duration: 0.3, ease: "easeOut" }}
+        className="inline-flex justify-center items-center"
+        style={{ x, y, transformOrigin: "center" }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        ref={iconRef}
+      >
+        <div className="aspect-square relative overflow-visible w-12 h-12">
+          <Icon className="stroke-neutral-600 w-full h-full" />
+        </div>
+      </motion.span>
+    );
+  };
+
+  return (
+    <section className="w-full py-32 px-2">
+      <Container>
+        <div>
+          <div
+            className="text-H3 lg:text-H2 leading-[1.3em] font-light text-text-primary text-center whitespace-pre-wrap"
+            ref={elementsToSplitRef}
+          >
+            {translatedText.length > 0 ? (
+              <>
+                {translatedText[0]}{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={HealthCare} index={0} />
+                </span>{" "}
+                {translatedText[1]}{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={Elements} index={1} />
+                </span>{" "}
+                {translatedText[2]}{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={Music} index={2} />
+                </span>{" "}
+                {translatedText[3]}{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={Flow} index={3} />
+                </span>{" "}
+                {translatedText[4]}{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={HandPrayer} index={4} />
+                </span>{" "}
+                {translatedText[5]}
+              </>
+            ) : (
+              <>
+                Unwynd: the ultimate{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={HealthCare} index={0} />
+                </span>{" "}
+                meditation companion that elevates your practice to new heights.
+                Choose from a spectrum of light{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={Elements} index={1} />
+                </span>{" "}
+                colors to match your mood, while selecting from a variety of
+                serene{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={Music} index={2} />
+                </span>{" "}
+                sounds to deepen your focus. Let your{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={Flow} index={3} />
+                </span>{" "}
+                breath be guided by a pulsating light that reflects your custom
+                breathing patterns or follow guided meditations. Let the Unwynd
+                lamp guide your journey to inner{" "}
+                <span className="inline-block">
+                  <AnimatedIcon Icon={HandPrayer} index={4} />
+                </span>{" "}
+                peace - one breath at a time.{" "}
+              </>
+            )}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+/*
+"use client";
+
+import Container from "../container/container";
 import React, { useRef, useLayoutEffect } from "react";
 import SplitType from "split-type";
 import { gsap, ScrollTrigger } from "gsap/all";
@@ -165,3 +408,4 @@ export default function LargeText() {
     </section>
   );
 }
+*/

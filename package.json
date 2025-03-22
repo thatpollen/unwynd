@@ -20,6 +20,7 @@
     "embla-carousel-autoplay": "^8.5.2",
     "embla-carousel-react": "^8.5.2",
     "framer-motion": "^12.4.7",
+    "framer-motion-ticker": "^1.0.19",
     "google-translate-api-x": "^10.7.2",
     "gsap": "^3.12.7",
     "lenis": "^1.2.3",
