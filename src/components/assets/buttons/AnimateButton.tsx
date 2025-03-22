@@ -6,6 +6,7 @@ import cn from "../../../lib/utils/classname";
 interface ButtonProps {
   children: React.ReactNode;
   className?: string;
+  onClickChange?: () => void;
 }
 
 /*
@@ -72,7 +73,11 @@ const secondTextVariant = {
   },
 };
 
-export const AnimateButton = ({ children, className }: ButtonProps) => {
+export const AnimateButton = ({
+  children,
+  className,
+  onClickChange,
+}: ButtonProps) => {
   return (
     <motion.button
       initial="initial"
@@ -80,6 +85,7 @@ export const AnimateButton = ({ children, className }: ButtonProps) => {
       animate="animate"
       //   variants={backgroundVariant}
       className={cn("", className)}
+      onClick={onClickChange}
     >
       <div className="w-full h-full overflow-hidden relative flex justify-center items-center">
         <motion.p variants={firstTextVariant} className="">

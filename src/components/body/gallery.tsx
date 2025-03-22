@@ -2,15 +2,11 @@
 
 import NextImage from "next/image";
 import Container from "../container/container";
-import {
-  useLanguageStore,
-  useInitializeLanguage,
-} from "@/lib/hooks/useLanguageStore";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
 import { useEffect, useState } from "react";
 import { translateTexts } from "@/lib/utils/translate";
 
 export default function Gallery() {
-  useInitializeLanguage();
   const { language } = useLanguageStore();
   const [heading, setHeading] = useState("Serenity in Any Setting");
   const [content, setContent] = useState(

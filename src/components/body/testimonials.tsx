@@ -2,9 +2,12 @@
 
 import Container from "../container/container";
 import NextImage from "next/image";
-import { Graphic, Vector } from "../assets/icons";
-// import { useState, useEffect } from "react";
-// import { motion } from "framer-motion";
+import { Vector, Graphic } from "../assets/icons";
+import { useState, useEffect } from "react";
+import Ticker from "framer-motion-ticker";
+import { motion } from "framer-motion";
+import { translateTexts } from "@/lib/utils/translate";
+import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
 
 interface TestimonialsProps {
   title?: string;
@@ -70,36 +73,83 @@ const testimonials: TestimonialsProps[] = [
 ];
 
 export default function Testimonials() {
-  // const [isMobile, setIsMobile] = useState(false);
+  const [columns, setColumns] = useState(3);
+  const { language } = useLanguageStore();
+  const [translatedTestimonials, setTranslatedTestimonials] =
+    useState<TestimonialsProps[]>(testimonials);
+  const [headingText, setHeadingText] = useState<string>("Our testimonials");
+  const [subHeadingText, setSubHeadingText] = useState(
+    "Happy customers that enjoy our lamp"
+  );
 
-  // useEffect(() => {
-  //   const updateSize = () => setIsMobile(window.innerWidth < 810);
-  //   window.addEventListener("resize", updateSize);
-  //   updateSize();
-  //   return () => window.removeEventListener("resize", updateSize);
-  // }, []);
+  useEffect(() => {
+    async function fetchTranslations() {
+      const titles = testimonials
+        .map((t) => t.title)
+        .filter((title): title is string => title !== undefined);
+      const descriptions = testimonials
+        .map((t) => t.description)
+        .filter(
+          (description): description is string => description !== undefined
+        );
 
-  // const verticalVariants = (direction: number) => ({
-  //   animate: {
-  //     y: ["0%", `${direction * -50}%`, "0%"], // Moves continuously
-  //     transition: {
-  //       repeat: Infinity,
-  //       duration: 60, // Slower movement
-  //       ease: "linear",
-  //     },
-  //   },
-  // });
+      const [translatedHeading, translatedSubHeading] = await translateTexts(
+        ["Our testimonials", "Happy customers that enjoy our lamp"],
+        language
+      );
 
-  // const horizontalVariants = {
-  //   animate: {
-  //     x: ["0%", "-50%", "0%"],
-  //     transition: {
-  //       repeat: Infinity,
-  //       duration: 60, // Slower horizontal scroll
-  //       ease: "linear",
-  //     },
-  //   },
-  // };
+      const translatedTitles = await translateTexts(titles, language);
+      const translatedDescriptions = await translateTexts(
+        descriptions,
+        language
+      );
+
+      const updatedTestimonials = testimonials.map((t, index) => ({
+        title: translatedTitles[index],
+        description: translatedDescriptions[index],
+        author: t.author,
+      }));
+
+      setHeadingText(translatedHeading);
+      setSubHeadingText(translatedSubHeading);
+      setTranslatedTestimonials(updatedTestimonials);
+    }
+
+    fetchTranslations();
+  }, [language]);
+
+  useEffect(() => {
+    const updateSize = () => {
+      if (window.innerWidth < 810) {
+        setColumns(1);
+      } else if (window.innerWidth < 1200) {
+        setColumns(2);
+      } else {
+        setColumns(3);
+      }
+    };
+    window.addEventListener("resize", updateSize);
+    updateSize();
+    return () => window.removeEventListener("resize", updateSize);
+  }, []);
+
+  const duplicatedTestimonials = [
+    ...translatedTestimonials,
+    ...translatedTestimonials,
+  ];
+
+  // **Framer Motion Infinite Scroll Variants**
+  const verticalTicker = (direction: "up" | "down") => ({
+    animate: {
+      y: direction === "up" ? ["0%", "-100%"] : ["-50%", "0%"],
+      transition: {
+        repeat: Infinity,
+        repeatType: "loop" as const,
+        duration: 400,
+        ease: "linear",
+      },
+    },
+  });
 
   return (
     <section className="w-full px-2">
@@ -109,10 +159,10 @@ export default function Testimonials() {
             <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-12 md:gap-0 w-full p-4">
               <div className="flex flex-col gap-4">
                 <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center md:text-left">
-                  Our testimonials
+                  {headingText}
                 </h2>
                 <p className="text-base text-text-secondary text-center md:text-left">
-                  Happy customers that enjoy our lamp
+                  {subHeadingText}
                 </p>
               </div>
               <div className="w-[214px] h-[162px] relative">
@@ -150,9 +200,9 @@ export default function Testimonials() {
                 </div>
               </div>
             </div>
-            <div className="p-4">
-              <div className="testimonials_wrapper flex justify-center items-center gap-2 flex-nowrap h-[1024px] overflow-hidden">
-                <div className="flex flex-col items-center gap-2">
+            <div className="p-4 w-full">
+              <div className="testimonials_wrapper flex justify-center items-center gap-2 flex-nowrap h-auto md:h-[1024px] overscroll-visible md:overflow-hidden">
+                {/* <div className="flex flex-col items-center gap-2">
                   {testimonials.map((testimonial, index) => (
                     <div
                       className="bg-background-primary overflow-hidden rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
@@ -228,53 +278,59 @@ export default function Testimonials() {
                       </div>
                     </div>
                   ))}
-                </div>
-                {/* {isMobile ? (
-                  <motion.div
-                    className="flex space-x-4 w-max"
-                    variants={horizontalVariants}
-                    animate="animate"
-                  >
-                    {[...testimonials, ...testimonials].map(
-                      (testimonial, index) => (
-                        <div
-                          className="bg-background-primary overflow-hidden rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
-                          key={index}
-                        >
-                          <div className="flex flex-col items-start gap-6 px-6 py-8">
-                            <span className="w-8 h-8">
-                              <Graphic />
-                            </span>
-                            <div className="w-full flex flex-col gap-2">
-                              <h6 className="text-H6 font-medium">
-                                {testimonial?.title}
-                              </h6>
-                              <p className="text-sm text-text-secondary">
-                                {testimonial?.description}
-                              </p>
-                            </div>
-                            <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
-                              {testimonial?.author}
-                            </span>
-                          </div>
-                        </div>
-                      )
-                    )}
-                  </motion.div>
-                ) : (
-                  <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 w-full">
-                    {[1, -1, 1].map((direction, i) => (
-                      <motion.div
-                        key={i}
-                        className="space-y-4"
-                        variants={verticalVariants(direction)}
-                        animate="animate"
+                </div> */}
+                {columns === 1 ? (
+                  <Ticker duration={60}>
+                    {translatedTestimonials.map((testimonial, index) => (
+                      <div
+                        className="bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out w-[300px] ml-2"
+                        key={index}
                       >
-                        {[...testimonials, ...testimonials].map(
-                          (testimonial, index) => (
+                        <div className="flex flex-col items-start gap-6 px-6 py-8">
+                          <span className="w-8 h-8">
+                            <Graphic />
+                          </span>
+                          <div className="w-full flex flex-col gap-2">
+                            <h6 className="text-H6 font-medium">
+                              {testimonial?.title}
+                            </h6>
+                            <p className="text-sm text-text-secondary">
+                              {testimonial?.description}
+                            </p>
+                          </div>
+                          <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
+                            {testimonial?.author}
+                          </span>
+                        </div>
+                      </div>
+                    ))}
+                  </Ticker>
+                ) : (
+                  <div
+                    className={`grid ${
+                      columns === 2 ? "grid-cols-2" : "grid-cols-3"
+                    } gap-2 w-full h-full`}
+                  >
+                    {[...Array(columns)].map((_, colIndex) => (
+                      <div
+                        key={colIndex}
+                        className="overscroll-visible md:overflow-hidden relative"
+                      >
+                        <motion.div
+                          className="absolute top-0 w-full flex flex-col gap-2"
+                          variants={verticalTicker(
+                            colIndex === 1 ? "down" : "up"
+                          )}
+                          animate="animate"
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          {[
+                            ...duplicatedTestimonials,
+                            ...duplicatedTestimonials,
+                          ].map((testimonial, index) => (
                             <div
-                              className="bg-background-primary overflow-hidden rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
-                              key={index}
+                              className="bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
+                              key={`${colIndex}-${index}`}
                             >
                               <div className="flex flex-col items-start gap-6 px-6 py-8">
                                 <span className="w-8 h-8">
@@ -293,12 +349,12 @@ export default function Testimonials() {
                                 </span>
                               </div>
                             </div>
-                          )
-                        )}
-                      </motion.div>
+                          ))}
+                        </motion.div>
+                      </div>
                     ))}
                   </div>
-                )} */}
+                )}
               </div>
             </div>
           </div>

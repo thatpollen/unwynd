@@ -108,6 +108,10 @@ export default function Footer() {
     fetchTranslation();
   }, [language]);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="w-full p-2">
       <div className="flex flex-col">
@@ -246,7 +250,10 @@ export default function Footer() {
                         <ChevronDown size={18} />
                       </span>
                     </div>
-                    <AnimateButton className="w-10 h-10 border border-border-whiteOpacity24 rounded-full cursor-pointer">
+                    <AnimateButton
+                      className="w-10 h-10 border border-border-whiteOpacity24 rounded-full cursor-pointer"
+                      onClickChange={scrollToTop}
+                    >
                       <ArrowUpFromDot
                         className="text-text-inverted-primary"
                         size={20}
