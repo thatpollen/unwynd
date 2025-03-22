@@ -13,7 +13,7 @@ export default function Hero() {
   // Translation
   const [heading, setHeading] = useState("The Breathing Lamp");
   const [subtext, setSubtext] = useState(
-    "Experience the effortless serenity of meditation with Unwynd – elevate your practice today and discover how easy finding your calm can be."
+    "Whether you practice breathwork, mindfulness, or just need calm moments, this lamp creates the perfect environment."
   );
 
   // Breath in and out fade in out
@@ -23,7 +23,7 @@ export default function Hero() {
     async function fetchTranslation() {
       const texts = [
         "The Breathing Lamp",
-        "Experience the effortless serenity of meditation with Unwynd – elevate your practice today and discover how easy finding your calm can be.",
+        "Whether you practice breathwork, mindfulness, or just need calm moments, this lamp creates the perfect environment.",
         "Breath in",
         "Breath out",
       ];
@@ -71,8 +71,8 @@ export default function Hero() {
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
         <div className="h-[56vh] flex flex-col justify-end items-center gap-6 relative z-1">
-          <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium">
-            <span className="text-text-tertiary">Unwynd</span>
+          <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
+            Unwynd
             <br />
             {heading}
           </h1>
