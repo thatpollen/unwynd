@@ -48,19 +48,19 @@ export default function Navbar() {
               </span>
             </NextLink>
             <ul className="flex items-center gap-6">
-              <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
+              <li className="text-sm font-medium text-text-primary hover:text-brand-accent">
                 <NextLink href="/">{navItemOne}</NextLink>
               </li>
-              <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
+              <li className="text-sm font-medium text-text-primary hover:text-brand-accent">
                 <NextLink href="/">{navItemTwo}</NextLink>
               </li>
-              <li className="text-xs font-medium text-text-primary hover:text-brand-accent">
+              <li className="text-sm font-medium text-text-primary hover:text-brand-accent">
                 <NextLink href="/">{navItemThree}</NextLink>
               </li>
             </ul>
           </div>
           <div className="grow md:grow-0 flex justify-between md:justify-start items-stretch gap-8">
-            <div className="flex flex-col gap-1 pl-4 md:pl-0">
+            <div className="flex flex-col gap-0.5 pl-4 md:pl-0">
               <span className="text-sm text-text-primary font-medium">
                 Unwynd
               </span>

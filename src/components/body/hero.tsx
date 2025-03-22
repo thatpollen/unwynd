@@ -71,10 +71,9 @@ export default function Hero() {
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
         <div className="h-[56vh] flex flex-col justify-end items-center gap-6 relative z-1">
-          <h1 className="text-H2 md:text-[56px] lg:text-[64px] text-center font-medium bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
-            Unwynd
-            <br />
-            {heading}
+          <h1 className="flex flex-col text-H2 md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
+            <span className="leading-[1]">Unwynd</span>
+            <span className="">{heading}</span>
           </h1>
           <p className="max-w-[580px] mx-auto text-base text-text-secondary text-center">
             {subtext}
