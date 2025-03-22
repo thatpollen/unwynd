@@ -201,7 +201,7 @@ export default function Testimonials() {
               </div>
             </div>
             <div className="p-4 w-full">
-              <div className="testimonials_wrapper flex justify-center items-center gap-2 flex-nowrap h-auto md:h-[1024px] overflow-hidden">
+              <div className="testimonials_wrapper flex justify-center items-center gap-2 flex-nowrap h-auto md:h-[1024px] overscroll-visible md:overflow-hidden">
                 {/* <div className="flex flex-col items-center gap-2">
                   {testimonials.map((testimonial, index) => (
                     <div
@@ -312,7 +312,10 @@ export default function Testimonials() {
                     } gap-2 w-full h-full`}
                   >
                     {[...Array(columns)].map((_, colIndex) => (
-                      <div key={colIndex} className="overflow-hidden relative">
+                      <div
+                        key={colIndex}
+                        className="overscroll-visible md:overflow-hidden relative"
+                      >
                         <motion.div
                           className="absolute top-0 w-full flex flex-col gap-2"
                           variants={verticalTicker(

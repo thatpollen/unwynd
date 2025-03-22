@@ -1,4 +1,4 @@
-"use client";
+/*"use client";
 
 import Container from "../container/container";
 import React, { useRef, useLayoutEffect, useState, useEffect } from "react";
@@ -239,8 +239,8 @@ export default function LargeText() {
     </section>
   );
 }
+*/
 
-/*
 "use client";
 
 import Container from "../container/container";
@@ -408,4 +408,3 @@ export default function LargeText() {
     </section>
   );
 }
-*/

@@ -546,3 +546,10 @@ input:-webkit-autofill {
     rgba(0, 0, 0, 0) 100%
   );
 }
+
+@media (max-width: 810px) {
+  .testimonials_wrapper {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
