@@ -1,7 +1,6 @@
 "use client";
 
 import NextImage from "next/image";
-import LargeContainer from "../container/largeContainer";
 import {
   Carousel,
   CarouselItem,
@@ -51,7 +50,7 @@ export default function Features() {
         "If none of these sounds resonate with you, the lamp also functions as a speaker, allowing you to play your own meditation music, ensuring a personalized and peaceful experience tailored to your needs.",
       ],
       image: "/images/meditation-img-1.avif",
-      titleolor: "text-text-inverted-secondary",
+      titleColor: "text-text-inverted-secondary",
       subtitleColor: "text-text-inverted-primary",
     },
     {
@@ -212,7 +211,7 @@ export default function Features() {
 
   return (
     <section className="w-full">
-      <LargeContainer>
+      <div className="max-w-[1440px] mx-auto">
         <div className="w-full h-[600px]">
           <Carousel
             opts={{ loop: true, align: "start" }}
@@ -252,12 +251,12 @@ export default function Features() {
               ))}
             </CarouselContent>
             <div className="absolute right-6 -bottom-18 flex justify-center items-center gap-2.5">
-              <CarouselPrevious className="text-text-inverted-primary bg-brand-orange cursor-pointer" />
-              <CarouselNext className="text-text-inverted-primary bg-brand-orange cursor-pointer" />
+              <CarouselPrevious className="text-text-inverted-primary bg-surface-inverted-primary hover:bg-brand-orange cursor-pointer" />
+              <CarouselNext className="text-text-inverted-primary bg-surface-inverted-primary hover:bg-brand-orange cursor-pointer" />
             </div>
           </Carousel>
         </div>
-      </LargeContainer>
+      </div>
 
       <Dialog open={isOpen} onOpenChange={() => setIsOpen(false)}>
         <DialogContent className="w-[98vw] md:w-[90vw] min-[1024px]:w-[840px] mx-auto flex flex-col gap-4">
