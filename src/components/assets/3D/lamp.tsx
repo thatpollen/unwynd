@@ -43,7 +43,7 @@ export default function Lamp({ ...props }) {
       <group ref={groupRef} {...props} dispose={null}>
         <ambientLight intensity={1} />
         <hemisphereLight intensity={1} color="#eaeaea" />
-        <directionalLight position={[0, 6, 2]} intensity={1} />
+        <directionalLight position={[0, 4, 8]} intensity={1} />
         {/* <primitive object={scene} scale={1} position={[0, -0.12, 0]} /> */}
         <LampScene />
       </group>
