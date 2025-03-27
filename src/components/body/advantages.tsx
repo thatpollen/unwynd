@@ -10,9 +10,7 @@ import {
   Lamp,
 } from "../assets/icons";
 import Container from "../container/container";
-import { useState, useEffect } from "react";
-import { translateTexts } from "@/lib/utils/translate";
-import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
+import { useTranslations } from "next-intl";
 
 interface AdvantagesProps {
   title?: string;
@@ -20,98 +18,46 @@ interface AdvantagesProps {
   icon?: React.ReactNode;
 }
 
-const defaultAdvantages: AdvantagesProps[] = [
-  {
-    title: "Improve your well-being",
-    description:
-      "Meditation has numerous positive effects on our well-being. It can help reduce stress and anxiety, promote relaxation, and improve focus and clarity of mind.",
-    icon: <HandHeart />,
-  },
-  {
-    title: "Easy control",
-    description:
-      "Effortlessly control the lamp with the companion app or opt for direct control using the buttons on the lamp for a refreshing digital detox experience.",
-    icon: <Slider />,
-  },
-  {
-    title: "How are you feeling today?",
-    description:
-      "Customize the lamp's light and sound to match your mood! Explore various nature sounds, binaural beats, and meditation music, or play your own music.",
-    icon: <HeartBeat />,
-  },
-  {
-    title: "Explore",
-    description:
-      "Find inspiration in the app’s library that is full of breathing exercises and guided meditations.",
-    icon: <ScanSearch />,
-  },
-  {
-    title: "Enter your own breathing meditation",
-    description:
-      "You can also enter exercises with custom breathing patterns in the app to allow for a more tailored meditation session.",
-    icon: <Wind />,
-  },
-  {
-    title: "Remember to take a break!",
-    description:
-      "Are you so focused on your work that you forget about everything around you? Set an alert in the app and let a warm, pulsating light gently remind you to do your meditation.",
-    icon: <Pause />,
-  },
-  {
-    title: "Enjoy a stylish table lamp",
-    description:
-      "The lamp, with its discrete design, may also serve as a regular table lamp and seamlessly integrates into any environment.",
-    icon: <Lamp />,
-  },
-];
-
 export default function Advantages() {
-  const { language } = useLanguageStore();
-  const [headingOne, setHeadingOne] = useState("Unwynd");
-  const [headingTwo, setHeadingTwo] = useState("Advantages");
-  const [advantages, setAdvantages] =
-    useState<AdvantagesProps[]>(defaultAdvantages);
+  const t = useTranslations("advantages");
 
-  // Translate text when language changes
-  useEffect(() => {
-    async function translateAdvantages() {
-      const [translatedHeadingOne, translatedHeadingTwo] = await translateTexts(
-        ["Unwynd", "Advantages"],
-        language
-      );
-
-      if (language !== "en") {
-        const titles = await translateTexts(
-          defaultAdvantages
-            .map((item) => item.title)
-            .filter((title): title is string => title !== undefined),
-          language
-        );
-        const descriptions = await translateTexts(
-          defaultAdvantages
-            .map((item) => item.description)
-            .filter(
-              (description): description is string => description !== undefined
-            ),
-          language
-        );
-
-        setHeadingOne(translatedHeadingOne);
-        setHeadingTwo(translatedHeadingTwo);
-        setAdvantages(
-          defaultAdvantages.map((item, index) => ({
-            ...item,
-            title: titles[index],
-            description: descriptions[index],
-          }))
-        );
-      } else {
-        setAdvantages(defaultAdvantages);
-      }
-    }
-
-    translateAdvantages();
-  }, [language]);
+  const advantages: AdvantagesProps[] = [
+    {
+      title: t("advantageOne.title"),
+      description: t("advantageOne.description"),
+      icon: <HandHeart />,
+    },
+    {
+      title: t("advantageTwo.title"),
+      description: t("advantageTwo.description"),
+      icon: <Slider />,
+    },
+    {
+      title: t("advantageThree.title"),
+      description: t("advantageThree.description"),
+      icon: <HeartBeat />,
+    },
+    {
+      title: t("advantageFour.title"),
+      description: t("advantageFour.description"),
+      icon: <ScanSearch />,
+    },
+    {
+      title: t("advantageFive.title"),
+      description: t("advantageFive.description"),
+      icon: <Wind />,
+    },
+    {
+      title: t("advantageSix.title"),
+      description: t("advantageSix.description"),
+      icon: <Pause />,
+    },
+    {
+      title: t("advantageSeven.title"),
+      description: t("advantageSeven.description"),
+      icon: <Lamp />,
+    },
+  ];
 
   return (
     <section className="w-full py-24 px-4">
@@ -119,8 +65,8 @@ export default function Advantages() {
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
           <div className="w-auto lg:w-1/3 relative lg:sticky lg:top-[192px]">
             <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center">
-              <span className="hidden md:block lg:hidden">{headingOne}</span>
-              {headingTwo}
+              <span className="hidden md:block lg:hidden">Unwynd</span>
+              {t("heading")}
             </h2>
           </div>
           <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 items-stretch gap-2">

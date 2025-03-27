@@ -1,0 +1,247 @@
+{
+  "Navbar": {
+    "features": "Caractéristiques",
+    "view3d": "Vue 3D",
+    "advantages": "Avantages",
+    "meditationLamp": "Lampe de Méditation",
+    "orderNow": "Commander"
+  },
+
+  "Hero": {
+    "heading": "lampe de méditation",
+    "subHeading": "Que vous pratiquiez la respiration, la pleine conscience ou que vous ayez simplement besoin d’un moment de calme, cette lampe crée l’ambiance parfaite.",
+    "breatheIn": "Inspirez",
+    "breatheOut": "Expirez"
+  },
+
+  "largeText": {
+    "text": "Unwynd: le compagnon de méditation ultime <icon-0 /> qui élève votre pratique à de nouveaux sommets. Choisissez parmi un spectre de couleurs de lumière <icon-1 /> pour vous adapter à votre humeur, tout en sélectionnant une variété de sons sereins <icon-2 /> pour approfondir votre concentration. Laissez votre respiration <icon-3 /> être guidée par une lumière pulsée qui reflète vos schémas respiratoires personnalisés ou suivez des méditations guidées.Laissez la lampe Unwynd guider votre voyage vers la paix intérieure <icon-4 /> – une respiration à la fois."
+  },
+
+  "features": {
+    "featureOne": {
+      "title": "Apaisez votre âme",
+      "subtitle": "24 sons de méditation",
+      "description": [
+        "La lampe Unwynd offre une évasion sereine avec 24 options sonores apaisantes conçues pour améliorer votre pratique de la méditation.",
+        "Immergez-vous dans 12 sons naturels apaisants, dont le doux écoulement d’un ruisseau, le chant joyeux des oiseaux et la chaleur crépitante d’un feu de camp.",
+        "Pour ceux qui préfèrent la tranquillité mélodique, 12 types de musique de méditation sont disponibles, allant de douces mélodies à la relaxation profonde des battements binauraux. Ces sons sont soigneusement sélectionnés pour guider votre esprit vers un état de calme et de concentration.",
+        "Si aucun de ces sons ne vous convient, la lampe fait également office de haut-parleur, ce qui vous permet d’écouter votre propre musique de méditation, pour une expérience personnalisée et paisible, adaptée à vos besoins. "
+      ]
+    },
+    "featureTwo": {
+      "title": "Éclairer votre pratique",
+      "subtitle": "Lumière RVB avec modes d'éclairage dynamiques",
+      "description": [
+        "La lampe Unwynd offre une expérience d’éclairage polyvalente, vous permettant de créer l’ambiance parfaite pour votre relaxation et votre méditation.",
+        "Choisissez n’importe quelle couleur du spectre lumineux pour l’adapter à votre humeur et créer une atmosphère personnalisée qui complète votre pratique. Que vous préfériez un bleu apaisant, un ambre chaud ou un vert vibrant, les options de couleur de la lampe sont pratiquement illimitées.",
+        "Pour une expérience plus dynamique, explorez les modes d’éclairage uniques de la lampe. Transformez votre espace avec la lueur chaude et vacillante d’un feu crépitant, ou plongez-vous dans la danse éthérée des aurores boréales lorsque les couleurs changent et s’enchaînent. Ces modes dynamiques sont conçus pour améliorer votre expérience sensorielle et rendre vos séances de méditation encore plus immersives et apaisantes."
+      ]
+    },
+    "featureThree": {
+      "title": "Sérénité guidée",
+      "subtitle": "Bibliothèque d’exercices de méditation",
+      "description": [
+        "La lampe Unwynd propose une variété d’exercices de méditation, ce qui en fait un compagnon idéal pour les débutants comme pour les pratiquants chevronnés.",
+        "Les méditations guidées constituent une introduction en douceur pour les personnes qui ne connaissent pas encore la méditation. Une voix apaisante vous guidera pas à pas vers un état de relaxation profonde, vous aidant à faire le vide dans votre esprit et à concentrer vos pensées.",
+        "la lampe Unwynd est également le compagnon idéal pour vos exercices de respiration. Choisissez parmi une collection d’exercices de respiration soigneusement sélectionnés, avec des objectifs différents, et laissez votre respiration être guidée par la lumière. Au fur et à mesure que la lumière de la lampe s’éclaircit, vous êtes invité à inspirer, et lorsqu’elle s’affaiblit, vous êtes guidé pour expirer."
+      ]
+    },
+    "featureFour": {
+      "title": "Tapez ou glissez",
+      "subtitle": "Double contrôle",
+      "description": [
+        "La lampe Unwynd offre des options de contrôle flexibles adaptées à vos besoins.",
+        "Vous pouvez la contrôler directement à l’aide des boutons situés sur la lampe, ce qui la rend idéale pour ceux qui cherchent à se désintoxiquer du numérique. Vous pouvez ainsi vous déconnecter de vos appareils et vous plonger pleinement dans votre pratique de la méditation, sans aucune distraction.",
+        "La lampe peut également être contrôlée via son application compagnon sur votre téléphone. Cette application vous permet de personnaliser facilement votre expérience de méditation, de régler les paramètres et d’explorer toutes les fonctionnalités en quelques clics.",
+        "Que vous appréciiez la simplicité tactile des boutons ou la facilité d’utilisation de l’application, la lampe Unwynd offre une expérience de méditation personnalisée qui s’adapte à vos préférences."
+      ]
+    },
+    "featureFive": {
+      "title": "Votre méditation, votre chemin",
+      "subtitle": "Exercices de méditation personnalisés",
+      "description": [
+        "La lampe Unwynd est entièrement personnalisable, ce qui vous permet de créer l’ambiance parfaite pour votre méditation.",
+        "Outre la possibilité de régler facilement l’éclairage et de sélectionner le son de votre choix, vous pouvez également définir un schéma respiratoire personnalisé. La lumière de la lampe suivra le rythme que vous aurez choisi, en s’éclaircissant lorsque vous inspirez et en s’atténuant lorsque vous expirez.",
+        "Une fois que vous avez conçu votre séance de méditation idéale, vous pouvez facilement l’enregistrer, ce qui vous permet d’accéder rapidement à vos paramètres personnalisés et de les réutiliser lors de vos prochaines séances."
+      ]
+    },
+    "featureSix": {
+      "title": "Se ressourcer et se détendre",
+      "subtitle": "Rechargeable avec une longue durée de vie de la batterie",
+      "description": [
+        "La lampe Unwynd a été conçue dans un souci de commodité et de longévité. Elle est équipée d’une batterie rechargeable, ce qui vous permet de profiter de vos séances de méditation sans avoir à remplacer constamment les piles. Une fois complètement chargée, la lampe offre une longue durée de vie, ce qui vous permet de l’utiliser pendant de longues périodes sans avoir à la recharger. Cette conception portable vous permet d’emporter la lampe n’importe où, que vous méditiez à la maison, en plein air ou en déplacement. Il vous suffit de recharger la lampe lorsque vous en avez besoin, et elle sera prête à vous offrir une ambiance paisible à tout moment et en tout lieu."
+      ]
+    },
+    "featureSeven": {
+      "title": "Renforcez votre zen",
+      "subtitle": "Alimentation par USB",
+      "description": [
+        "La lampe Unwynd est équipée d’une fonction de chargement USB pratique, qui vous permet de rester alimenté où que vous soyez. Il suffit de connecter la lampe à n’importe quel port USB standard, qu’il s’agisse de votre ordinateur, d’un adaptateur mural USB ou d’une banque d’alimentation, pour la recharger en toute simplicité. Cette option de chargement polyvalente vous permet de poursuivre votre pratique de la méditation sans avoir à vous soucier de trouver des chargeurs spécifiques, ce qui est à la fois pratique et flexible."
+      ]
+    },
+    "featureEight": {
+      "title": "Fixer et apaiser",
+      "subtitle": "Fonction minuterie",
+      "description": [
+        "La lampe de méditation est dotée d’une fonction de minuterie pratique, qui vous permet de la régler pour qu’elle s’éteigne automatiquement au bout d’un certain temps. Cette fonction est idéale pour créer une atmosphère relaxante avant le sommeil, car la lampe s’éteint doucement d’elle-même, vous aidant à vous détendre et à vous endormir sans avoir à vous soucier de l’éteindre manuellement."
+      ]
+    },
+    "featureNine": {
+      "title": "Calme programmé",
+      "subtitle": "Fonction d’alarme",
+      "description": [
+        "La fonction d’alarme intégrée de la lampe Unwynd vous permet de ne jamais manquer un moment de pleine conscience. Lorsque l’alarme se déclenche à l’heure que vous avez choisie, une lumière légèrement pulsée vous invite à faire une pause et à méditer. Il vous suffit de toucher ou d’appuyer sur n’importe quel bouton de la lampe pour commencer votre exercice de méditation présélectionné. Cette fonction est particulièrement utile pour les employés de bureau ou les personnes ayant un emploi du temps chargé, car elle vous permet de ne pas oublier de prendre un moment pour votre bien-être au cours de la journée."
+      ]
+    },
+    "featureTen": {
+      "title": "Sanctuaire silencieux",
+      "subtitle": "Prise pour casque d'écoute",
+      "description": [
+        "La lampe Unwynd est équipée d’une prise casque, offrant une expérience de méditation privée et immersive. Il vous suffit de brancher votre casque pour profiter du son de méditation de votre choix sans déranger votre entourage et sans être interrompu par des bruits extérieurs. Cette fonction est idéale pour créer un espace de concentration et de tranquillité où que vous soyez, que ce soit à la maison, au bureau ou en déplacement."
+      ]
+    }
+  },
+
+  "gallery": {
+    "heading": "La sérénité dans tous les milieux",
+    "subHeading": "La lampe Unwynd ajoute une touche de tranquillité à tout espace. Qu’elle soit placée dans un coin confortable ou comme pièce maîtresse dans le salon, son élégance discrète rehausse l’ambiance de n’importe quelle pièce, créant une atmosphère sereine propice à la méditation et à la relaxation."
+  },
+
+  "3D": {
+    "heading": {
+      "spanOne": "Harmonie sur",
+      "spanTwo": "Trois dimensions"
+    },
+    "subHeading": "Fabriquée avec une attention méticuleuse aux détails, la lampe Unwynd est plus qu’une simple présence lumineuse – c’est un sanctuaire serein en soi. Chaque aspect de sa conception a été soigneusement étudié pour améliorer votre expérience de la méditation.",
+    "drag": "Drag to rotate"
+  },
+
+  "advantages": {
+    "heading": "Avantages",
+    "advantageOne": {
+      "title": "Améliorez votre bien-être",
+      "description": "La méditation a de nombreux effets positifs sur notre bien-être. Elle peut contribuer à réduire le stress et l'anxiété, favoriser la relaxation et améliorer la concentration et la clarté d'esprit."
+    },
+    "advantageTwo": {
+      "title": "Contrôle facile",
+      "description": "Contrôlez la lampe sans effort avec l'application compagnon ou optez pour un contrôle direct à l'aide des boutons de la lampe pour une expérience de désintoxication numérique rafraîchissante."
+    },
+    "advantageThree": {
+      "title": "Comment vous sentez-vous aujourd'hui?",
+      "description": "Personnalisez la lumière et le son de la lampe en fonction de votre humeur ! Explorez les différents sons de la nature, les rythmes binauraux et la musique de méditation, ou jouez votre propre musique."
+    },
+    "advantageFour": {
+      "title": "Explorer",
+      "description": "Trouvez l'inspiration dans la bibliothèque de l'application, qui regorge d'exercices de respiration et de méditations guidées."
+    },
+    "advantageFive": {
+      "title": "Entrez dans votre propre méditation respiratoire",
+      "description": "Vous pouvez également entrer des exercices avec des schémas respiratoires personnalisés dans l'application afin d'obtenir une séance de méditation plus adaptée."
+    },
+    "advantageSix": {
+      "title": "N'oubliez pas de faire une pause!",
+      "description": "Vous êtes tellement concentré sur votre travail que vous oubliez tout ce qui vous entoure ? Définissez une alerte dans l'application et laissez une lumière chaude et pulsée vous rappeler doucement de faire votre méditation."
+    },
+    "advantageSeven": {
+      "title": "Profitez d'une lampe de table élégante",
+      "description": "Cette lampe, au design discret, peut également servir de lampe de table ordinaire et s'intègre parfaitement à tous les environnements."
+    }
+  },
+
+  "testimonials": {
+    "heading": "Nos témoignages",
+    "subHeading": "Des clients satisfaits qui apprécient notre lampe",
+    "testimonialOne": {
+      "title": "La polyvalence de cette lampe de méditation est inégalée.  ",
+      "description": "De la lumière pulsée apaisante pour les exercices de respiration à la vaste sélection de sons de la nature et de musique de méditation, il s'agit d'un outil de relaxation tout-en-un."
+    },
+    "testimonialTwo": {
+      "title": "Il guide ma respiration sans effort",
+      "description": "Pour quelqu'un qui a du mal à se concentrer pendant la méditation, la fonction de lumière pulsée de cette lampe a changé la donne. Elle guide ma respiration sans effort, ce qui permet une relaxation plus profonde et une meilleure prise de conscience. "
+    },
+    "testimonialThree": {
+      "title": "J'adore la façon dont cette lampe s'intègre parfaitement à ma routine quotidienne",
+      "description": "Que j'aie besoin d'un moment de tranquillité au travail ou d'une ambiance apaisante pour la méditation au coucher, ses options dynamiques d'éclairage et de son répondent toujours à mes besoins."
+    },
+    "testimonialFour": {
+      "title": "Une façon discrète de déstresser",
+      "description": "Travaillant dans un bureau en open space, j'avais besoin d'un moyen discret de déstresser sans déranger mes collègues. Le mode silencieux de cette lampe, associé à son design élégant, me permet de pratiquer la pleine conscience sans attirer l'attention. "
+    },
+    "testimonialFive": {
+      "title": "Lampe esthétique",
+      "description": "Le design en bois de cette lampe esthétique apporte une touche de sophistication à n'importe quelle pièce. Elle passe sans effort d'une aide à la méditation à une lampe de table élégante, améliorant à la fois mon espace et mon bien-être. "
+    },
+    "testimonialSix": {
+      "title": "Le contrôle de cette lampe est un jeu d'enfant",
+      "description": "Contrôler cette lampe est un jeu d'enfant, que ce soit via l'application compagnon ou les boutons de la lampe elle-même. C'est le mélange parfait de la commodité moderne et de la relaxation intemporelle "
+    },
+    "testimonialSeven": {
+      "title": "J'aime la facilité avec laquelle il est possible de le personnaliser",
+      "description": "J'adore la facilité avec laquelle je peux personnaliser mes séances de méditation avec cette lampe. En quelques clics sur l'application, je peux créer l'environnement idéal pour une relaxation et une introspection profondes. "
+    },
+    "testimonialEight": {
+      "title": "L'option de contrôle direct sur la lampe est irremplaçable",
+      "description": "En tant que personne qui aime se débrancher de la technologie, l'option de contrôle direct de la lampe est irremplaçable. Elle me permet de profiter d'une désintoxication numérique tout en bénéficiant des fonctions apaisantes de la lampe. "
+    },
+    "testimonialNine": {
+      "title": "J'apprécie la simplicité et l'efficacité de cette lampe",
+      "description": "En tant que débutante en méditation, j'apprécie la simplicité et l'efficacité de cette lampe. Elle me guide facilement dans les exercices de respiration, ce qui la rend accessible à toute personne souhaitant commencer son voyage vers la pleine conscience. "
+    }
+  },
+
+  "FAQ": {
+    "heading": "FAQ",
+    "faqOne": {
+      "question": "La lampe Unwynd conviendrait-elle à une personne qui débute dans la méditation ?",
+      "answer": "Absolument ! Nos clients ont toujours affirmé que la lampe Unwynd est incroyablement utile pour les débutants. Grâce à l’application compagnon, les utilisateurs peuvent accéder à un large éventail d’exercices de respiration et de méditations guidées spécialement conçus pour guider facilement les personnes qui débutent dans leur parcours de méditation."
+    },
+    "faqTwo": {
+      "question": "Puis-je utiliser ma propre musique de méditation avec la lampe Unwynd ?",
+      "answer": "Oui, vous pouvez utiliser la lampe Unwynd comme un haut-parleur et écouter facilement votre musique de méditation préférée."
+    },
+    "faqThree": {
+      "question": "Puis-je pratiquer mes propres exercices de respiration avec la lampe Unwynd ?",
+      "answer": "Certainement ! Grâce à l’application compagnon, vous pouvez configurer sans effort vos intervalles de respiration personnalisés. Si vous souhaitez réutiliser votre exercice de respiration personnalisé, vous pouvez l’enregistrer et même y accéder directement à partir de la lampe Unwynd sans avoir besoin de l’application."
+    },
+    "faqFour": {
+      "question": "Qu'est-ce qui différencie la lampe Unwynd des autres lampes à bruit blanc pour bébé sur le marché ?",
+      "answer": "La lampe Unwynd se distingue par son souci d’offrir une expérience de méditation ultime. Depuis son design harmonieux et son option de désintoxication numérique, qui permet de contrôler directement la lampe sans passer par l’application compagnon, jusqu’à la sélection bien pensée de sons de la nature, de méditations guidées et de modes d’éclairage relaxants, chaque aspect est conçu pour favoriser la méditation. L’application compagnon facilite encore la personnalisation, permettant aux utilisateurs d’adapter et de sauvegarder facilement leurs exercices de méditation préférés, y compris des intervalles de respiration personnalisés."
+    },
+    "faqFive": {
+      "question": "Quels avantages puis-je attendre de l'utilisation de la lampe Unwynd ?",
+      "answer": "La méditation permet de réduire le stress, d’améliorer la concentration et d’accroître le sentiment de bien-être. La lampe Unwynd peut vous aider à méditer en créant un environnement paisible et en vous aidant à vous concentrer sur votre méditation grâce aux méditations guidées et à la lumière respiratoire."
+    },
+    "faqSix": {
+      "question": "Dans quelles langues les méditations guidées sont-elles proposées ?",
+      "answer": "Actuellement, les méditations guidées sont disponibles en anglais et en allemand."
+    }
+  },
+
+  "Footer": {
+    "form": {
+      "heading": {
+        "part1": "S'abonner à la",
+        "part2": "lettre d'information d'Unwynd"
+      },
+      "subHeading": "Inscrivez-vous pour recevoir les dernières nouvelles et les annonces importantes directement dans votre boîte de réception.",
+      "input": "Saisissez votre adresse électronique",
+      "btn": "S'abonner"
+    },
+    "sitemap": {
+      "heading": "Plan du site",
+      "home": "Maison",
+      "features": "Caractéristiques",
+      "3dView": "Vue 3D",
+      "advantages": "Avantages"
+    },
+    "legal": {
+      "heading": "Juridique",
+      "termsConditions": " Conditions d'utilisation",
+      "imprint": "Imprimer",
+      "privacyPolicy": "Politique de confidentialité",
+      "declaration": "Déclaration de conformité"
+    },
+    "contactUs": "Veuillez nous contacter pour obtenir de l'aide"
+  }
+}

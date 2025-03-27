@@ -4,54 +4,25 @@ import NextImage from "next/image";
 import AnimatedBackground from "../assets/animation/AnimatedBackground";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { translateTexts } from "@/lib/utils/translate";
-import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
+import { useTranslations } from "next-intl";
 
 export default function Hero() {
-  const { language } = useLanguageStore();
+  const t = useTranslations("Hero");
 
-  // Translation
-  const [heading, setHeading] = useState("The Breathing Lamp");
-  const [subtext, setSubtext] = useState(
-    "Whether you practice breathwork, mindfulness, or just need calm moments, this lamp creates the perfect environment."
-  );
-
-  // Breath in and out fade in out
-  const [text, setText] = useState("Breath in");
+  const [text, setText] = useState("Breathe in");
 
   useEffect(() => {
-    async function fetchTranslation() {
-      const texts = [
-        "The Breathing Lamp",
-        "Whether you practice breathwork, mindfulness, or just need calm moments, this lamp creates the perfect environment.",
-        "Breath in",
-        "Breath out",
-      ];
+    const sequence = [t("breatheIn"), t("breatheOut")];
+    let index = 0;
+    setText(sequence[index]); // Set initial value
 
-      const [
-        translatedHeading,
-        translatedSubtext,
-        translatedBreathIn,
-        translatedBreathOut,
-      ] = await translateTexts(texts, language);
+    const interval = setInterval(() => {
+      index = (index + 1) % sequence.length;
+      setText(sequence[index]);
+    }, 4000);
 
-      setHeading(translatedHeading);
-      setSubtext(translatedSubtext);
-
-      const sequence = [translatedBreathIn, translatedBreathOut];
-      let index = 0;
-      setText(sequence[index]); // Set initial value
-
-      const interval = setInterval(() => {
-        index = (index + 1) % sequence.length;
-        setText(sequence[index]);
-      }, 4000);
-
-      return () => clearInterval(interval);
-    }
-
-    fetchTranslation();
-  }, [language]);
+    return () => clearInterval(interval);
+  }, [t]);
 
   // Background Animation
   const [backgroundType, setBackgroundType] = useState<
@@ -69,14 +40,14 @@ export default function Hero() {
 
   return (
     <section className="p-2">
-      <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center overflow-hidden">
+      <div className="inner-full-width bg-gray-100 rounded-2xl h-dvh flex flex-col justify-center items-center gap-8 md:gap-0 overflow-hidden">
         <div className="h-[56vh] flex flex-col justify-end items-center gap-6 relative z-1">
           <h1 className="flex flex-col text-H2 md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
             <span className="leading-[1]">Unwynd</span>
-            <span className="">{heading}</span>
+            <span className="">{t("heading")}</span>
           </h1>
           <p className="max-w-[580px] mx-auto text-base text-text-secondary text-center">
-            {subtext}
+            {t("subHeading")}
           </p>
         </div>
 

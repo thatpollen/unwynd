@@ -1,36 +1,9 @@
-"use client";
-
 import NextImage from "next/image";
 import Container from "../container/container";
-import { useLanguageStore } from "@/lib/hooks/useLanguageStore";
-import { useEffect, useState } from "react";
-import { translateTexts } from "@/lib/utils/translate";
+import { useTranslations } from "next-intl";
 
 export default function Gallery() {
-  const { language } = useLanguageStore();
-  const [heading, setHeading] = useState("Serenity in Any Setting");
-  const [content, setContent] = useState(
-    "The Unwynd lamp adds a touch of tranquility to any space. Whether placed in a cozy corner or as a cent in the living room, its understated elegance enhan ambiance of any room, creating a serene atmosphere for med and relaxation"
-  );
-
-  useEffect(() => {
-    async function fetchTranslation() {
-      const texts = [
-        "Serenity in Any Setting",
-        "The Unwynd lamp adds a touch of tranquility to any space. Whether placed in a cozy corner or as a centerpiece in the living room, its understated elegance enhances the ambiance of any room, creating a serene atmosphere for meditation and relaxation",
-      ];
-
-      const [translatedHeading, translatedContent] = await translateTexts(
-        texts,
-        language
-      );
-
-      setHeading(translatedHeading);
-      setContent(translatedContent);
-    }
-
-    fetchTranslation();
-  }, [language]);
+  const t = useTranslations("gallery");
 
   return (
     <section className="w-full py-24 px-2">
@@ -38,9 +11,9 @@ export default function Gallery() {
         <div className="flex flex-col gap-12">
           <div className="self-auto md:self-end w-full md:w-1/2 flex flex-col gap-2.5">
             <span className="text-H5 md:text-[28px] lg:text-H3 font-medium">
-              {heading}
+              {t("heading")}
             </span>
-            <p className="text-base">{content}</p>
+            <p className="text-base">{t("subHeading")}</p>
           </div>
           <div className="flex items-center justify-center gap-2 flex-col md:flex-row">
             <div className="w-full md:w-1/2 flex justify-center items-center">

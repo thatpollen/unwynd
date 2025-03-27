@@ -6,107 +6,27 @@ import NextLink from "next/link";
 import { AnimateButton } from "../assets/buttons/AnimateButton";
 import NextImage from "next/image";
 import LargeContainer from "../container/largeContainer";
-import {
-  useLanguageStore,
-  useInitializeLanguage,
-} from "@/lib/hooks/useLanguageStore";
-import { useEffect, useState } from "react";
-import { translateTexts } from "@/lib/utils/translate";
+import { useRouter } from "next/navigation";
+import { useLocale, useTranslations } from "next-intl";
+
+const languages = [
+  { code: "en", name: "English" },
+  { code: "de", name: "Deutsch" },
+  { code: "fr", name: "Français" },
+  { code: "es", name: "Español" },
+  { code: "it", name: "Italiano" },
+];
 
 export default function Footer() {
-  useInitializeLanguage();
-  const { language, setLanguage } = useLanguageStore();
-  const [selectedLanguage, setSelectedLanguage] = useState(language);
-
-  useEffect(() => {
-    setSelectedLanguage(language);
-  }, [language]);
+  const t = useTranslations("Footer");
+  const router = useRouter();
+  const locale = useLocale();
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newLang = e.target.value;
-    setLanguage(newLang);
-    setSelectedLanguage(newLang);
+    const newLocale = e.target.value;
+
+    router.replace(`/${newLocale}`, { scroll: false });
   };
-
-  // Translation
-  const [textSubscribe, setTextSubscribe] = useState("Subscribe to the");
-  const [textNewsletter, setNewsletter] = useState("newsletter");
-  const [textForm, setTextForm] = useState(
-    "Sign up to receive the latest news and important announcements directly in your inbox."
-  );
-  const [email, setEmail] = useState("Enter your email");
-  const [subscribeBtn, setSubscribeBtn] = useState("Subscribe");
-  const [textSitemap, setSitemap] = useState("Sitemap");
-  const [home, setHome] = useState("Home");
-  const [features, setFeatures] = useState("Features");
-  const [view3D, setView3D] = useState("3D view");
-  const [advantages, setAdvantages] = useState("Advantages");
-  const [textLegal, setLegal] = useState("Legal");
-  const [terms, setTerms] = useState("Terms of Services");
-  const [imprint, setImprint] = useState("Imprint");
-  const [privacy, setPrivacy] = useState("Privacy Policy");
-  const [declaration, setDeclaration] = useState("Declaration Community");
-  const [textContact, setContact] = useState("Please contact us for support");
-
-  useEffect(() => {
-    async function fetchTranslation() {
-      const texts = [
-        "Subscribe to the",
-        "newsletter",
-        "Sign up to receive the latest news and important announcements directly in your inbox.",
-        "Enter your email",
-        "Subscribe",
-        "Sitemap",
-        "Home",
-        "Features",
-        "3D view",
-        "Advantages",
-        "Legal",
-        "Terms of Services",
-        "Imprint",
-        "Privacy Policy",
-        "Declaration Community",
-        "Please contact us for support",
-      ];
-
-      const [
-        translatedSubscribe,
-        translatedNewsletter,
-        translatedFormText,
-        translatedEmail,
-        translatedSubscribeBtn,
-        translatedSitemap,
-        translatedHome,
-        translatedFeatures,
-        translatedView3D,
-        translatedAdvantages,
-        translatedLegal,
-        translatedTerms,
-        translatedImprint,
-        translatedPrivacy,
-        translatedDeclaration,
-        translatedContact,
-      ] = await translateTexts(texts, language);
-      setTextSubscribe(translatedSubscribe);
-      setNewsletter(translatedNewsletter);
-      setTextForm(translatedFormText);
-      setEmail(translatedEmail);
-      setSubscribeBtn(translatedSubscribeBtn);
-      setSitemap(translatedSitemap);
-      setHome(translatedHome);
-      setFeatures(translatedFeatures);
-      setView3D(translatedView3D);
-      setAdvantages(translatedAdvantages);
-      setLegal(translatedLegal);
-      setTerms(translatedTerms);
-      setImprint(translatedImprint);
-      setPrivacy(translatedPrivacy);
-      setDeclaration(translatedDeclaration);
-      setContact(translatedContact);
-    }
-
-    fetchTranslation();
-  }, [language]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -140,14 +60,14 @@ export default function Footer() {
             <div className="flex flex-col lg:flex-row gap-20 px-6 py-12 md:p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
                 <h2 className="text-H2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
-                  {textSubscribe}
+                  {t("form.heading.part1")}
                   <br />
                   <span className="text-transparent bg-[linear-gradient(to_bottom_right,rgb(89,106,255),rgb(211,144,225),rgb(232,109,84),rgb(255,187,108))] bg-clip-text">
-                    Unwynd {textNewsletter}
+                    {t("form.heading.part2")}
                   </span>
                 </h2>
                 <p className="text-sm text-text-inverted-tertiary tracking-tight text-center md:text-left">
-                  {textForm}
+                  {t("form.subHeading")}
                 </p>
                 <form className="w-auto md:w-[525px] relative flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
                   <label className="relative w-full inline-flex items-center">
@@ -156,7 +76,7 @@ export default function Footer() {
                       type="email"
                       name="email"
                       autoComplete="email"
-                      placeholder={`${email}`}
+                      placeholder={`${t("form.input")}`}
                       required
                     />
                   </label>
@@ -164,7 +84,7 @@ export default function Footer() {
                     className="relative md:absolute md:right-2.5"
                     type="submit"
                   >
-                    {subscribeBtn}
+                    {t("form.btn")}
                   </SubscribeButton>
                 </form>
               </div>
@@ -172,41 +92,45 @@ export default function Footer() {
                 <div className="flex justify-start lg:justify-between gap-16 lg:gap-0">
                   <div className="flex flex-col gap-4">
                     <span className="text-xs text-text-tertiary">
-                      {textSitemap}
+                      {t("sitemap.heading")}
                     </span>
                     <ul className="flex flex-col items-start gap-4 text-sm text-text-inverted-primary">
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/">{home}</NextLink>
+                        <NextLink href="/">{t("sitemap.home")}</NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/">{features}</NextLink>
+                        <NextLink href="/">{t("sitemap.features")}</NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/">{view3D}</NextLink>
+                        <NextLink href="/">{t("sitemap.3dView")}</NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/">{advantages}</NextLink>
+                        <NextLink href="/">{t("sitemap.advantages")}</NextLink>
                       </li>
                     </ul>
                   </div>
                   <div className="flex flex-col gap-4">
                     <span className="text-xs text-text-tertiary">
-                      {textLegal}
+                      {t("legal.heading")}
                     </span>
                     <ul className="flex flex-col items-start gap-4 text-sm text-text-inverted-primary">
                       <li className="hover:text-brand-accent">
                         <NextLink href="/terms-and-conditions">
-                          {terms}
+                          {t("legal.termsConditions")}
                         </NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/imprint">{imprint}</NextLink>
+                        <NextLink href="/imprint">
+                          {t("legal.imprint")}
+                        </NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/privacy-policy">{privacy}</NextLink>
+                        <NextLink href="/privacy-policy">
+                          {t("legal.privacyPolicy")}
+                        </NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/">{declaration}</NextLink>
+                        <NextLink href="/">{t("legal.declaration")}</NextLink>
                       </li>
                     </ul>
                   </div>
@@ -214,7 +138,7 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 md:gap-0">
                   <div className="flex flex-col justify-center">
                     <span className="text-sm text-[rgba(255,255,255,0.5)]">
-                      {textContact}
+                      {t("contactUs")}
                     </span>
                     <NextLink
                       className="text-sm text-brand-accent"
@@ -235,14 +159,20 @@ export default function Footer() {
                         className="appearance-none bg-neutral-800 text-sm text-text-inverted-primary p-2.5 pl-10 pr-8 rounded-[10px] border border-transparent 
                hover:border-surface-inverted-primary focus:ring-1 focus:ring-surface-inverted-tertiary focus:outline-none cursor-pointer"
                         id="language"
-                        value={selectedLanguage}
+                        value={locale}
                         onChange={handleLanguageChange}
                       >
-                        <option value="en">English</option>
+                        {/* <option value="en">English</option>
                         <option value="de">Deutsch</option>
                         <option value="fr">Français</option>
                         <option value="es">Español</option>
-                        <option value="ja">日本語</option>
+                        <option value="ja">日本語</option> 
+                        */}
+                        {languages.map((language) => (
+                          <option key={language.code} value={language.code}>
+                            {language.name}
+                          </option>
+                        ))}
                       </select>
 
                       {/* Chevron Icon */}

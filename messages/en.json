@@ -1,0 +1,247 @@
+{
+  "Navbar": {
+    "features": "Features",
+    "view3d": "3D View",
+    "advantages": "Advantages",
+    "meditationLamp": "Meditation Lamp",
+    "orderNow": "Order Now"
+  },
+
+  "Hero": {
+    "heading": "The Breathing Lamp",
+    "subHeading": "Whether you practice breathwork, mindfulness, or just need calm moments, this lamp creates the perfect environment.",
+    "breatheIn": "Breath In",
+    "breatheOut": "Breath Out"
+  },
+
+  "largeText": {
+    "text": "Unwynd: the ultimate <icon-0 /> meditation companion that elevates your practice to new heights. Choose from a spectrum of light <icon-1 /> colors to match your mood, while selecting from a variety of serene <icon-2 /> sounds to deepen your focus. Let your <icon-3 /> breath be guided by a pulsating light that reflects your custom breathing patterns or follow guided meditations. Let the Unwynd lamp guide your journey to inner <icon-4 /> peace - one breath at a time."
+  },
+
+  "features": {
+    "featureOne": {
+      "title": "Soothe your soul",
+      "subtitle": "24 meditation sounds",
+      "description": [
+        "The Unwynd Lamp offers a serene escape with 24 soothing sound options designed to enhance your meditation practice.",
+        "Immerse yourself in 12 calming nature sounds, including the gentle flow of a stream, the cheerful song of birds, and the crackling warmth of a bonfire.",
+        "For those who prefer melodic tranquility, there are 12 types of meditation music available, ranging from gentle melodies to the deep relaxation of binaural beats. These sounds are carefully curated to guide your mind into a state of calm and focus.",
+        "If none of these sounds resonate with you, the lamp also functions as a speaker, allowing you to play your own meditation music, ensuring a personalized and peaceful experience tailored to your needs."
+      ]
+    },
+    "featureTwo": {
+      "title": "Enlighten your practice",
+      "subtitle": "RGB light with dynamic lighting modes",
+      "description": [
+        "The Unwynd Lamp offers a versatile lighting experience, allowing you to set the perfect ambiance for your relaxation and meditation.",
+        "Choose from any color across the light spectrum to match your mood, creating a personalized atmosphere that complements your practice. Whether you prefer a calming blue, a warm amber, or a vibrant green, the lamp’s color options are virtually limitless.",
+        "For a more dynamic experience, explore the lamp’s unique lighting modes. Transform your space with the warm, flickering glow of a crackling fire, or immerse yourself in the ethereal dance of Northern lights as the colors shift and flow. These dynamic modes are designed to enhance your sensory experience, making your meditation sessions even more immersive and calming."
+      ]
+    },
+    "featureThree": {
+      "title": "Guided serenity",
+      "subtitle": "Library of meditation exercises",
+      "description": [
+        "The Unwynd Lamp features a variety of meditation exercises, making it an ideal companion for both beginners and seasoned practitioners.",
+        "For those new to meditation, guided meditations provide a gentle introduction. A soothing voice will lead you step by step into a state of deep relaxation, helping you to clear your mind and focus your thoughts.",
+        "The Unwynd Lamp is also the ideal companion for your breathing exercises. Choose from a collection of carefully selected breathing exercises with different purposes and let your breath be guided by the light. As the lamp’s light gradually brightens, you’ll be prompted to inhale, and as it dims, you’ll be guided to exhale."
+      ]
+    },
+    "featureFour": {
+      "title": "Tap or swipe",
+      "subtitle": "Dual control",
+      "description": [
+        "The Unwynd Lamp offers flexible control options tailored to your needs.",
+        "You can control directly using the buttons on the lamp, making it ideal for those seeking a digital detox. This allows you to disconnect from your devices and fully immerse yourself in your meditation practice without distractions.",
+        "Alternatively, the lamp can be controlled via its companion app on your phone. This app enables you to easily customize your meditation experience, adjust settings, and explore all the features with just a few taps.",
+        "Whether you enjoy the tactile simplicity of button control or the seamless ease of the app, the Unwynd Lamp offers a personalized meditation experience that adapts to your preferences."
+      ]
+    },
+    "featureFive": {
+      "title": "Your meditation, your way",
+      "subtitle": "Custom meditation exercises",
+      "description": [
+        "The Unwynd Lamp offers full customization, allowing you to set the perfect ambiance for your meditation.",
+        "Apart from the possibility of easily adjusting the lighting and selecting your preferred sound, you can also set a custom breathing pattern. The lamp’s light will follow your chosen rhythm, becoming brighter to cue your inhalation and dimming to prompt your exhalation.",
+        "Once you’ve designed your ideal meditation session, you can easily save it, allowing you to quickly access and reuse your personalized settings during future sessions."
+      ]
+    },
+    "featureSix": {
+      "title": "Recharge and relax",
+      "subtitle": "Rechargeable with a long battery life",
+      "description": [
+        "The Unwynd Lamp is designed with convenience and longevity in mind. It features a rechargeable battery, ensuring you can enjoy your meditation sessions without the hassle of constantly replacing batteries. Once fully charged, the lamp offers a long battery life, allowing you to use it for extended periods without needing to recharge. This portable design allows you to take the lamp anywhere, whether you’re meditating at home, outdoors, or on the go. Simply recharge the lamp when needed, and it will be ready to provide a peaceful ambiance whenever and wherever you need it."
+      ]
+    },
+    "featureSeven": {
+      "title": "Empower your Zen",
+      "subtitle": "USB-powered",
+      "description": [
+        "The Unwynd Lamp is equipped with a practical USB charging feature, making it easy to keep powered up wherever you are. Simply connect the lamp to any standard USB port—whether it’s on your computer, a USB wall adapter, or a power bank—and recharge with ease. This versatile charging option ensures that you can maintain your meditation practice without worrying about finding specific chargers, offering both convenience and flexibility."
+      ]
+    },
+    "featureEight": {
+      "title": "Set and soothe",
+      "subtitle": "Timer function",
+      "description": [
+        "The meditation lamp includes a practical timer function, allowing you to set it to automatically switch off after a selected period. This feature is perfect for creating a relaxing atmosphere before sleep, as the lamp will gently turn off on its own, helping you unwind and drift off without needing to worry about manually turning it off."
+      ]
+    },
+    "featureNine": {
+      "title": "Scheduled stillness",
+      "subtitle": "Alarm function",
+      "description": [
+        "The Unwynd Lamp’s built-in alarm feature helps ensure you never miss a moment of mindfulness. When the alarm activates at your chosen time, a gently pulsating light will invite you to pause and meditate. Simply touch or press any button on the lamp to start your pre-selected meditation exercise. This feature is particularly useful for busy office workers or anyone with a hectic schedule, ensuring you don’t forget to take a moment for your well-being during the day."
+      ]
+    },
+    "featureTen": {
+      "title": "Silent sanctuary",
+      "subtitle": "Headphone jack",
+      "description": [
+        "The Unwynd Lamp is equipped with a headphone jack, offering a private and immersive meditation experience. Simply plug in your headphones to enjoy your chosen meditation sound without disturbing those around you, and without being interrupted by external noise. This feature is perfect for creating a focused, tranquil space wherever you are, whether at home, in the office, or on the go."
+      ]
+    }
+  },
+
+  "gallery": {
+    "heading": "Serenity in Any Setting",
+    "subHeading": "The Unwynd lamp adds a touch of tranquility to any space. Whether placed in a cozy corner or as a centerpiece in the living room, its understated elegance enhances the ambiance of any room, creating a serene atmosphere for meditation and relaxation."
+  },
+
+  "3D": {
+    "heading": {
+      "spanOne": "Harmony in",
+      "spanTwo": "Three Dimensions"
+    },
+    "subHeading": "Crafted with meticulous attention to detail, the Unwynd lamp is more than just an illuminating presence — it's a serene sanctuary in itself. Every aspect of the design has been thoughtfully considered to enhance the meditation experience.",
+    "drag": "Drag to rotate"
+  },
+
+  "advantages": {
+    "heading": "Advantages",
+    "advantageOne": {
+      "title": "Improve your well-being",
+      "description": "Meditation has numerous positive effects on our well-being. It can help reduce stress and anxiety, promote relaxation, and improve focus and clarity of mind."
+    },
+    "advantageTwo": {
+      "title": "Easy control",
+      "description": "Effortlessly control the lamp with the companion app or opt for direct control using the buttons on the lamp for a refreshing digital detox experience."
+    },
+    "advantageThree": {
+      "title": "How are you feeling today?",
+      "description": "Customize the lamp's light and sound to match your mood! Explore various nature sounds, binaural beats, and meditation music, or play your own music."
+    },
+    "advantageFour": {
+      "title": "Explore",
+      "description": "Find inspiration in the app’s library that is full of breathing exercises and guided meditations."
+    },
+    "advantageFive": {
+      "title": "Enter your own breathing meditation",
+      "description": "You can also enter exercises with custom breathing patterns in the app to allow for a more tailored meditation session."
+    },
+    "advantageSix": {
+      "title": "Remember to take a break!",
+      "description": "Are you so focused on your work that you forget about everything around you? Set an alert in the app and let a warm, pulsating light gently remind you to do your meditation."
+    },
+    "advantageSeven": {
+      "title": "Enjoy a stylish table lamp",
+      "description": "The lamp, with its discrete design, may also serve as a regular table lamp and seamlessly integrates into any environment."
+    }
+  },
+
+  "testimonials": {
+    "heading": "Our testimonials",
+    "subHeading": "Happy customers that enjoy our Unwynd lamp",
+    "testimonialOne": {
+      "title": "The versatility of this meditation lamp is unparalleled",
+      "description": "From the calming pulsating light for breathing exercises to the vast selection of nature sounds and meditation music, it's an all-in-one relaxation tool"
+    },
+    "testimonialTwo": {
+      "title": "It guides my breathing effortlessly",
+      "description": "As someone who struggles with focus during meditation, the pulsating light feature of this lamp has been a game-changer. It guides my breathing effortlessly, allowing for deeper relaxation and mindfulness"
+    },
+    "testimonialThree": {
+      "title": "I love how seamlessly this lamp integrates into my daily routine",
+      "description": "Whether I need a moment of tranquility at work or a soothing ambiance for bedtime meditation, its dynamic lighting and sound options always cater to my needs"
+    },
+    "testimonialFour": {
+      "title": "Discreet way to de-stress",
+      "description": "Working in a busy open space office, I needed a discreet way to de-stress without disturbing my colleagues. This lamp's silent mode, combined with its elegant design, allows me to practice mindfulness without drawing attention"
+    },
+    "testimonialFive": {
+      "title": "Aesthetic lamp",
+      "description": "The wooden design of this aesthetic lamp brings a touch of sophistication to any room. It effortlessly transitions from a meditation aid to a stylish table lamp, enhancing both my space and my well-being"
+    },
+    "testimonialSix": {
+      "title": "Controlling this lamp is a breeze",
+      "description": "Controlling this lamp is a breeze, whether through the companion app or the buttons on the lamp itself. It's the perfect blend of modern convenience and timeless relaxation"
+    },
+    "testimonialSeven": {
+      "title": "I love how easy it is to customize",
+      "description": "I love how easy it is to customize my meditation sessions with this lamp. With just a few taps on the app, I can create the perfect environment for deep relaxation and introspection"
+    },
+    "testimonialEight": {
+      "title": "The option for direct control on the lamp is irreplaceable",
+      "description": "As someone who values unplugging from technology, the option for direct control on the lamp is irreplaceable. It allows me to enjoy a digital detox while still benefiting from the lamp's calming features"
+    },
+    "testimonialNine": {
+      "title": "I appreciate the simplicity and effectiveness of this lamp",
+      "description": "As a beginner to meditation, I appreciate the simplicity and effectiveness of this lamp. It guides me through breathing exercises with ease, making it accessible for anyone looking to start their mindfulness journey"
+    }
+  },
+
+  "FAQ": {
+    "heading": "FAQ",
+    "faqOne": {
+      "question": "Would the Unwynd Lamp be a good fit for someone new to meditation?",
+      "answer": "Absolutely! Our customers have consistently affirmed that the Unwynd Lamp is incredibly helpful for beginners. Through the companion app, users can access a wide range of breathing exercises and guided meditations that provide easy guidance for those just starting out on their meditation journey."
+    },
+    "faqTwo": {
+      "question": "Can I use my own meditation music with the Unwynd Lamp?",
+      "answer": "Yes, you can utilize the Unwynd Lamp as a speaker and easily play your preferred meditation music."
+    },
+    "faqThree": {
+      "question": "Can I practice my own breathing exercises with the Unwynd Lamp?",
+      "answer": "Certainly! With the companion app, you can effortlessly set up your personalized breathing intervals. If you wish to reuse your custom breathing exercise, you can save it and even access it directly from the Unwynd Lamp without needing the app."
+    },
+    "faqFour": {
+      "question": "What sets the Unwynd Lamp apart from regular baby lamps?",
+      "answer": "The Unwynd Lamp stands out for its focus on providing the ultimate meditation experience. From its harmonious design and option for digital detox through the direct control of the lamp without requiring the companion app, to the thoughtfully curated selection of nature sounds, guided meditations, and relaxing lighting modes, every aspect is tailored to enhance meditation. The companion app further facilitates customization, enabling users to easily adapt and save favorite meditation exercises, including personalized breathing intervals."
+    },
+    "faqFive": {
+      "question": "What benefits can I expect from using the Unwynd Lamp?",
+      "answer": "Engaging in meditation can lead to stress reduction, improved focus, and a heightened sense of well-being. The Unwynd Lamp can assist you in your meditation by creating a peaceful environment and help you concentrate on your meditation with the guided meditations and the breathing light."
+    },
+    "faqSix": {
+      "question": "In which languages are the guided meditations offered?",
+      "answer": "Currently, the guided meditations are available in English and German."
+    }
+  },
+
+  "Footer": {
+    "form": {
+      "heading": {
+        "part1": "Subscribe to the",
+        "part2": "Unwynd newsletter"
+      },
+      "subHeading": "Sign up to receive the latest news and important announcements directly in your inbox.",
+      "input": "Enter your email",
+      "btn": "Subscribe"
+    },
+    "sitemap": {
+      "heading": "Sitemap",
+      "home": "Home",
+      "features": "Features",
+      "3dView": "3D View",
+      "advantages": "Advantages"
+    },
+    "legal": {
+      "heading": "Legal",
+      "termsConditions": " Terms of Services",
+      "imprint": "Imprint",
+      "privacyPolicy": "Privacy Policy",
+      "declaration": "Declaration Community"
+    },
+    "contactUs": "Please contact us for support"
+  }
+}
