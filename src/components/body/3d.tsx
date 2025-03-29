@@ -10,7 +10,7 @@ export default function ThreeD() {
   const t = useTranslations("3D");
 
   return (
-    <section className="w-full py-24">
+    <section id="view3d" className="w-full py-24">
       <Container>
         <div className="flex flex-col items-center gap-16">
           <div className="flex flex-col justify-center items-center gap-2.5">

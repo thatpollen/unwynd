@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
+import { Poppins, Caveat } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
@@ -8,6 +8,12 @@ import { routing } from "@/i18n/routing";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+});
+
+const caveat = Caveat({
+  variable: "--font-caveat",
+  subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} ${caveat.variable} antialiased`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

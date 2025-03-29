@@ -8,14 +8,14 @@
   },
 
   "Hero": {
-    "heading": "The Breathing Lamp",
+    "heading": "The Breathing Light",
     "subHeading": "Whether you practice breathwork, mindfulness, or just need calm moments, this lamp creates the perfect environment.",
-    "breatheIn": "Breath In",
-    "breatheOut": "Breath Out"
+    "breatheIn": "breathe in",
+    "breatheOut": "breathe out"
   },
 
   "largeText": {
-    "text": "Unwynd: the ultimate <icon-0 /> meditation companion that elevates your practice to new heights. Choose from a spectrum of light <icon-1 /> colors to match your mood, while selecting from a variety of serene <icon-2 /> sounds to deepen your focus. Let your <icon-3 /> breath be guided by a pulsating light that reflects your custom breathing patterns or follow guided meditations. Let the Unwynd lamp guide your journey to inner <icon-4 /> peace - one breath at a time."
+    "text": "Unwynd: the ultimate meditation companion that elevates your practice to new heights. Choose from a spectrum of light colors to match your mood, while selecting from a variety of serene sounds to deepen your focus. Let your breath be guided by a pulsating light that reflects your custom breathing patterns or follow guided meditations. Let the Unwynd lamp guide your journey to inner peace - one breath at a time."
   },
 
   "features": {
@@ -240,8 +240,51 @@
       "termsConditions": " Terms of Services",
       "imprint": "Imprint",
       "privacyPolicy": "Privacy Policy",
-      "declaration": "Declaration Community"
+      "declaration": "Declaration of Conformity"
     },
     "contactUs": "Please contact us for support"
+  },
+
+  "PrivacyPolicy": {
+    "privacy_policy": "Privacy Policy",
+    "last_updated": "Last Updated On",
+    "effective_date": "Effective Date",
+    "description": "This Privacy Policy describes the policies of {company}, {address}, email: {email}, on the collection, use and disclosure of your information that we collect when you use our website {website} (the \"Service\"). By accessing or using the Service, you are consenting to the collection, use and disclosure of your information in accordance with this Privacy Policy. If you do not consent to the same, please do not access or use the Service.",
+    "modification_notice": "We may modify this Privacy Policy at any time without any prior notice to you and will post the revised Privacy Policy on the Service. The revised Policy will be effective 180 days from when the revised Policy is posted in the Service and your continued access or use of the Service after such time will constitute your acceptance of the revised Privacy Policy. We therefore recommend that you periodically review this page.",
+    "information_we_collect": "Information We Collect:",
+    "personal_information": "To the extent provided by you, we will collect and process the following personal information about you:",
+    "personal_info_list": ["Name", "Email", "Address", "Payment Info"],
+    "how_we_use_info": "How We Use Your Information:",
+    "usage_purposes": "We will use the information that we collect about you for the following purposes:",
+    "usage_list": [
+      "Marketing/Promotional",
+      "Processing payment",
+      "Manage customer order",
+      "Support"
+    ],
+    "consent_notice": "If we want to use your information for any other purpose, we will ask you for consent and will use your information only on receiving your consent and then, only for the purpose(s) for which consent is granted unless we are required to do otherwise by law.",
+    "how_we_share_info": "How We Share Your Information:",
+    "sharing_policy": "We will not transfer your personal information to any third party without seeking your consent, except in limited circumstances as described below:",
+    "sharing_list": ["Ad service", "Analytics"],
+    "third_party_usage": "We require such third parties to use the personal information we transfer to them only for the purpose for which it was transferred and not to retain it for longer than is required for fulfilling the said purpose.",
+    "legal_disclosure": "We may also disclose your personal information for the following: (1) to comply with applicable law, regulation, court order or other legal process; (2) to enforce your agreements with us, including this Privacy Policy; or (3) to respond to claims that your use of the Service violates any third-party rights. If the Service or our company is merged or acquired with another company, your information will be one of the assets that is transferred to the new owner.",
+    "retention_info": "Retention Of Your Information:",
+    "retention_policy": "We will retain your personal information with us for 90 days to 2 years after user terminates account or for as long as we need it to fulfill the purposes for which it was collected as detailed in this Privacy Policy. We may need to retain certain information for longer periods such as record-keeping / reporting in accordance with applicable law or for other legitimate reasons like enforcement of legal rights, fraud prevention, etc. Residual anonymous information and aggregate information, neither of which identifies you (directly or indirectly), may be stored indefinitely.",
+    "your_rights": "Your Rights:",
+    "rights_description": "Depending on the law that applies, you may have a right to access and rectify or erase your personal data or receive a copy of your personal data, restrict or object to the active processing of your data, ask us to share (port) your personal information to another entity, withdraw any consent you provided to us to process your data, a right to lodge a complaint with a statutory authority and such other rights as may be relevant under applicable laws. To exercise these rights, you can write to us at {email}. We will respond to your request in accordance with applicable law.",
+    "cookie_policy": "Cookies:",
+    "what_are_cookies": "What are cookies?",
+    "cookies_description": "Cookies are small text files that are used to store small pieces of information. They are stored on your device when the website is loaded on your browser. These cookies help us make the website function properly, make it more secure, provide better user experience, and understand how the website performs and to analyze what works and where it needs improvement.",
+    "how_we_use_cookies": "How do we use cookies?",
+    "cookies_usage": "As most of the online services, our website uses first-party and third-party cookies for several purposes. First-party cookies are mostly necessary for the website to function the right way, and they do not collect any of your personally identifiable data.",
+    "cookies_preferences": "Manage cookie preferences",
+    "cookie_settings": "You can change your {link} any time in the Cookie Settings. This will let you revisit the cookie consent banner and change your preferences or withdraw your consent right away.",
+    "browser_cookie_links": {
+      "chrome": "https://support.google.com/accounts/answer/32050",
+      "safari": "https://support.apple.com/en-in/guide/safari/sfri11471/mac",
+      "firefox": "https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox",
+      "ie": "https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc"
+    },
+    "other_browser_support": "If you are using any other web browser, please visit your browser’s official support documents."
   }
 }

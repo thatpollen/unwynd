@@ -81,21 +81,26 @@ export default function Testimonials() {
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const duplicatedTestimonials = [...testimonials, ...testimonials];
+  const getColumnTestimonials = (columnIndex: number) => {
+    const itemsPerColumn = Math.ceil(testimonials.length / columns);
+    return testimonials.slice(
+      columnIndex * itemsPerColumn,
+      (columnIndex + 1) * itemsPerColumn
+    );
+  };
 
-  // **Framer Motion Infinite Scroll Variants**
   const verticalTicker = (direction: "up" | "down") => ({
+    initial: { y: direction === "up" ? "0%" : "-50%" },
     animate: {
-      y: direction === "up" ? ["0%", "-100%"] : ["-50%", "0%"],
+      y: direction === "up" ? "-100%" : "0%",
       transition: {
         repeat: Infinity,
         repeatType: "loop" as const,
-        duration: 400,
+        duration: 60 * (direction === "up" ? 1 : 1.2),
         ease: "linear",
       },
     },
   });
-
   return (
     <section className="w-full px-2">
       <div className="rounded-2xl bg-background-tertiary pt-50 pb-12">
@@ -261,48 +266,57 @@ export default function Testimonials() {
                         columns === 2 ? "grid-cols-2" : "grid-cols-3"
                       } gap-2 w-full h-full`}
                     >
-                      {[...Array(columns)].map((_, colIndex) => (
-                        <div
-                          key={colIndex}
-                          className="overscroll-visible md:overflow-hidden relative"
-                        >
-                          <motion.div
-                            className="absolute top-0 w-full flex flex-col gap-2"
-                            variants={verticalTicker(
-                              colIndex === 1 ? "down" : "up"
-                            )}
-                            animate="animate"
-                            style={{ display: "flex", flexDirection: "column" }}
+                      {[...Array(columns)].map((_, colIndex) => {
+                        // Get unique testimonials for this column
+                        const columnTestimonials =
+                          getColumnTestimonials(colIndex);
+                        // Duplicate for seamless looping
+                        const duplicatedItems = [
+                          ...columnTestimonials,
+                          ...columnTestimonials,
+                          ...columnTestimonials,
+                        ];
+
+                        return (
+                          <div
+                            key={colIndex}
+                            className="overscroll-visible md:overflow-hidden relative h-full"
                           >
-                            {[
-                              ...duplicatedTestimonials,
-                              ...duplicatedTestimonials,
-                            ].map((testimonial, index) => (
-                              <div
-                                className="bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
-                                key={`${colIndex}-${index}`}
-                              >
-                                <div className="flex flex-col items-start gap-6 px-6 py-8">
-                                  <span className="w-8 h-8">
-                                    <Graphic />
-                                  </span>
-                                  <div className="w-full flex flex-col gap-2">
-                                    <h6 className="text-H6 font-medium">
-                                      {testimonial?.title}
-                                    </h6>
-                                    <p className="text-sm text-text-secondary">
-                                      {testimonial?.description}
-                                    </p>
+                            <motion.div
+                              className="absolute top-0 w-full flex flex-col gap-2"
+                              variants={verticalTicker(
+                                colIndex % 2 === 0 ? "up" : "down"
+                              )}
+                              initial="initial"
+                              animate="animate"
+                            >
+                              {duplicatedItems.map((testimonial, index) => (
+                                <div
+                                  className="bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
+                                  key={`${colIndex}-${index}`}
+                                >
+                                  <div className="flex flex-col items-start gap-6 px-6 py-8">
+                                    <span className="w-8 h-8">
+                                      <Graphic />
+                                    </span>
+                                    <div className="w-full flex flex-col gap-2">
+                                      <h6 className="text-H6 font-medium">
+                                        {testimonial?.title}
+                                      </h6>
+                                      <p className="text-sm text-text-secondary">
+                                        {testimonial?.description}
+                                      </p>
+                                    </div>
+                                    <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
+                                      {testimonial?.author}
+                                    </span>
                                   </div>
-                                  <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
-                                    {testimonial?.author}
-                                  </span>
                                 </div>
-                              </div>
-                            ))}
-                          </motion.div>
-                        </div>
-                      ))}
+                              ))}
+                            </motion.div>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

@@ -10,12 +10,12 @@
   "Hero": {
     "heading": "La Lámpara de Respiración",
     "subHeading": "Ya sea que practiques la respiración, el mindfulness o simplemente necesites un momento de calma, esta lámpara crea el ambiente perfecto.",
-    "breatheIn": "Respira En",
-    "breatheOut": "Respira"
+    "breatheIn": "respira en",
+    "breatheOut": "respira"
   },
 
   "largeText": {
-    "text": "Unwynd: el compañero de meditación definitivo <icon-0 /> que eleva tu práctica a nuevas cotas. Elige entre un espectro de <icon-1 /> colores de luz para adaptarte a tu estado de ánimo, mientras seleccionas entre una variedad de <icon-2 /> sonidos serenos para profundizar en tu concentración. Deja que tu <icon-3 /> respiración sea guiada por una luz pulsante que refleja tus patrones de respiración personalizados o sigue meditaciones guiadas. Deja que la lámpara Unwynd guíe tu viaje hacia la <icon-4 /> paz interior - respiración a respiración."
+    "text": "Unwynd: el compañero de meditación definitivo que eleva tu práctica a nuevas cotas. Elige entre un espectro de colores de luz para adaptarte a tu estado de ánimo, mientras seleccionas entre una variedad de sonidos serenos para profundizar en tu concentración. Deja que tu respiración sea guiada por una luz pulsante que refleja tus patrones de respiración personalizados o sigue meditaciones guiadas. Deja que la lámpara Unwynd guíe tu viaje hacia la paz interior - respiración a respiración."
   },
 
   "features": {
