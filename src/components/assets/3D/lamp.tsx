@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { useGLTF, OrthographicCamera } from "@react-three/drei";
 import { useRef, useState, useEffect } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Environment } from "@react-three/drei";
 
 function LampScene() {
   const { scene } = useGLTF("/models/lamp.glb");
@@ -41,9 +41,16 @@ export default function Lamp({ ...props }) {
     <>
       <color attach="background" args={[""]} />
       <group ref={groupRef} {...props} dispose={null}>
-        <ambientLight intensity={1} />
-        <hemisphereLight intensity={1} color="#eaeaea" />
-        <directionalLight position={[0, 4, 8]} intensity={1} />
+        <ambientLight intensity={0.5} />
+        <hemisphereLight
+          intensity={0.5}
+          color="#eaeaea"
+          groundColor="#ffffff"
+        />
+        <directionalLight position={[0, 3, 6]} intensity={0.7} />
+        <directionalLight position={[-5, 5, 5]} intensity={0.5} />
+        <pointLight position={[0, 1.5, 0.5]} intensity={0.6} distance={2} />
+        <Environment preset="sunset" />
         {/* <primitive object={scene} scale={1} position={[0, -0.12, 0]} /> */}
         <LampScene />
       </group>

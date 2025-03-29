@@ -1,15 +1,40 @@
 "use client";
 
+import { useLocale } from "next-intl";
+import English from "../assets/largeText/English";
+import Deutsch from "../assets/largeText/Deutsch";
+import Español from "../assets/largeText/Español";
+import Français from "../assets/largeText/Français";
+import Italiano from "../assets/largeText/Italiano";
+
+const languageComponents: Record<string, React.FC> = {
+  en: English,
+  de: Deutsch,
+  fr: Français,
+  es: Español,
+  it: Italiano,
+};
+
+export default function LargeText() {
+  const locale = useLocale(); // Get the current language
+  const LanguageComponent = languageComponents[locale] || English; // Default to English if not found
+
+  return <LanguageComponent />;
+}
+
+/*
+"use client";
+
 import Container from "../container/container";
 import React, { useRef, useLayoutEffect } from "react";
 import SplitType from "split-type";
 import { gsap, ScrollTrigger } from "gsap/all";
-// import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
-// import { motion, useMotionValue, useSpring } from "framer-motion";
+import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
+import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function LargeText() {
   const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
-  // const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -32,7 +57,6 @@ export default function LargeText() {
         duration: 0.4,
       });
 
-      /*
       const iconAnimations = iconRefs.current
         .filter((icon) => icon !== null)
         .map((icon) =>
@@ -53,7 +77,7 @@ export default function LargeText() {
             }
           )
         );
-*/
+
       return () => {
         splitTypes.revert();
         wordsAnimation.kill();
@@ -62,7 +86,6 @@ export default function LargeText() {
     }
   }, []);
 
-  /*
   const useHoverMotion = () => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -127,7 +150,6 @@ export default function LargeText() {
       </motion.span>
     );
   };
-*/
 
   return (
     <section className="w-full py-32 px-2">
@@ -150,130 +172,4 @@ export default function LargeText() {
     </section>
   );
 }
-
-// "use client";
-
-// import Container from "../container/container";
-// import React, { useRef, useLayoutEffect } from "react";
-// import SplitType from "split-type";
-// import { gsap, ScrollTrigger } from "gsap/all";
-// import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
-// import { motion, useMotionValue, useSpring } from "framer-motion";
-// import { useTranslations } from "next-intl";
-
-// export default function LargeText() {
-//   const t = useTranslations("largeText");
-//   const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
-//   const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
-
-//   useLayoutEffect(() => {
-//     gsap.registerPlugin(ScrollTrigger);
-
-//     if (elementsToSplitRef.current) {
-//       const splitTypes = new SplitType(elementsToSplitRef.current, {
-//         types: "words",
-//       });
-
-//       const wordsAnimation = gsap.from(splitTypes.words, {
-//         scrollTrigger: {
-//           trigger: elementsToSplitRef.current,
-//           start: "top 80%",
-//           end: "bottom 50%",
-//           scrub: 2,
-//           markers: false,
-//         },
-//         opacity: 0.24,
-//         stagger: 0.1,
-//         duration: 0.4,
-//       });
-
-//       return () => {
-//         splitTypes.revert();
-//         wordsAnimation.kill();
-//       };
-//     }
-//   }, []);
-
-//   const useHoverMotion = () => {
-//     const x = useMotionValue(0);
-//     const y = useMotionValue(0);
-//     const smoothX = useSpring(x, { stiffness: 200, damping: 20, mass: 0.5 });
-//     const smoothY = useSpring(y, { stiffness: 200, damping: 20, mass: 0.5 });
-
-//     const handleMouseMove = (event: React.MouseEvent<HTMLSpanElement>) => {
-//       const { currentTarget, clientX, clientY } = event;
-//       const { left, top, width, height } =
-//         currentTarget.getBoundingClientRect();
-
-//       const moveX = Math.min(
-//         Math.max((clientX - (left + width / 2)) * 0.3, -15),
-//         15
-//       );
-//       const moveY = Math.min(
-//         Math.max((clientY - (top + height / 2)) * 0.3, -15),
-//         15
-//       );
-
-//       x.set(moveX);
-//       y.set(moveY);
-//     };
-
-//     const handleMouseLeave = () => {
-//       x.set(0);
-//       y.set(0);
-//     };
-
-//     return { x: smoothX, y: smoothY, handleMouseMove, handleMouseLeave };
-//   };
-
-//   const AnimatedIcon = ({
-//     Icon,
-//     index,
-//   }: {
-//     Icon: React.ElementType<{ className?: string }>;
-//     index?: number;
-//   }) => {
-//     const { x, y, handleMouseMove, handleMouseLeave } = useHoverMotion();
-
-//     return (
-//       <motion.span
-//         className="inline-flex justify-center items-center"
-//         style={{ x, y, transformOrigin: "center" }}
-//         onMouseMove={handleMouseMove}
-//         onMouseLeave={handleMouseLeave}
-//         ref={(el) => {
-//           if (el && index !== undefined) {
-//             iconRefs.current[index] = el;
-//           }
-//         }}
-//       >
-//         <div className="aspect-square relative overflow-visible w-12 h-12">
-//           <Icon className="stroke-neutral-600 w-full h-full" />
-//         </div>
-//       </motion.span>
-//     );
-//   };
-
-//   const icons = [HealthCare, Elements, Music, Flow, HandPrayer];
-
-//   const translatedText = t("text").split(/<icon-(\d+)\s*\/>/g);
-
-//   return (
-//     <section className="w-full py-32 px-2">
-//       <Container>
-//         <div
-//           className="text-H3 lg:text-H2 leading-[1.3em] font-light text-text-primary text-center whitespace-pre-wrap"
-//           ref={elementsToSplitRef}
-//         >
-//           {translatedText.map((part, index) => {
-//             const iconIndex = Number(part);
-//             if (!isNaN(iconIndex) && icons[iconIndex]) {
-//               return <AnimatedIcon key={index} Icon={icons[iconIndex]} />;
-//             }
-//             return <span key={index}>{part}</span>;
-//           })}
-//         </div>
-//       </Container>
-//     </section>
-//   );
-// }
+*/

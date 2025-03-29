@@ -8,6 +8,7 @@ import NextImage from "next/image";
 import LargeContainer from "../container/largeContainer";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
+import { Link } from "react-scroll";
 
 const languages = [
   { code: "en", name: "English" },
@@ -38,7 +39,7 @@ export default function Footer() {
         <div className="h-[200px]">
           <LargeContainer>
             <div className="relative">
-              <div className="absolute z-1 top-[-128px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
+              <div className="absolute z-1 top-[-72px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
                 <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
                   <NextImage
                     src="/images/unwynd-footer-lamp.avif"
@@ -72,7 +73,7 @@ export default function Footer() {
                 <form className="w-auto md:w-[525px] relative flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
                   <label className="relative w-full inline-flex items-center">
                     <input
-                      className="w-full text-white placeholder:text-text-secondary rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:ring-1 focus:ring-brand focus:ring-offeset-1 autofill"
+                      className="w-full text-white placeholder:text-text-secondary rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:border-dotted autofill hover:bg-surface-inverted-secondary transition-all duration-100"
                       type="email"
                       name="email"
                       autoComplete="email"
@@ -81,7 +82,7 @@ export default function Footer() {
                     />
                   </label>
                   <SubscribeButton
-                    className="relative md:absolute md:right-2.5"
+                    className="relative md:absolute md:right-2.5 hover:bg-brand hover:text-text-inverted-primary"
                     type="submit"
                   >
                     {t("form.btn")}
@@ -95,17 +96,41 @@ export default function Footer() {
                       {t("sitemap.heading")}
                     </span>
                     <ul className="flex flex-col items-start gap-4 text-sm text-text-inverted-primary">
-                      <li className="hover:text-brand-accent">
+                      <li className="hover:text-brand-accent cursor-pointer">
                         <NextLink href="/">{t("sitemap.home")}</NextLink>
                       </li>
-                      <li className="hover:text-brand-accent">
-                        <NextLink href="/">{t("sitemap.features")}</NextLink>
+                      <li className="hover:text-brand-accent cursor-pointer">
+                        <Link
+                          to="features"
+                          spy={true}
+                          smooth={true}
+                          offset={-120}
+                          duration={500}
+                        >
+                          {t("sitemap.features")}
+                        </Link>
                       </li>
-                      <li className="hover:text-brand-accent">
-                        <NextLink href="/">{t("sitemap.3dView")}</NextLink>
+                      <li className="hover:text-brand-accent cursor-pointer">
+                        <Link
+                          to="view3d"
+                          spy={true}
+                          smooth={true}
+                          offset={-50}
+                          duration={500}
+                        >
+                          {t("sitemap.3dView")}
+                        </Link>
                       </li>
-                      <li className="hover:text-brand-accent">
-                        <NextLink href="/">{t("sitemap.advantages")}</NextLink>
+                      <li className="hover:text-brand-accent cursor-pointer">
+                        <Link
+                          to="advantages"
+                          spy={true}
+                          smooth={true}
+                          offset={-50}
+                          duration={500}
+                        >
+                          {t("sitemap.advantages")}
+                        </Link>
                       </li>
                     </ul>
                   </div>

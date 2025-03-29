@@ -11,6 +11,7 @@ import {
 } from "../assets/icons";
 import Container from "../container/container";
 import { useTranslations } from "next-intl";
+import { useState, useEffect, useRef } from "react";
 
 interface AdvantagesProps {
   title?: string;
@@ -20,6 +21,37 @@ interface AdvantagesProps {
 
 export default function Advantages() {
   const t = useTranslations("advantages");
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Check if the screen width is 840px or below
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth <= 840);
+    };
+
+    checkScreenSize(); // Initial check
+    window.addEventListener("resize", checkScreenSize); // Listen for resize
+
+    return () => window.removeEventListener("resize", checkScreenSize); // Cleanup
+  }, []);
+
+  // Click outside to reset background
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        containerRef.current &&
+        !containerRef.current.contains(event.target as Node)
+      ) {
+        setSelectedIndex(null);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
 
   const advantages: AdvantagesProps[] = [
     {
@@ -60,7 +92,7 @@ export default function Advantages() {
   ];
 
   return (
-    <section className="w-full py-24 px-4">
+    <section id="advantages" className="w-full py-24 px-4">
       <Container>
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
           <div className="w-auto lg:w-1/3 relative lg:sticky lg:top-[192px]">
@@ -69,13 +101,31 @@ export default function Advantages() {
               {t("heading")}
             </h2>
           </div>
-          <div className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 items-stretch gap-2">
+          <div
+            className="w-full lg:w-2/3 grid grid-cols-1 md:grid-cols-2 items-stretch gap-2"
+            ref={containerRef}
+          >
             {advantages?.map((advantage, index) => (
               <div
-                className="w-full flex flex-col gap-4 p-8 rounded-2xl bg-background-tertiary hover:bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F0D,rgba(170,234,31,0.05))] hover:cursor-default transition-all ease-in-out duration-300 "
                 key={index}
+                className={`w-full flex flex-col gap-4 p-8 rounded-2xl transition-all ease-in-out duration-300 
+            ${
+              isMobile && selectedIndex === index
+                ? "bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F33,rgba(170,234,31,0.05))]"
+                : "bg-background-tertiary"
+            }
+             ${
+               !isMobile
+                 ? "hover:bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F0D,rgba(170,234,31,0.05))] hover:cursor-default"
+                 : ""
+             }
+          `}
+                onClick={(e) => {
+                  e.stopPropagation(); // Prevent click from bubbling up
+                  if (isMobile) setSelectedIndex(index);
+                }}
               >
-                <span className="">{advantage?.icon}</span>
+                <span>{advantage?.icon}</span>
                 <h6 className="text-H6 font-medium">{advantage?.title}</h6>
                 <p className="text-base text-text-secondary">
                   {advantage?.description}

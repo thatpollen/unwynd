@@ -10,12 +10,12 @@
   "Hero": {
     "heading": "lampe de méditation",
     "subHeading": "Que vous pratiquiez la respiration, la pleine conscience ou que vous ayez simplement besoin d’un moment de calme, cette lampe crée l’ambiance parfaite.",
-    "breatheIn": "Inspirez",
-    "breatheOut": "Expirez"
+    "breatheIn": "inspirez",
+    "breatheOut": "expirez"
   },
 
   "largeText": {
-    "text": "Unwynd: le compagnon de méditation ultime <icon-0 /> qui élève votre pratique à de nouveaux sommets. Choisissez parmi un spectre de couleurs de lumière <icon-1 /> pour vous adapter à votre humeur, tout en sélectionnant une variété de sons sereins <icon-2 /> pour approfondir votre concentration. Laissez votre respiration <icon-3 /> être guidée par une lumière pulsée qui reflète vos schémas respiratoires personnalisés ou suivez des méditations guidées.Laissez la lampe Unwynd guider votre voyage vers la paix intérieure <icon-4 /> – une respiration à la fois."
+    "text": "Unwynd: le compagnon de méditation ultime qui élève votre pratique à de nouveaux sommets. Choisissez parmi un spectre de couleurs de lumière pour vous adapter à votre humeur, tout en sélectionnant une variété de sons sereins pour approfondir votre concentration. Laissez votre respiration être guidée par une lumière pulsée qui reflète vos schémas respiratoires personnalisés ou suivez des méditations guidées.Laissez la lampe Unwynd guider votre voyage vers la paix intérieure – une respiration à la fois."
   },
 
   "features": {

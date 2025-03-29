@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "../reusable/carousel";
 import Autoplay from "embla-carousel-autoplay";
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 import { Plus } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
@@ -28,13 +28,39 @@ export default function Features() {
   const t = useTranslations("features");
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
-  const toggleExpand = (id: number) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
-
   const autoplayPlugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: false })
   );
+
+  const [scrollingIds, setScrollingIds] = useState<{ [key: number]: boolean }>(
+    {}
+  );
+
+  let lastScrollTop = 0;
+
+  const handleScroll = (e: React.UIEvent<HTMLDivElement>, id: number) => {
+    const target = e.target as HTMLDivElement;
+    const scrollTop = target.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      setScrollingIds((prev) => ({ ...prev, [id]: false }));
+    } else {
+      setScrollingIds((prev) => ({ ...prev, [id]: true }));
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  };
+
+  const toggleExpand = (id: number) => {
+    setExpandedId(expandedId === id ? null : id);
+
+    if (autoplayPlugin.current) {
+      if (expandedId === id) {
+        autoplayPlugin.current.play();
+      } else {
+        autoplayPlugin.current.stop();
+      }
+    }
+  };
 
   const carouselItems: CarouselItemProps[] = [
     {
@@ -130,7 +156,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="w-full">
+    <section id="features" className="w-full">
       <div className="max-w-[1440px] mx-auto">
         <div className="w-full h-[600px]">
           <Carousel
@@ -144,8 +170,20 @@ export default function Features() {
                   <CarouselItem
                     key={item?.id}
                     className="basis-[calc(100%-10%)] md:basis-[calc(50%-5%)] lg:basis-auto"
+                    // onClick={() => {
+                    //   if (expandedId !== item.id) toggleExpand(item.id ?? -1);
+                    // }}
+                    onClick={() => toggleExpand(item.id ?? -1)}
                   >
-                    <figure className="group w-full lg:w-auto h-[524px] aspect-3/4 rounded-2xl overflow-hidden relative cursor-pointer">
+                    <motion.figure
+                      className="group w-full lg:w-auto h-[524px] aspect-3/4 rounded-2xl overflow-hidden relative cursor-pointer"
+                      animate={{
+                        border: isExpanded
+                          ? "1px solid rgba(0, 0, 0, 0.05)"
+                          : "1px solid #00000000",
+                      }}
+                      transition={{ duration: 0.3 }}
+                    >
                       <motion.div
                         initial={{
                           backgroundColor: "#00000000",
@@ -154,56 +192,80 @@ export default function Features() {
                           backgroundColor: isExpanded ? "#ffffff" : "#00000000",
                         }}
                         transition={{ duration: 0.3 }}
-                        className="absolute w-full h-full inset-0 p-8 z-1 flex flex-col gap-2.5 overflow-auto transition-all"
+                        className="absolute w-full h-full inset-0 z-2 transition-all"
                       >
-                        <motion.span
-                          className={`text-sm ${
-                            isExpanded ? "text-text-primary" : item?.titleColor
-                          }`}
+                        <div
+                          className="w-full h-full overflow-auto px-8 pt-8 pb-16 flex flex-col gap-2.5"
+                          // onScroll={(e) => handleScroll(e, item.id ?? -1)}
+                          onScroll={(e) => handleScroll(e, item.id ?? -1)}
                         >
-                          {item?.title}
-                        </motion.span>
-                        <motion.h5
-                          className={`text-H5 ${
-                            isExpanded
-                              ? "text-text-primary"
-                              : item?.subtitleColor
-                          }`}
-                        >
-                          {item?.subtitle}
-                        </motion.h5>
-                        <motion.div
-                          initial={{ opacity: 0, y: -16 }}
-                          animate={{
-                            opacity: isExpanded ? 1 : 0,
-                            y: isExpanded ? 0 : -16,
-                          }}
-                          transition={{ duration: 0.4, ease: "easeInOut" }}
-                          className={`transition-all ${
-                            isExpanded ? "block" : "hidden"
-                          }`}
-                        >
-                          {item.description?.map((text, index) => (
-                            <p
-                              key={index}
-                              className="text-sm mt-2 text-text-secondary"
-                            >
-                              {text}
-                            </p>
-                          ))}
-                        </motion.div>
+                          <motion.span
+                            className={`text-sm ${
+                              isExpanded
+                                ? "text-text-primary"
+                                : item?.titleColor
+                            }`}
+                          >
+                            {item?.title}
+                          </motion.span>
+                          <motion.h5
+                            className={`text-H5 ${
+                              isExpanded
+                                ? "text-text-primary"
+                                : item?.subtitleColor
+                            }`}
+                          >
+                            {item?.subtitle}
+                          </motion.h5>
+                          <motion.div
+                            initial={{ opacity: 0, y: -8 }}
+                            animate={{
+                              opacity: isExpanded ? 1 : 0,
+                              y: isExpanded ? 0 : -8,
+                            }}
+                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            className={`transition-all ${
+                              isExpanded ? "block" : "hidden"
+                            }`}
+                          >
+                            {item.description?.map((text, index) => (
+                              <p
+                                key={index}
+                                className="text-sm mt-2 text-text-secondary"
+                              >
+                                {text}
+                              </p>
+                            ))}
+                          </motion.div>
+                        </div>
                       </motion.div>
-                      <NextImage
-                        src={`${item?.image}`}
-                        alt="features-img"
-                        width={384}
-                        height={520}
-                        className="max-w-full w-full h-full object-cover"
-                        priority
-                      />
-                      <div
+                      {!isExpanded && (
+                        <NextImage
+                          src={`${item?.image}`}
+                          alt="features-img"
+                          width={384}
+                          height={520}
+                          className="max-w-full w-full h-full object-cover"
+                          priority
+                        />
+                      )}
+                      <motion.div
                         className="icon w-11 h-11 absolute right-5 bottom-5 z-2 flex justify-center items-center rounded-full bg-surface-inverted-primary text-text-inverted-primary group-hover:bg-brand-orange transition-colors duration-200"
-                        onClick={() => toggleExpand(item.id ?? -1)}
+                        // onClick={() => {
+                        //   toggleExpand(item.id ?? -1, true);
+                        // }}
+                        // animate={{
+                        //   opacity:
+                        //     scrollingIds[item.id ?? -1] === false ? 0 : 1,
+                        //   y: scrollingIds[item.id ?? -1] === false ? 10 : 0,
+                        // }}
+                        // transition={{ duration: 0.3, ease: "easeInOut" }}
+
+                        animate={{
+                          opacity:
+                            scrollingIds[item.id ?? -1] === false ? 0 : 1, // Hide on scroll down, show on scroll up
+                        }}
+                        transition={{ duration: 0.2 }}
                       >
                         <Plus
                           size={24}
@@ -211,13 +273,13 @@ export default function Features() {
                             isExpanded ? "rotate-45" : "rotate-0"
                           } transition-all duration-200`}
                         />
-                      </div>
-                    </figure>
+                      </motion.div>
+                    </motion.figure>
                   </CarouselItem>
                 );
               })}
             </CarouselContent>
-            <div className="absolute right-6 -bottom-18 flex justify-center items-center gap-2.5">
+            <div className="hidden absolute right-6 -bottom-18 md:flex justify-center items-center gap-2.5">
               <CarouselPrevious className="text-text-inverted-primary bg-surface-inverted-primary hover:bg-brand-orange cursor-pointer" />
               <CarouselNext className="text-text-inverted-primary bg-surface-inverted-primary hover:bg-brand-orange cursor-pointer" />
             </div>

@@ -10,12 +10,12 @@
   "Hero": {
     "heading": "Meditationslampe",
     "subHeading": "Egal, ob du Atemübungen, Achtsamkeit oder einfach nur entspannende Momente suchst – diese Lampe schafft die perfekte Atmosphäre.",
-    "breatheIn": "Einatmen",
-    "breatheOut": "Ausatmen"
+    "breatheIn": "einatmen",
+    "breatheOut": "ausatmen"
   },
 
   "largeText": {
-    "text": "Unwynd: dein ultimativer <icon-0 /> Meditationsbegleiter. Wähle die <icon-1 /> Lichtfarbe, die zu deiner Stimmung passt, und vertiefe deine Konzentration mit einer Vielzahl von beruhigenden <icon-2 /> Klängen. Lass deinen <icon-3 /> Atem von einem sanft pulsierenden Licht leiten oder folge einer geführten Meditation. Die Unwynd-Lampe begleitet dich auf deiner Reise zu innerem <icon-4 /> Frieden – Atemzug für Atemzug."
+    "text": "Unwynd: dein ultimativer Meditationsbegleiter. Wähle die Lichtfarbe, die zu deiner Stimmung passt, und vertiefe deine Konzentration mit einer Vielzahl von beruhigenden Klängen. Lass deinen Atem von einem sanft pulsierenden Licht leiten oder folge einer geführten Meditation. Die Unwynd-Lampe begleitet dich auf deiner Reise zu innerem Frieden – Atemzug für Atemzug."
   },
 
   "features": {

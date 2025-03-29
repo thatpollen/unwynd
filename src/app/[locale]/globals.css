@@ -2,6 +2,7 @@
 
 @theme {
   /* --font-sans: var(--font-poppins); */
+  --font-caveat: "Caveat", cursive;
 
   /* font size & line height */
   --text-H1-display: 72px;
@@ -102,8 +103,8 @@
 
   /* animation */
   /* accordion */
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-accordion-down: accordion-down 0.3s ease-in;
+  --animate-accordion-up: accordion-up 0.3s ease-out;
 
   /* dialog */
   --animate-overlay-in: overlayIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
