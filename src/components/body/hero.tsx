@@ -19,7 +19,7 @@ export default function Hero() {
     const interval = setInterval(() => {
       index = (index + 1) % sequence.length;
       setText(sequence[index]);
-    }, 4000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [t]);
@@ -82,8 +82,8 @@ export default function Hero() {
               >
                 <div
                   className={`color ${
-                    backgroundType === "gradient" ? "w-full h-full" : "w-4 h-4 "
-                  } rounded-full bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] group-hover:scale-[1.06] transition-width duration-400`}
+                    backgroundType === "gradient" ? "scale-[1.2]" : "scale-100"
+                  } w-4 h-4 rounded-full bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] transition-width duration-400`}
                 ></div>
               </div>
               {/* Solid Color Option */}
@@ -106,10 +106,10 @@ export default function Hero() {
                     style={{ backgroundColor: color }}
                     className={`color ${
                       backgroundType === "solid" && solidColor === color
-                        ? "w-full h-full"
-                        : "w-4 h-4"
-                    } rounded-full group-hover:scale-[1.06] transition-width duration-400`}
-                  ></div>
+                        ? "scale-[1.2]"
+                        : "scale-100"
+                    } w-4 h-4 rounded-full transition-width duration-400`}
+                  ></div> 
                 </div>
               ))}
             </div>

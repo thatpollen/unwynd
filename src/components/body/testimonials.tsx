@@ -88,7 +88,8 @@ export default function Testimonials() {
       (columnIndex + 1) * itemsPerColumn
     );
   };
-
+  
+  
   const verticalTicker = (direction: "up" | "down") => ({
     initial: { y: direction === "up" ? "0%" : "-50%" },
     animate: {
@@ -96,11 +97,12 @@ export default function Testimonials() {
       transition: {
         repeat: Infinity,
         repeatType: "loop" as const,
-        duration: 60 * (direction === "up" ? 1 : 1.2),
+        duration: 20 * (direction === "up" ? 1 : 1.2),
         ease: "linear",
       },
     },
   });
+  
   return (
     <section className="w-full px-2">
       <div className="rounded-2xl bg-background-tertiary pt-50 pb-12">
@@ -282,7 +284,7 @@ export default function Testimonials() {
                             key={colIndex}
                             className="overscroll-visible md:overflow-hidden relative h-full"
                           >
-                            <motion.div
+                            <motion.div 
                               className="absolute top-0 w-full flex flex-col gap-2"
                               variants={verticalTicker(
                                 colIndex % 2 === 0 ? "up" : "down"
@@ -292,7 +294,7 @@ export default function Testimonials() {
                             >
                               {duplicatedItems.map((testimonial, index) => (
                                 <div
-                                  className="bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
+                                  className="testimonial bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out"
                                   key={`${colIndex}-${index}`}
                                 >
                                   <div className="flex flex-col items-start gap-6 px-6 py-8">
