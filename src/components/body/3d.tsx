@@ -19,7 +19,7 @@ export default function ThreeD() {
               <br />
               {t("heading.spanTwo")}
             </h1>
-            <p className="max-w-[580px] mx-auto text-sm text-text-secondary text-center">
+            <p className="max-w-[580px] mx-auto text-base text-text-secondary text-center">
               {t("subHeading")}
             </p>
           </div>

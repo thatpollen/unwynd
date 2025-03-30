@@ -179,7 +179,7 @@ export default function Features() {
                       className="group w-full lg:w-auto h-[524px] aspect-3/4 rounded-2xl overflow-hidden relative cursor-pointer"
                       animate={{
                         border: isExpanded
-                          ? "1px solid rgba(0, 0, 0, 0.05)"
+                          ? "1px solid rgba(0, 0, 0, 0.12)"
                           : "1px solid #00000000",
                       }}
                       transition={{ duration: 0.3 }}
@@ -189,10 +189,10 @@ export default function Features() {
                           backgroundColor: "#00000000",
                         }}
                         animate={{
-                          backgroundColor: isExpanded ? "#ffffff" : "#00000000",
+                          backgroundColor: isExpanded ? "#f5f5f5" : "#00000000",
                         }}
                         transition={{ duration: 0.3 }}
-                        className="absolute w-full h-full inset-0 z-2 transition-all"
+                        className="absolute w-full h-full inset-0 z-2 transition-all rounded-2xl"
                       >
                         <div
                           className="w-full h-full overflow-auto px-8 pt-8 pb-16 flex flex-col gap-2.5"
