@@ -13,7 +13,7 @@ export default function ThreeD() {
     <section id="view3d" className="w-full py-24">
       <Container>
         <div className="flex flex-col items-center gap-16">
-          <div className="flex flex-col justify-center items-center gap-2.5">
+          <div className="flex flex-col justify-center items-center gap-2.5 px-4">
             <h1 className="text-H3 md:text-[44px] lg:text-[52px] text-center">
               <span className="text-text-tertiary">{t("heading.spanOne")}</span>
               <br />

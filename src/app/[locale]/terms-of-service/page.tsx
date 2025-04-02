@@ -2,15 +2,22 @@
 
 import SmallContainer from "@/components/container/smallContainer";
 import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
+import { NavLogo } from "@/components/assets/icons";
+import NextLink from "next/link";
 
 export default function TermsConditions() {
   return (
     <main>
-      <Navbar />
       <div className="py-12.5 mt-25 mb-28 relative z-2">
         <SmallContainer>
           <div className="flex flex-col gap-10">
+            <div className="self-center py-3 mb-6">
+              <NextLink href="/">
+                <span>
+                  <NavLogo className="fill-neutral-950" />
+                </span>
+              </NextLink>
+            </div>
             <div className="flex justify-center items-center">
               <h2 className="text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
                 General terms of use
@@ -29,9 +36,11 @@ export default function TermsConditions() {
                   Wassermasch 15, 38179 Schwulper, Germany, hereinafter referred
                   to as « TOPUS », on the one hand,’ and any natural or legal
                   person wishing to make a purchase on the TOPUS «
-                  https://www.unwynd.net » (hereinafter referred to as « SITE »)
-                  website, hereinafter referred to as « CLIENT » or « you », on
-                  the other hand.
+                  <span className="text-brand-accent">
+                    https://www.unwynd.net
+                  </span>{" "}
+                  » (hereinafter referred to as « SITE ») website, hereinafter
+                  referred to as « CLIENT » or « you », on the other hand.
                 </p>
                 <br />
                 <div>

@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer";
 import Navbar from "@/components/layout/Navbar";
 import { CircleSmall } from "lucide-react";
 import NextLink from "next/link";
+import { NavLogo } from "@/components/assets/icons";
 
 export default function PrivacyPolicy() {
   return (
@@ -13,6 +14,13 @@ export default function PrivacyPolicy() {
       <div className="py-12.5 mt-25 mb-28 relative z-2">
         <SmallContainer>
           <div className="flex flex-col gap-10">
+            <div className="self-center py-3 mb-6">
+              <NextLink href="/">
+                <span>
+                  <NavLogo className="fill-neutral-950" />
+                </span>
+              </NextLink>
+            </div>
             <div className="flex justify-center items-center">
               <h2 className="text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
                 Privacy Policy
