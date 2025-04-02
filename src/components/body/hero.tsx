@@ -5,7 +5,6 @@ import AnimatedBackground from "../assets/animation/AnimatedBackground";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { NavLogo } from "../assets/icons";
 import NavLink from "next/link";
 
 export default function Hero() {
@@ -57,9 +56,13 @@ export default function Hero() {
           <h1 className="flex flex-col text-H2 md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
             <div className="self-center block md:hidden py-3 mb-6">
               <NavLink href="/">
-                <span>
-                  <NavLogo className="fill-neutral-950" />
-                </span>
+                <NextImage
+                  src="/images/navlogo/32.svg"
+                  alt="logo"
+                  width={160}
+                  height={32}
+                  className="w-auto h-auto"
+                />
               </NavLink>
             </div>
             <span className="leading-[1]">Unwynd</span>
@@ -107,7 +110,7 @@ export default function Hero() {
               >
                 <div
                   className={`color ${
-                    backgroundType === "gradient" ? "scale-[1.2]" : "scale-100"
+                    backgroundType === "gradient" ? "scale-[1.4]" : "scale-100"
                   } w-4 h-4 rounded-full bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] transition-width duration-400`}
                 ></div>
               </div>
@@ -131,7 +134,7 @@ export default function Hero() {
                     style={{ backgroundColor: color }}
                     className={`color ${
                       backgroundType === "solid" && solidColor === color
-                        ? "scale-[1.2]"
+                        ? "scale-[1.4]"
                         : "scale-100"
                     } w-4 h-4 rounded-full transition-width duration-400`}
                   ></div>
@@ -173,7 +176,7 @@ export default function Hero() {
               </figure>
 
               <div className="absolute z-2 inset-0 flex justify-center items-center">
-                <div className="font-caveat text-xl text-text-secondary">
+                <div className="font-caveat text-[32px] text-text-secondary">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={text}

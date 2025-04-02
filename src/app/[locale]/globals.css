@@ -177,7 +177,7 @@
       transform: translateY(0);
       opacity: 1;
     }
-    to{
+    to {
       transform: translateY(100%);
       opacity: 0;
     }
@@ -188,7 +188,7 @@
       transform: translateY(100%);
       opacity: 0;
     }
-    to{
+    to {
       transform: translateY(0);
       opacity: 1;
     }
@@ -580,8 +580,8 @@ body {
   );
 }
 
-.testimonials_column-left{
-  animation: tickerOne 28s linear infinite;
+.testimonials_column-left {
+  animation: tickerOne 36s linear infinite;
 }
 
 @keyframes tickerOne {
@@ -594,7 +594,7 @@ body {
 }
 
 .testimonials_column-middle {
-  animation: tickerTwo 32s linear infinite;
+  animation: tickerTwo 40s linear infinite;
 }
 
 @keyframes tickerTwo {
@@ -607,7 +607,7 @@ body {
 }
 
 .testimonials_column-right {
-  animation: tickerThree 36s linear infinite;
+  animation: tickerThree 44s linear infinite;
 }
 
 @keyframes tickerThree {

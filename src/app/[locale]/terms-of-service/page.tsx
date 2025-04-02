@@ -2,8 +2,8 @@
 
 import SmallContainer from "@/components/container/smallContainer";
 import Footer from "@/components/layout/Footer";
-import { NavLogo } from "@/components/assets/icons";
 import NextLink from "next/link";
+import NextImage from "next/image";
 
 export default function TermsConditions() {
   return (
@@ -13,9 +13,13 @@ export default function TermsConditions() {
           <div className="flex flex-col gap-10">
             <div className="self-center py-3 mb-6">
               <NextLink href="/">
-                <span>
-                  <NavLogo className="fill-neutral-950" />
-                </span>
+                <NextImage
+                  src="/images/navlogo/32.svg"
+                  alt="logo"
+                  width={160}
+                  height={32}
+                  className="w-auto h-auto"
+                />
               </NextLink>
             </div>
             <div className="flex justify-center items-center">
@@ -368,9 +372,10 @@ export default function TermsConditions() {
                 <p className="text-lg text-text-primary text-left">
                   To exercise the right of termination, the CLIENT must inform
                   TOPUS (Topus GmbH, Wassermasch 15, 38179 Schwulper, Germany ;
-                  e-mail : contact@unwynd.net) clearly indicating its decision
-                  to terminate this contract (for example, by letter sent by
-                  post or e-mail).
+                  e-mail :{" "}
+                  <span className="text-brand-accent">contact@unwynd.net</span>)
+                  clearly indicating its decision to terminate this contract
+                  (for example, by letter sent by post or e-mail).
                 </p>
                 <br />
                 <p className="text-lg text-text-primary text-left">
@@ -435,7 +440,10 @@ export default function TermsConditions() {
                   </div>
                   <div className="px-2.5 py-6 border-b-2 border-dotted border-border-blackOpacity16 ">
                     – Topus GmbH, Wassermasch 15, 38179 Schwulper, Germany ;
-                    e-mail : contact@unwynd.net
+                    e-mail:{" "}
+                    <span className="text-brand-accent">
+                      contact@unwynd.net
+                    </span>
                   </div>
                   <div className="px-2.5 py-6 border-b-2 border-dotted border-border-blackOpacity16 ">
                     I/we (*) cancel/we hereby cancel the contract concluded by
