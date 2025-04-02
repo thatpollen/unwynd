@@ -1,4 +1,5 @@
-"use client";
+/*
+  "use client";
 
 import { useLocale } from "next-intl";
 import English from "../assets/largeText/English";
@@ -21,20 +22,21 @@ export default function LargeText() {
 
   return <LanguageComponent />;
 }
+*/
 
-/*
 "use client";
 
 import Container from "../container/container";
 import React, { useRef, useLayoutEffect } from "react";
 import SplitType from "split-type";
 import { gsap, ScrollTrigger } from "gsap/all";
-import { Elements, Flow, HandPrayer, HealthCare, Music } from "../assets/icons";
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import { useTranslations } from "next-intl";
+// import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export default function LargeText() {
   const elementsToSplitRef = useRef<HTMLParagraphElement>(null);
-  const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  // const iconRefs = useRef<(HTMLSpanElement | null)[]>([]);
+  const t = useTranslations("largeText");
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -57,6 +59,7 @@ export default function LargeText() {
         duration: 0.4,
       });
 
+      /*
       const iconAnimations = iconRefs.current
         .filter((icon) => icon !== null)
         .map((icon) =>
@@ -76,7 +79,7 @@ export default function LargeText() {
               },
             }
           )
-        );
+        );*/
 
       return () => {
         splitTypes.revert();
@@ -86,6 +89,7 @@ export default function LargeText() {
     }
   }, []);
 
+  /*
   const useHoverMotion = () => {
     const x = useMotionValue(0);
     const y = useMotionValue(0);
@@ -150,6 +154,7 @@ export default function LargeText() {
       </motion.span>
     );
   };
+  */
 
   return (
     <section className="w-full py-32 px-2">
@@ -159,17 +164,10 @@ export default function LargeText() {
             className="text-H3 lg:text-H2 leading-[1.3em] font-light text-text-primary text-center whitespace-pre-wrap"
             ref={elementsToSplitRef}
           >
-            Unwynd: the ultimate meditation companion that elevates your
-            practice to new heights. Choose from a spectrum of light colors to
-            match your mood, while selecting from a variety of serene sounds to
-            deepen your focus. Let your breath be guided by a pulsating light
-            that reflects your custom breathing patterns or follow guided
-            meditations. Let the Unwynd lamp guide your journey to inner peace -
-            one breath at a time.
+            {t("text")}
           </div>
         </div>
       </Container>
     </section>
   );
 }
-*/
