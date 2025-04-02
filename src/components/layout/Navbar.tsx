@@ -5,9 +5,12 @@ import { NavLogo } from "../assets/icons";
 import NextLink from "next/link";
 import { useTranslations } from "next-intl";
 import { Link } from "react-scroll";
+import OrderModal from "../assets/Modal/OrderModal";
+import { useState } from "react";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <nav className="w-full fixed bottom-4 top-auto md:bottom-auto md:top-4 z-10">
@@ -65,9 +68,10 @@ export default function Navbar() {
                 {t("meditationLamp")}
               </span>
             </div>
-            <OrderButton variant="primary" type="button">
+            <OrderButton variant="primary" type="button" onClick={() => {setIsOpen(true); }}>
               {t("orderNow")}
             </OrderButton>
+              <OrderModal isOpen={isOpen} setIsOpen={setIsOpen}/>
           </div>
         </div>
       </div>

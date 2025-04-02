@@ -103,14 +103,16 @@
 
   /* animation */
   /* accordion */
-  --animate-accordion-down: accordion-down 0.3s ease-in;
-  --animate-accordion-up: accordion-up 0.3s ease-out;
+  --animate-accordion-down: accordion-down 0.4s cubic-bezier(0.87, 0, 0.13, 1);
+  --animate-accordion-up: accordion-up 0.4s cubic-bezier(0.87, 0, 0.13, 1);
 
   /* dialog */
   --animate-overlay-in: overlayIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --animate-overlay-out: overlayOut 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --animate-content-in: contentIn 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   --animate-content-out: contentOut 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  --animate-slide-out-to-bottom: slideOutToBottom 0.3s ease forwards;
+  --animate-slide-in-from-bottom: slideInFromBottom 0.3s ease forwards;
 
   @keyframes accordion-down {
     from {
@@ -167,6 +169,28 @@
     to {
       opacity: 0;
       transform: scale(0.96);
+    }
+  }
+
+  @keyframes slideOutToBottom {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to{
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes slideInFromBottom {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to{
+      transform: translateY(0);
+      opacity: 1;
     }
   }
 }
@@ -493,11 +517,19 @@ body {
   background: var(--background);
 }
 
-input:-webkit-autofill {
+.footerForm input:-webkit-autofill {
   background-color: transparent !important; /* rgba(0, 0, 0, 0) */
   color: rgba(255, 255, 255, 1) !important;
   -webkit-text-fill-color: rgba(255, 255, 255, 1) !important;
   caret-color: rgba(255, 255, 255, 1) !important;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+.orderModalForm input:-webkit-autofill {
+  background-color: transparent !important; /* rgba(0, 0, 0, 0) */
+  color: rgba(10, 10, 10, 1) !important;
+  -webkit-text-fill-color: rgba(10, 10, 10, 1) !important;
+  caret-color: rgba(10, 10, 10, 1) !important;
   transition: background-color 9999s ease-in-out 0s;
 }
 
@@ -546,6 +578,45 @@ input:-webkit-autofill {
     rgb(0, 0, 0) 87.5%,
     rgba(0, 0, 0, 0) 100%
   );
+}
+
+.testimonials_column-left{
+  animation: tickerOne 28s linear infinite;
+}
+
+@keyframes tickerOne {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.testimonials_column-middle {
+  animation: tickerTwo 32s linear infinite;
+}
+
+@keyframes tickerTwo {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.testimonials_column-right {
+  animation: tickerThree 36s linear infinite;
+}
+
+@keyframes tickerThree {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
 }
 
 @media (max-width: 810px) {

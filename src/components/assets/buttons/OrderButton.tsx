@@ -5,6 +5,7 @@ interface ButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
   variant?: "primary" | "secondary" | "tertiary";
+  onClick?: () => void;
 }
 
 export default function OrderButton({
@@ -12,6 +13,7 @@ export default function OrderButton({
   children,
   type,
   variant,
+  onClick,
 }: ButtonProps) {
   return (
     <button
@@ -28,6 +30,7 @@ export default function OrderButton({
         className
       )}
       type={type}
+      onClick={onClick}
     >
       {children}
     </button>

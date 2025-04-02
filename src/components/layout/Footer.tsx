@@ -1,7 +1,6 @@
 "use client";
 
 import { ArrowUpFromDot, ChevronDown, Globe } from "lucide-react";
-import SubscribeButton from "../assets/buttons/SubscribeButton";
 import NextLink from "next/link";
 import { AnimateButton } from "../assets/buttons/AnimateButton";
 import NextImage from "next/image";
@@ -9,6 +8,7 @@ import LargeContainer from "../container/largeContainer";
 import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
+import NewsletterSignUpForm from "../assets/NewsletterSignUpForm";
 
 const languages = [
   { code: "en", name: "English" },
@@ -34,12 +34,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full p-2">
+    <footer className="w-full p-2 mb-24 md:mb-0">
       <div className="flex flex-col">
         <div className="h-[200px]">
           <LargeContainer>
             <div className="relative">
-              <div className="absolute z-1 top-[-72px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
+              <div className="absolute z-1 top-0 md:top-[-72px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
                 <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
                   <NextImage
                     src="/images/unwynd-footer-lamp.avif"
@@ -70,24 +70,7 @@ export default function Footer() {
                 <p className="text-sm text-text-inverted-tertiary tracking-tight text-center md:text-left">
                   {t("form.subHeading")}
                 </p>
-                <form className="w-auto md:w-[525px] relative flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
-                  <label className="relative w-full inline-flex items-center">
-                    <input
-                      className="w-full text-white placeholder:text-text-secondary rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:border-dotted autofill hover:bg-surface-inverted-secondary transition-all duration-100"
-                      type="email"
-                      name="email"
-                      autoComplete="email"
-                      placeholder={`${t("form.input")}`}
-                      required
-                    />
-                  </label>
-                  <SubscribeButton
-                    className="relative md:absolute md:right-2.5 hover:bg-brand hover:text-text-inverted-primary"
-                    type="submit"
-                  >
-                    {t("form.btn")}
-                  </SubscribeButton>
-                </form>
+                <NewsletterSignUpForm variant="footer" />
               </div>
               <div className="flex flex-col gap-12 w-1/1">
                 <div className="flex justify-start lg:justify-between gap-16 lg:gap-0">
@@ -140,7 +123,7 @@ export default function Footer() {
                     </span>
                     <ul className="flex flex-col items-start gap-4 text-sm text-text-inverted-primary">
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/terms-and-conditions">
+                        <NextLink href="/terms-of-service">
                           {t("legal.termsConditions")}
                         </NextLink>
                       </li>

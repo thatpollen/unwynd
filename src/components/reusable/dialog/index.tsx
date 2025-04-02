@@ -21,7 +21,7 @@ const DialogOverlay = React.forwardRef<
   <DialogPrimitive.Overlay
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-[rgba(0,0,0,0.64)] backdrop-blur-sm data-[state=open]:animate-overlay-in data-[state=closed]:animate-overlay-out",
+      "fixed inset-0 z-50 bg-[rgba(16,16,16,0.8)] backdrop-blur-[20px] data-[state=open]:animate-overlay-in data-[state=closed]:animate-overlay-out",
       className
     )}
     {...props}
@@ -38,14 +38,14 @@ const DialogContent = React.forwardRef<
     <DialogPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] z-50 w-full translate-x-[-50%] translate-y-[-50%] bg-background-secondary p-6 rounded-2xl shadow-[0_0_64px_4px_rgba(0,0,0,0.25)] focus:outline-none data-[state=open]:animate-content-in data-[state=closed]:animate-content-out",
+        "fixed z-50 shadow-[0_0_64px_4px_rgba(0,0,0,0.25)] bg-background-secondary bottom-0 rounded-t-3xl rounded-b-none  transition ease-in-out data-[state=closed]:duration-300 data-[state=closed]:animate-slide-out-to-bottom data-[state=open]:animate-slide-in-from-bottom focus:outline-none md:w-full md:left-[50%] md:top-[50%] md:translate-x-[-50%] md:translate-y-[-50%] md:rounded-3xl md:data-[state=open]:animate-content-in md:data-[state=closed]:animate-content-out",
         className
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm focus:outline-none disabled:pointer-events-none p-2 cursor-pointer">
-        <X className="h-5 w-5" />
+      <DialogPrimitive.Close className="absolute right-1.5 top-1.5 rounded-sm focus:outline-none disabled:pointer-events-none p-2 cursor-pointer">
+        <X className="h-4 w-4" />
         <span className="sr-only">Close</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>

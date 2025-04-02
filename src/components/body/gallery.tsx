@@ -68,24 +68,27 @@ export default function Gallery() {
 
   const [scales, setScales] = useState<Record<number, number>>({});
 
-  useEffect(() => {
+  useEffect(() => { 
+    const images = document.querySelectorAll(".gallery-img");
+
     const observer = new IntersectionObserver(
       (entries) => {
         setScales((prev) => {
           const newState = { ...prev };
+
           entries.forEach((entry) => {
             const index = Number(entry.target.getAttribute("data-index"));
             const visibility = Math.min(Math.max(entry.intersectionRatio, 0), 1);
-            newState[index] = 1 + visibility * 0.2; // Scale between 1 and 1.02
+            newState[index] = 1 + visibility * 0.4; // Scale between 1 and 1.02
           });
           return newState;
         });
       },
-      { rootMargin: "20% 0px 20% 0px",
-        threshold: Array.from({ length: 31 }, (_, i) => i * 0.0333) } // Thresholds from 0 to 1
+      { rootMargin: "100% 0px -50% 0px",
+        threshold: Array.from({ length: 31 }, (_, i) => i * 0.0333) 
+      } 
     );
 
-    const images = document.querySelectorAll(".gallery-img");
     images.forEach((img) => observer.observe(img));
 
     return () => images.forEach((img) => observer.unobserve(img));
@@ -95,7 +98,7 @@ export default function Gallery() {
     <section className="w-full py-24 px-2">
       <Container>
         <div className="flex flex-col gap-12">
-          <div className="self-auto md:self-end w-full md:w-1/2 flex flex-col gap-2.5">
+          <div className="self-auto md:self-end w-full md:w-1/2 flex flex-col gap-2.5 px-4">
             <span className="text-H5 md:text-[28px] lg:text-H3 font-medium">
               {t("heading")}
             </span>
