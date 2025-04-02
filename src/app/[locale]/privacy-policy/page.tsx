@@ -2,7 +2,6 @@
 
 import SmallContainer from "@/components/container/smallContainer";
 import Footer from "@/components/layout/Footer";
-import Navbar from "@/components/layout/Navbar";
 import { CircleSmall } from "lucide-react";
 import NextLink from "next/link";
 import NextImage from "next/image";
@@ -10,7 +9,6 @@ import NextImage from "next/image";
 export default function PrivacyPolicy() {
   return (
     <main>
-      <Navbar />
       <div className="py-12.5 mt-25 mb-28 relative z-2">
         <SmallContainer>
           <div className="flex flex-col gap-10">
