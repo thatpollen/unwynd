@@ -581,7 +581,7 @@ body {
 }
 
 .testimonials_column-left {
-  animation: tickerOne 36s linear infinite;
+  animation: tickerOne 48s linear infinite;
 }
 
 @keyframes tickerOne {
@@ -594,7 +594,7 @@ body {
 }
 
 .testimonials_column-middle {
-  animation: tickerTwo 40s linear infinite;
+  animation: tickerTwo 56s linear infinite;
 }
 
 @keyframes tickerTwo {
@@ -607,7 +607,7 @@ body {
 }
 
 .testimonials_column-right {
-  animation: tickerThree 44s linear infinite;
+  animation: tickerThree 60s linear infinite;
 }
 
 @keyframes tickerThree {

@@ -176,7 +176,7 @@ export default function Hero() {
               </figure>
 
               <div className="absolute z-2 inset-0 flex justify-center items-center">
-                <div className="font-caveat text-[32px] text-text-secondary">
+                <div className="font-caveat text-2xl md:text-[32px] text-text-secondary">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={text}

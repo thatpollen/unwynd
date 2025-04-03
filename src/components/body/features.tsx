@@ -178,12 +178,12 @@ export default function Features() {
                     <motion.figure
                       className="group w-full lg:w-auto h-[524px] aspect-3/4 rounded-2xl overflow-hidden relative cursor-pointer"
                       initial={{
-                        border: "2px solid #00000000",
+                        border: "1px solid #00000000",
                       }}
                       animate={{
                         border: isExpanded
-                          ? "2px solid rgba(0, 0, 0, 0.12)"
-                          : "2px solid #00000000",
+                          ? "1px solid rgba(0, 0, 0, 0.12)"
+                          : "1px solid #00000000",
                       }}
                       transition={{ duration: 0.3 }}
                     >

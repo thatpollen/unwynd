@@ -15,7 +15,7 @@ export default function Navbar() {
   return (
     <nav className="w-full fixed bottom-4 top-auto md:bottom-auto md:top-4 z-10">
       <div className="max-w-5xl mx-auto w-full px-6">
-        <div className="flex items-center justify-between py-2 px-4 md:py-3 rounded-full bg-white shadow-[0_4px_24px_2px_rgba(0,0,0,0.04)] sticky top-4 z-10">
+        <div className="flex items-center justify-between py-2 px-4 md:py-3 rounded-full bg-white border border-border-blackOpacity8 shadow-[0_4px_64px_0px_rgba(0,0,0,0.16)] sticky top-4 z-10">
           <div className="hidden md:flex items-center gap-12">
             <NextLink href="/">
               <span>
@@ -68,10 +68,16 @@ export default function Navbar() {
                 {t("meditationLamp")}
               </span>
             </div>
-            <OrderButton variant="primary" type="button" onClick={() => {setIsOpen(true); }}>
+            <OrderButton
+              variant="primary"
+              type="button"
+              onClick={() => {
+                setIsOpen(true);
+              }}
+            >
               {t("orderNow")}
             </OrderButton>
-              <OrderModal isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <OrderModal isOpen={isOpen} setIsOpen={setIsOpen} />
           </div>
         </div>
       </div>

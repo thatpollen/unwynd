@@ -202,7 +202,7 @@ export default function Testimonials() {
                         </div>
                       </div>
 
-                      <div className="testimonials_column-right relative">
+                      <div className="hidden lg:block testimonials_column-right relative">
                         <div className="flex flex-col items-center gap-2">
                           {testimonials.map((testimonial, index) => (
                             <Testimonial
