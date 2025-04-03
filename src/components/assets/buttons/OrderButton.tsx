@@ -18,7 +18,7 @@ export default function OrderButton({
   return (
     <button
       className={cn(
-        `text-sm text-white px-4 py-2 rounded-full cursor-pointer ${
+        `text-sm text-white px-4 py-3.5 md:py-2 rounded-full cursor-pointer ${
           variant === "primary"
             ? "bg-brand hover:bg-brand-hover"
             : variant === "secondary"
