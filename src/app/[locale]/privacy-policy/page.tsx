@@ -9,7 +9,7 @@ import NextImage from "next/image";
 export default function PrivacyPolicy() {
   return (
     <main>
-      <div className="py-12.5 mt-25 mb-28 relative z-2">
+      <div className="pb-12.5 mt-25 mb-28 relative z-2">
         <SmallContainer>
           <div className="flex flex-col gap-10">
             <div className="self-center py-3 mb-6">
@@ -19,7 +19,7 @@ export default function PrivacyPolicy() {
                   alt="logo"
                   width={160}
                   height={32}
-                  className="w-auto h-auto"
+                  className="w-auto h-auto cursor-pointer"
                 />
               </NextLink>
             </div>

@@ -4,8 +4,13 @@ import Container from "../container/container";
 import NextImage from "next/image";
 import { Vector, Graphic } from "../assets/icons";
 import { useState, useEffect } from "react";
-import Ticker from "framer-motion-ticker";
 import { useTranslations } from "next-intl";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  useCarousel,
+} from "@/components/reusable/carousel";
 
 interface TestimonialsProps {
   title?: string;
@@ -78,6 +83,16 @@ export default function Testimonials() {
     },
   ];
 
+  // For desktop
+  const splitTestimonials = (arr: TestimonialsProps[], chunks: number) => {
+    const perChunk = Math.ceil(arr.length / chunks);
+    return Array.from({ length: chunks }, (_, i) =>
+      arr.slice(i * perChunk, i * perChunk + perChunk)
+    );
+  };
+
+  const [leftCol, middleCol, rightCol] = splitTestimonials(testimonials, 3);
+
   return (
     <section className="w-full px-2">
       <div className="rounded-2xl bg-background-tertiary pt-50 pb-12">
@@ -135,88 +150,80 @@ export default function Testimonials() {
               <div className="px-0 md:p-4 w-full">
                 <div className="testimonials_wrapper h-auto md:h-[1024px] overflow-visible md:overflow-hidden">
                   {isMobile ? (
-                    <Ticker duration={60}>
-                      {testimonials.map((testimonial, index) => (
-                        <div
-                          className="bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out w-[300px] ml-2"
-                          key={index}
-                        >
-                          <div className="flex flex-col items-start gap-6 px-6 py-8">
-                            <span className="w-8 h-8">
-                              <Graphic />
-                            </span>
-                            <div className="w-full flex flex-col gap-2">
-                              <h6 className="text-H6 font-medium">
-                                {testimonial?.title}
-                              </h6>
-                              <p className="text-sm text-text-secondary">
-                                {testimonial?.description}
-                              </p>
-                            </div>
-                            <span className="text-base text-text-primary font-medium tracking-[-0.03em]">
-                              {testimonial?.author}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </Ticker>
+                    <div className="relative">
+                      <Carousel opts={{ loop: true, align: "start" }}>
+                        <CarouselContent>
+                          {testimonials.map((testimonial, index) => (
+                            <CarouselItem
+                              className="basis-[calc(100%-10%)]"
+                              key={`testimonial-${index}`}
+                            >
+                              <Testimonial testimonial={testimonial} />
+                            </CarouselItem>
+                          ))}
+                        </CarouselContent>
+
+                        {/* Pagination dots */}
+                        <PaginationDots />
+                      </Carousel>
+                    </div>
                   ) : (
                     <div className="flex justify-center items-center gap-2 flex-nowrap">
-                      <div className="testimonials_column-left relative">
+                      <div className="w-1/2 lg:w-[33.33%] hidden md:block testimonials_column-left relative">
                         <div className="flex flex-col items-center gap-2">
-                          {testimonials.map((testimonial, index) => (
+                          {leftCol.map((testimonial, index) => (
                             <Testimonial
                               testimonial={testimonial}
-                              key={index}
+                              key={`left-${index}`}
                             />
                           ))}
                         </div>
 
                         <div className="absolute top-2 translate-y-full flex flex-col items-center gap-2">
-                          {testimonials.map((testimonial, index) => (
+                          {leftCol.map((testimonial, index) => (
                             <Testimonial
                               testimonial={testimonial}
-                              key={index}
+                              key={`left-${index}`}
                             />
                           ))}
                         </div>
                       </div>
 
-                      <div className="testimonials_column-middle relative">
+                      <div className="w-1/2 lg:w-[33.33%] hidden md:block testimonials_column-middle relative">
                         <div className="flex flex-col items-center gap-2">
-                          {testimonials.map((testimonial, index) => (
+                          {middleCol.map((testimonial, index) => (
                             <Testimonial
                               testimonial={testimonial}
-                              key={index}
+                              key={`middle-${index}`}
                             />
                           ))}
                         </div>
 
                         <div className="absolute bottom-2 -translate-y-full flex flex-col items-center gap-2">
-                          {testimonials.map((testimonial, index) => (
+                          {middleCol.map((testimonial, index) => (
                             <Testimonial
                               testimonial={testimonial}
-                              key={index}
+                              key={`middle-${index}`}
                             />
                           ))}
                         </div>
                       </div>
 
-                      <div className="hidden lg:block testimonials_column-right relative">
+                      <div className="w-[33.33%] hidden lg:block testimonials_column-right relative">
                         <div className="flex flex-col items-center gap-2">
-                          {testimonials.map((testimonial, index) => (
+                          {rightCol.map((testimonial, index) => (
                             <Testimonial
                               testimonial={testimonial}
-                              key={index}
+                              key={`right-${index}`}
                             />
                           ))}
                         </div>
 
                         <div className="absolute top-2 translate-y-full flex flex-col items-center gap-2">
-                          {testimonials.map((testimonial, index) => (
+                          {rightCol.map((testimonial, index) => (
                             <Testimonial
                               testimonial={testimonial}
-                              key={index}
+                              key={`right-${index}`}
                             />
                           ))}
                         </div>
@@ -241,7 +248,7 @@ function Testimonial(props: TestimonialProps) {
   const { testimonial } = props;
 
   return (
-    <div className="testimonial bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out">
+    <div className="testimonial w-full h-full md:w-auto md:h-auto bg-background-primary rounded-2xl hover:bg-background-secondary transition-all duration-300 ease-in-out">
       <div className="flex flex-col items-start gap-6 px-6 py-8">
         <span className="w-8 h-8">
           <Graphic />
@@ -256,6 +263,46 @@ function Testimonial(props: TestimonialProps) {
           {testimonial?.author}
         </span>
       </div>
+    </div>
+  );
+}
+
+function PaginationDots() {
+  const { api } = useCarousel();
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const onSelect = () => {
+      setSelectedIndex(api.selectedScrollSnap());
+    };
+
+    setScrollSnaps(api.scrollSnapList());
+    api.on("select", onSelect);
+    api.on("reInit", () => setScrollSnaps(api.scrollSnapList()));
+
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
+
+  const handleDotClick = (index: number) => {
+    api?.scrollTo(index);
+  };
+
+  return (
+    <div className="flex justify-center mt-4 gap-2">
+      {scrollSnaps.map((_, index) => (
+        <button
+          key={index}
+          className={`h-2 w-2 rounded-full p-0 transition-all cursor-pointer ${
+            index === selectedIndex ? "bg-neutral-800" : "bg-neutral-300"
+          }`}
+          onClick={() => handleDotClick(index)}
+        />
+      ))}
     </div>
   );
 }
