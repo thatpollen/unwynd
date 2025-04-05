@@ -53,6 +53,41 @@ export default function Advantages() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, []);
 
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"));
+            setSelectedIndex(index);
+          }
+        });
+      },
+      {
+        root: null,
+        rootMargin: "-30% 0px -50% 0px",
+        threshold: 0.5, // Adjust as needed
+      }
+    );
+
+    // Store current refs in a variable to use in cleanup
+    const currentRefs = cardRefs.current;
+
+    currentRefs.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      currentRefs.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [isMobile]);
+
   const advantages: AdvantagesProps[] = [
     {
       title: t("advantageOne.title"),
@@ -108,6 +143,10 @@ export default function Advantages() {
             {advantages?.map((advantage, index) => (
               <div
                 key={index}
+                data-index={index}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
                 className={`w-full flex flex-col gap-4 p-8 rounded-2xl transition-all ease-in-out duration-300 
             ${
               isMobile && selectedIndex === index

@@ -65,7 +65,7 @@ export default function Hero() {
                 />
               </NavLink>
             </div>
-            <span className="leading-[1]">Unwynd</span>
+            <span className="leading-[1] hidden md:block">Unwynd</span>
             <span className="">{t("heading")}</span>
           </h1>
           <p className="max-w-[580px] mx-auto text-sm md:text-base text-text-secondary text-center">
@@ -111,7 +111,7 @@ export default function Hero() {
                 <div
                   className={`color ${
                     backgroundType === "gradient" ? "scale-[1.4]" : "scale-100"
-                  } w-4 h-4 rounded-full bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] transition-width duration-400`}
+                  } w-4 h-4 rounded-full bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] transition-width duration-200`}
                 ></div>
               </div>
               {/* Solid Color Option */}
@@ -136,7 +136,7 @@ export default function Hero() {
                       backgroundType === "solid" && solidColor === color
                         ? "scale-[1.4]"
                         : "scale-100"
-                    } w-4 h-4 rounded-full transition-width duration-400`}
+                    } w-4 h-4 rounded-full transition-width duration-200`}
                   ></div>
                 </div>
               ))}
@@ -176,14 +176,14 @@ export default function Hero() {
               </figure>
 
               <div className="absolute z-2 inset-0 flex justify-center items-center">
-                <div className="font-caveat text-2xl md:text-[32px] text-text-secondary">
+                <div className="font-caveat text-2xl md:text-[32px] text-text-primary">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={text}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      transition={{ duration: 1, ease: "easeInOut" }}
                       style={{ display: "block" }}
                     >
                       {text}

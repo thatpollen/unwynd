@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpFromDot, ChevronDown, Globe } from "lucide-react";
+import { ArrowUpFromDot, ChevronDown } from "lucide-react";
 import NextLink from "next/link";
 import { AnimateButton } from "../assets/buttons/AnimateButton";
 import NextImage from "next/image";
@@ -9,19 +9,33 @@ import { useRouter } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
 import NewsletterSignUpForm from "../assets/NewsletterSignUpForm";
+import ReactCountryFlag from "react-country-flag";
+import { useState, useEffect } from "react";
 
 const languages = [
-  { code: "en", name: "English" },
-  { code: "de", name: "Deutsch" },
-  { code: "fr", name: "Français" },
-  { code: "es", name: "Español" },
-  { code: "it", name: "Italiano" },
+  { code: "en", name: "English", countryCode: "GB" },
+  { code: "de", name: "Deutsch", countryCode: "DE" },
+  { code: "fr", name: "Français", countryCode: "FR" },
+  { code: "es", name: "Español", countryCode: "ES" },
+  { code: "it", name: "Italiano", countryCode: "IT" },
 ];
 
 export default function Footer() {
   const t = useTranslations("Footer");
   const router = useRouter();
   const locale = useLocale();
+
+  const [selectedLanguage, setSelectedLanguage] = useState(
+    languages.find((lang) => lang.code === locale) || languages[0]
+  );
+
+  useEffect(() => {
+    // Update the flag when locale changes
+    const newLanguage = languages.find((lang) => lang.code === locale);
+    if (newLanguage) {
+      setSelectedLanguage(newLanguage);
+    }
+  }, [locale]);
 
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
@@ -32,6 +46,21 @@ export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 810);
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <footer className="w-full p-2 mb-24 md:mb-0">
@@ -73,8 +102,8 @@ export default function Footer() {
                 <NewsletterSignUpForm variant="footer" />
               </div>
               <div className="flex flex-col gap-12 w-1/1">
-                <div className="flex justify-start lg:justify-between gap-16 lg:gap-0">
-                  <div className="flex flex-col gap-4">
+                <div className="flex justify-start gap-16 md:gap-0">
+                  <div className="flex flex-col gap-4 w-auto md:w-[60%]">
                     <span className="text-xs text-text-tertiary">
                       {t("sitemap.heading")}
                     </span>
@@ -87,7 +116,7 @@ export default function Footer() {
                           to="features"
                           spy={true}
                           smooth={true}
-                          offset={-120}
+                          offset={isMobile ? -10 : -120}
                           duration={500}
                         >
                           {t("sitemap.features")}
@@ -98,7 +127,7 @@ export default function Footer() {
                           to="view3d"
                           spy={true}
                           smooth={true}
-                          offset={-50}
+                          offset={isMobile ? 50 : -50}
                           duration={500}
                         >
                           {t("sitemap.3dView")}
@@ -109,7 +138,7 @@ export default function Footer() {
                           to="advantages"
                           spy={true}
                           smooth={true}
-                          offset={-50}
+                          offset={isMobile ? 50 : -50}
                           duration={500}
                         >
                           {t("sitemap.advantages")}
@@ -117,7 +146,7 @@ export default function Footer() {
                       </li>
                     </ul>
                   </div>
-                  <div className="flex flex-col gap-4">
+                  <div className="self-auto md:self-start flex flex-col gap-4">
                     <span className="text-xs text-text-tertiary">
                       {t("legal.heading")}
                     </span>
@@ -143,24 +172,33 @@ export default function Footer() {
                     </ul>
                   </div>
                 </div>
-                <div className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 md:gap-0">
-                  <div className="flex flex-col justify-center">
+                <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6 md:gap-0">
+                  <div className="flex flex-col justify-center items-start w-auto md:w-[60%]">
                     <span className="text-sm text-[rgba(255,255,255,0.5)]">
                       {t("contactUs")}
                     </span>
-                    <NextLink
-                      className="text-sm text-brand-accent"
-                      href="mailto:contact@unwynd.net"
-                    >
-                      contact@unwynd.net
+                    <NextLink href="mailto:contact@unwynd.net" legacyBehavior>
+                      <a className="text-sm text-brand-accent group relative hover:text-text-inverted-primary transition-all duration-100 linear">
+                        contact@unwynd.net
+                        <div className="h-px absolute left-0 w-0 bg-surface-primary group-hover:w-full transition-all duration-300 block z-2"></div>
+                      </a>
                     </NextLink>
                   </div>
-                  <div className="flex justify-between md:justify-start  items-center gap-6">
+                  <div className="self-auto md:self-start flex justify-between md:justify-start items-center gap-6">
                     <div className="relative flex items-center">
                       {/* Globe Icon */}
-                      <span className="absolute left-3 text-text-inverted-primary">
-                        <Globe size={18} />
-                      </span>
+                      <div className="absolute left-3 top-2 text-text-inverted-primary w-4.5 h-4.5 rounded-full">
+                        <ReactCountryFlag
+                          countryCode={selectedLanguage.countryCode}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            borderRadius: "100%",
+                            objectFit: "cover",
+                          }}
+                          svg
+                        />
+                      </div>
 
                       {/* Select Input */}
                       <select

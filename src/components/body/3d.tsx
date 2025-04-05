@@ -12,7 +12,7 @@ export default function ThreeD() {
   return (
     <section id="view3d" className="w-full py-24">
       <Container>
-        <div className="flex flex-col items-center gap-16">
+        <div className="flex flex-col items-center md:gap-16 gap-10">
           <div className="flex flex-col justify-center items-center gap-2.5 px-4">
             <h1 className="text-H3 md:text-[44px] lg:text-[52px] text-center">
               <span className="text-text-tertiary">{t("heading.spanOne")}</span>
@@ -25,7 +25,7 @@ export default function ThreeD() {
           </div>
 
           <div className="w-full flex flex-col items-center gap-10">
-            <div className="w-[250px] md:w-full h-[480px] md:h-[640px]">
+            <div className="w-[250px] md:w-full h-[420px] md:h-[640px]">
               <Canvas shadows dpr={[1, 2]} gl={{ antialias: true }}>
                 <Lamp />
               </Canvas>

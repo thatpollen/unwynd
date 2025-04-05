@@ -56,7 +56,7 @@ export default function Gallery() {
   );
 }
 */
-'use client'
+"use client";
 
 import { useEffect, useState } from "react";
 import NextImage from "next/image";
@@ -68,7 +68,7 @@ export default function Gallery() {
 
   const [scales, setScales] = useState<Record<number, number>>({});
 
-  useEffect(() => { 
+  useEffect(() => {
     const images = document.querySelectorAll(".gallery-img");
 
     const observer = new IntersectionObserver(
@@ -78,15 +78,19 @@ export default function Gallery() {
 
           entries.forEach((entry) => {
             const index = Number(entry.target.getAttribute("data-index"));
-            const visibility = Math.min(Math.max(entry.intersectionRatio, 0), 1);
-            newState[index] = 1 + visibility * 0.4; // Scale between 1 and 1.02
+            const visibility = Math.min(
+              Math.max(entry.intersectionRatio, 0),
+              1
+            );
+            newState[index] = 1 + visibility * 0.3; // Scale between 1 and 1.02
           });
           return newState;
         });
       },
-      { rootMargin: "100% 0px -50% 0px",
-        threshold: Array.from({ length: 31 }, (_, i) => i * 0.0333) 
-      } 
+      {
+        rootMargin: "100% 0px -30% 0px",
+        threshold: Array.from({ length: 31 }, (_, i) => i * 0.0333),
+      }
     );
 
     images.forEach((img) => observer.observe(img));
@@ -116,7 +120,10 @@ export default function Gallery() {
                   height={660}
                   alt="gallery-1"
                   className="max-w-full w-full h-full object-cover"
-                  style={{ transform: `scale(${scales[0] || 1})` }}
+                  style={{
+                    transform: `scale(${scales[0] || 1})`,
+                    transformOrigin: "30% 80%",
+                  }}
                 />
               </figure>
             </div>
@@ -132,7 +139,10 @@ export default function Gallery() {
                   height={550}
                   alt="gallery-2"
                   className="max-w-full w-full h-full object-cover"
-                  style={{ transform: `scale(${scales[1] || 1})` }}
+                  style={{
+                    transform: `scale(${scales[1] || 1})`,
+                    transformOrigin: "10% 90%",
+                  }}
                 />
               </figure>
               <figure
@@ -145,7 +155,10 @@ export default function Gallery() {
                   height={550}
                   alt="gallery-3"
                   className="max-w-full w-full h-full object-cover"
-                  style={{ transform: `scale(${scales[2] || 1})` }}
+                  style={{
+                    transform: `scale(${scales[2] || 1})`,
+                    transformOrigin: "50% 100%",
+                  }}
                 />
               </figure>
             </div>

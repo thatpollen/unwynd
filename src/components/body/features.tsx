@@ -185,7 +185,7 @@ export default function Features() {
                           ? "1px solid rgba(0, 0, 0, 0.12)"
                           : "1px solid #00000000",
                       }}
-                      transition={{ duration: 0.3 }}
+                      transition={{ duration: 0 }}
                     >
                       <motion.div
                         initial={{
@@ -194,8 +194,8 @@ export default function Features() {
                         animate={{
                           backgroundColor: isExpanded ? "#f5f5f5" : "#00000000",
                         }}
-                        transition={{ duration: 0.3 }}
-                        className="absolute w-full h-full inset-0 z-2 transition-all rounded-2xl"
+                        transition={{ duration: 0 }}
+                        className="absolute w-full h-full inset-0 z-2 transition-all rounded-2xl duration-300"
                       >
                         <div
                           className="w-full h-full overflow-auto px-8 pt-8 pb-16 flex flex-col gap-2.5"
@@ -221,13 +221,12 @@ export default function Features() {
                             {item?.subtitle}
                           </motion.h5>
                           <motion.div
-                            initial={{ opacity: 0, y: -8 }}
+                            initial={{ opacity: 0 }}
                             animate={{
                               opacity: isExpanded ? 1 : 0,
-                              y: isExpanded ? 0 : -8,
                             }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                            className={`transition-all ${
+                            transition={{ duration: 0 }}
+                            className={`transition-all duration-300 easeInOut ${
                               isExpanded ? "block" : "hidden"
                             }`}
                           >
@@ -248,7 +247,7 @@ export default function Features() {
                           alt="features-img"
                           width={384}
                           height={520}
-                          className="max-w-full w-full h-full object-cover"
+                          className="max-w-full w-full h-full object-cover bg-neutral-100"
                           priority
                         />
                       )}
