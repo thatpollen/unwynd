@@ -6,7 +6,6 @@ import {
   Slider,
   ScanSearch,
   Wind,
-  Pause,
   Lamp,
 } from "../assets/icons";
 import Container from "../container/container";
@@ -114,11 +113,11 @@ export default function Advantages() {
       description: t("advantageFive.description"),
       icon: <Wind />,
     },
-    {
-      title: t("advantageSix.title"),
-      description: t("advantageSix.description"),
-      icon: <Pause />,
-    },
+    // {
+    //   title: t("advantageSix.title"),
+    //   description: t("advantageSix.description"),
+    //   icon: <Pause />,
+    // },
     {
       title: t("advantageSeven.title"),
       description: t("advantageSeven.description"),
@@ -130,7 +129,7 @@ export default function Advantages() {
     <section id="advantages" className="w-full py-24 px-4">
       <Container>
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
-          <div className="w-auto lg:w-1/3 relative lg:sticky lg:top-[192px]">
+          <div className="w-full lg:w-1/3 sticky top-0 lg:top-[192px] bg-white lg:bg-transparent py-4 lg:py-0">
             <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center">
               <span className="hidden md:block lg:hidden">Unwynd</span>
               {t("heading")}
@@ -150,12 +149,12 @@ export default function Advantages() {
                 className={`w-full flex flex-col gap-4 p-8 rounded-2xl transition-all ease-in-out duration-300 
             ${
               isMobile && selectedIndex === index
-                ? "bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F33,rgba(170,234,31,0.05))]"
+                ? "bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),rgba(234,173,31,0.05),rgba(170,234,31,0.05))]"
                 : "bg-background-tertiary"
             }
              ${
                !isMobile
-                 ? "hover:bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),#EAAD1F0D,rgba(170,234,31,0.05))] hover:cursor-default"
+                 ? "hover:bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),rgba(234,173,31,0.05),rgba(170,234,31,0.05))] hover:cursor-default"
                  : ""
              }
           `}

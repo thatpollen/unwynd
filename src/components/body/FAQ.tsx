@@ -40,11 +40,11 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="w-full py-32 relative z-2">
+    <section className="w-full py-32">
       <Container>
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-start lg:justify-between px-4">
           <h2 className="text-H4 md:text-H3 lg:text-[42px]">FAQ</h2>
-          <div className="w-full lg:w-[70%] max-w-full">
+          <div className="w-full lg:w-[70%] max-w-full relative z-2">
             {/* <Accordion className="w-full space-y-2" type="single" collapsible>
               <AccordionItem value="item-1" isBottomLine>
                 <AccordionTrigger>

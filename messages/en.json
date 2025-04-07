@@ -34,8 +34,8 @@
       "subtitle": "RGB light with dynamic lighting modes",
       "description": [
         "The Unwynd Lamp offers a versatile lighting experience, allowing you to set the perfect ambiance for your relaxation and meditation.",
-        "Choose from any color across the light spectrum to match your mood, creating a personalized atmosphere that complements your practice. Whether you prefer a calming blue, a warm amber, or a vibrant green, the lamp’s color options are virtually limitless.",
-        "For a more dynamic experience, explore the lamp’s unique lighting modes. Transform your space with the warm, flickering glow of a crackling fire, or immerse yourself in the ethereal dance of Northern lights as the colors shift and flow. These dynamic modes are designed to enhance your sensory experience, making your meditation sessions even more immersive and calming."
+        "Choose from any color across the light spectrum to match your mood, creating a personalized atmosphere that complements your practice. Whether you prefer a calming blue, a warm amber, or a vibrant green, the lamp's color options are virtually limitless.",
+        "For a more dynamic experience, explore the lamp's unique lighting modes. Transform your space with the warm, flickering glow of a crackling fire, or immerse yourself in the ethereal dance of Northern lights as the colors shift and flow. These dynamic modes are designed to enhance your sensory experience, making your meditation sessions even more immersive and calming."
       ]
     },
     "featureThree": {
@@ -44,7 +44,7 @@
       "description": [
         "The Unwynd Lamp features a variety of meditation exercises, making it an ideal companion for both beginners and seasoned practitioners.",
         "For those new to meditation, guided meditations provide a gentle introduction. A soothing voice will lead you step by step into a state of deep relaxation, helping you to clear your mind and focus your thoughts.",
-        "The Unwynd Lamp is also the ideal companion for your breathing exercises. Choose from a collection of carefully selected breathing exercises with different purposes and let your breath be guided by the light. As the lamp’s light gradually brightens, you’ll be prompted to inhale, and as it dims, you’ll be guided to exhale."
+        "The Unwynd Lamp is also the ideal companion for your breathing exercises. Choose from a collection of carefully selected breathing exercises with different purposes and let your breath be guided by the light. As the lamp's light gradually brightens, you'll be prompted to inhale, and as it dims, you'll be guided to exhale."
       ]
     },
     "featureFour": {
@@ -62,22 +62,22 @@
       "subtitle": "Custom meditation exercises",
       "description": [
         "The Unwynd Lamp offers full customization, allowing you to set the perfect ambiance for your meditation.",
-        "Apart from the possibility of easily adjusting the lighting and selecting your preferred sound, you can also set a custom breathing pattern. The lamp’s light will follow your chosen rhythm, becoming brighter to cue your inhalation and dimming to prompt your exhalation.",
-        "Once you’ve designed your ideal meditation session, you can easily save it, allowing you to quickly access and reuse your personalized settings during future sessions."
+        "Apart from the possibility of easily adjusting the lighting and selecting your preferred sound, you can also set a custom breathing pattern. The lamp's light will follow your chosen rhythm, becoming brighter to cue your inhalation and dimming to prompt your exhalation.",
+        "Once you've designed your ideal meditation session, you can easily save it, allowing you to quickly access and reuse your personalized settings during future sessions."
       ]
     },
     "featureSix": {
       "title": "Recharge and relax",
       "subtitle": "Rechargeable with a long battery life",
       "description": [
-        "The Unwynd Lamp is designed with convenience and longevity in mind. It features a rechargeable battery, ensuring you can enjoy your meditation sessions without the hassle of constantly replacing batteries. Once fully charged, the lamp offers a long battery life, allowing you to use it for extended periods without needing to recharge. This portable design allows you to take the lamp anywhere, whether you’re meditating at home, outdoors, or on the go. Simply recharge the lamp when needed, and it will be ready to provide a peaceful ambiance whenever and wherever you need it."
+        "The Unwynd Lamp is designed with convenience and longevity in mind. It features a rechargeable battery, ensuring you can enjoy your meditation sessions without the hassle of constantly replacing batteries. Once fully charged, the lamp offers a long battery life, allowing you to use it for extended periods without needing to recharge. This portable design allows you to take the lamp anywhere, whether you're meditating at home, outdoors, or on the go. Simply recharge the lamp when needed, and it will be ready to provide a peaceful ambiance whenever and wherever you need it."
       ]
     },
     "featureSeven": {
       "title": "Empower your Zen",
       "subtitle": "USB-powered",
       "description": [
-        "The Unwynd Lamp is equipped with a practical USB charging feature, making it easy to keep powered up wherever you are. Simply connect the lamp to any standard USB port—whether it’s on your computer, a USB wall adapter, or a power bank—and recharge with ease. This versatile charging option ensures that you can maintain your meditation practice without worrying about finding specific chargers, offering both convenience and flexibility."
+        "The Unwynd Lamp is equipped with a practical USB charging feature, making it easy to keep powered up wherever you are. Simply connect the lamp to any standard USB port—whether it's on your computer, a USB wall adapter, or a power bank—and recharge with ease. This versatile charging option ensures that you can maintain your meditation practice without worrying about finding specific chargers, offering both convenience and flexibility."
       ]
     },
     "featureEight": {
@@ -91,7 +91,7 @@
       "title": "Scheduled stillness",
       "subtitle": "Alarm function",
       "description": [
-        "The Unwynd Lamp’s built-in alarm feature helps ensure you never miss a moment of mindfulness. When the alarm activates at your chosen time, a gently pulsating light will invite you to pause and meditate. Simply touch or press any button on the lamp to start your pre-selected meditation exercise. This feature is particularly useful for busy office workers or anyone with a hectic schedule, ensuring you don’t forget to take a moment for your well-being during the day."
+        "The Unwynd Lamp's built-in alarm feature helps ensure you never miss a moment of mindfulness. When the alarm activates at your chosen time, a gently pulsating light will invite you to pause and meditate. Simply touch or press any button on the lamp to start your pre-selected meditation exercise. This feature is particularly useful for busy office workers or anyone with a hectic schedule, ensuring you don't forget to take a moment for your well-being during the day."
       ]
     },
     "featureTen": {
@@ -133,7 +133,7 @@
     },
     "advantageFour": {
       "title": "Explore",
-      "description": "Find inspiration in the app’s library that is full of breathing exercises and guided meditations."
+      "description": "Find inspiration in the app's library that is full of breathing exercises and guided meditations."
     },
     "advantageFive": {
       "title": "Enter your own breathing meditation",
@@ -224,9 +224,7 @@
         "part1": "Subscribe to the",
         "part2": "Unwynd newsletter"
       },
-      "subHeading": "Sign up to receive the latest news and important announcements directly in your inbox.",
-      "input": "Enter your email",
-      "btn": "Subscribe"
+      "subHeading": "Sign up to receive the latest news and important announcements directly in your inbox."
     },
     "sitemap": {
       "heading": "Sitemap",
@@ -245,11 +243,101 @@
     "contactUs": "Please contact us for support"
   },
 
+  "OrderModal": {
+    "headingOne": "The Unwynd lamp is almost ready to shine,",
+    "headingTwo": " but it's still in the final stages of enlightenment.",
+    "subHeading": "Sign up for our newsletter, and you'll be the first to know when it's ready to light up your zen space!"
+  },
+
+  "subscribeForm": {
+    "input": "Enter your email",
+    "btn": "Subscribe"
+  },
+
+  "TermsOfService": {
+    "heading": "General terms of use",
+    "terms_one": "1. Preamble",
+    "terms_one_description1": "These terms and conditions govern relationships between Topus GmbH, a corporation duly organized under the laws of the Federal Republic of Germany, registered in the commercial register at the local court of Hildesheim under number HRB 206112 and having its principal place of business at Wassermasch 15, 38179 Schwülper, Germany, hereinafter referred to as “TOPUS”, on the one hand, and any individual or corporate entity intending to make a purchase on the TOPUS website “&lt;website&gt;” (hereinafter referred to as “WEBSITE”), hereinafter referred to as the “CUSTOMER” or “you”, on the other hand.",
+    "terms_one_description2": "The parties agree that orders made to TOPUS via the WEBSITE will be governed exclusively by these terms and conditions. TOPUS reserves the possibility of modifying its terms and conditions at any time. In this case, the terms and conditions applicable will be those in force upon the date the order was made by the CUSTOMER. These general terms and conditions prevail over any other general or specific conditions to which TOPUS has not expressly agreed in writing.",
+    "terms_one_description3": "TOPUS offers lamps that are suitable for meditation and accompanying applications for controlling the lamps (hereinafter the lamp is referred to as “LAMP”, the application is referred to as “APPLICATION” and the lamp and application are collectively referred to as “TOPUS PRODUCTS” and each as a “TOPUS PRODUCT”).",
+    "terms_two": "2. Medical disclaimer",
+    "terms_two_description1": "The following medical disclaimer applies to the TOPUS PRODUCTS and all content, information, recommendations, suggestions, services and techniques (the “CONTENT”) provided by TOPUS, including (but not limited to) CONTENT provided in the APPLICATIONS, on the TOPUS PRODUCTS, on a website, including the WEBSITE, on social media, and on other online spaces (e.g., YouTube).",
+    "terms_two_description2": "The LAMPS are no medical devices. None of the CONTENT provided by TOPUS is medical information or medical advice.",
+    "terms_two_description3": "TOPUS is not a health care or medical device provider, nor should the CONTENT be considered medical advice. Only your physician or other health care provider can provide that.",
+    "terms_two_description4": "Any physical or mental health related content that you may find in the CONTENT describes only general principles, is not specific to you as an individual, and may not be appropriate or relevant to your personal situation. Such CONTENT is not intended to be used to diagnose, treat, cure, or prevent any medical conditions or as a substitute for consulting with your health care professionals. If you have any questions about your physical or mental health, you should consult your healthcare professionals.",
+    "terms_two_description5": "There have been rare reports that people with certain mental health conditions such as anxiety and depression having experienced worsening conditions in conjunction with intensive breathing practice. It is recommended for you to speak with your healthcare provider before starting a breathing practice.",
+    "terms_two_description6": "Rapid breathing can cause lightheadedness and may disrupt the heart. If you experience faintness, dizziness, pain or shortness of breath at any time while using a TOPUS PRODUCT, you should stop immediately and seek immediate medical attention.",
+    "terms_two_description7": "To the fullest extent permitted by law, TOPUS assumes no responsibility for injuries suffered while practicing breathing techniques and TOPUS shall not be held liable for any damages or injuries that may occur, directly or indirectly, from engaging in any activities or exercises presented in a TOPUS PRODUCT. You are solely responsible for your decisions and actions related to the TOPUS PRODUCTS and CONTENT, and any resultant injury or consequences that may affect your well-being or health in any way.",
+    "terms_two_description8": "Do not practice breathing techniques while driving or performing other tasks that require attention and concentration. Using the TOPUS PRODUCTS and CONTENT is done solely at your own risk. To the fullest extent permitted by law, you agree to not hold TOPUS or its representatives, agents, suppliers, etc. responsible for any injuries or damages that you may incur as a result of using the TOPUS PRODUCTS and CONTENT.",
+    "terms_two_description9": "To the fullest extent permitted by law, TOPUS assumes no responsibility for physical injuries or other damages, suffered while using the TOPUS PRODUCTS and CONTENT.",
+    "terms_three": "3. Price",
+    "terms_three_description1": "All prices on the WEBSITE are given in Euros, including tax. The total price of the order will be displayed on the online order form before the order process is finalized. The VAT amount will be indicated on the invoice.",
+    "terms_three_description2": "TOPUS reserves the right to change its prices at any time.",
+    "terms_three_description3": "For any delivery outside of EU territory, the CUSTOMER is responsible for all other costs that may arise due to the import, such as customs duties or import taxes, and is responsible for handling the import.",
+    "terms_three_description4": "All payments on the WEBSITE will be made using the “Stripe” payment system which accepts the following credit cards: VISA, MasterCard and American Express. The payment of the purchase will be charged to your credit card immediately upon receipt of the order. If the order is not accepted by TOPUS, there will be a refund of the price paid only. TOPUS will not be liable for any other amounts, losses or damages resulting therefrom.",
+    "terms_four": "4. Conclusion of the contract",
+    "terms_four_description1": "The LAMPS and corresponding description displayed on the WEBSITE do not constitute a binding offer by TOPUS, but merely serve the purpose of submitting a binding offer by the CUSTOMER.",
+    "terms_four_description2": "The CUSTOMER may submit the offer by the online order form on the WEBSITE. In doing so, after having passed through the order process, and by clicking the “Buy” button finalizing the order process, the CUSTOMER submits a legally binding offer of contract with regard to the selected LAMP. The CUSTOMER may also present the offer to TOPUS by means of telephone, fax, e-mail or postal service after having been invited by TOPUS to do so. Submission of the offer implies acceptance of these terms and conditions, recognition that the CUSTOMER is fully aware of these and renunciation by the CUSTOMER of the use of their own purchase conditions or any other conditions.",
+    "terms_four_description3": "After having received the offer from the CUSTOMER, TOPUS will send an e-mail to the CUSTOMER confirming receipt of the offer and containing the details of the order (hereinafter referred to as the “ORDER CONFIRMATION E-MAIL”). The ORDER CONFIRMATION E-MAIL is acknowledgement that TOPUS has received the CUSTOMER’s offer, and does not confirm acceptance of the CUSTOMER’s offer to buy the LAMP ordered. The sales contract for the LAMP is concluded as soon as TOPUS sends the ordered LAMP to the CUSTOMER and confirms dispatch to the CUSTOMER with a second e-mail (hereinafter referred to as the “DISPATCH CONFIRMATION E-MAIL”). TOPUS reserves the right to reject the order, which will be notified to the CUSTOMER by e-mail. In such case, the CUSTOMER will be reimbursed the price of the order.",
+    "terms_four_description4": "It is the CUSTOMER’s responsibility to ensure that the e-mail address he/she provides for the order processing is accurate so that e-mails sent by TOPUS can be received at this address. Particularly, it is the CUSTOMER’s responsibility, if spam filters are used, to ensure that all e-mails sent by TOPUS or by third parties commissioned by TOPUS with the order processing can be delivered.",
+    "terms_five": "5. Right of cancellation",
+    "terms_five_description1": "The following right of cancellation applies only if the CUSTOMER placed an order as a consumer in the sense of the German Civil Code (Section 13 BGB). A consumer is any natural person who enters into a legal transaction for purposes that are predominantly neither commercial nor self-employed.",
+    "terms_five_description2": "This right of cancellation does not apply to a CUSTOMER who is an entrepreneur within the meaning of the German Civil Code (Section 14 BGB). An entrepreneur is a natural or legal person or a partnership with legal capacity who, when concluding a legal transaction, acts in the exercise of their commercial or independent professional activity. A partnership with legal capacity is a partnership that is equipped with the ability to acquire rights and enter into obligations.",
+    "terms_five_description3": "Cancellation policy / Right of cancellation",
+    "terms_five_description4": "Unless the below exclusion applies, the CUSTOMER has the right to cancel this contract within fourteen days without giving reasons.",
+    "terms_five_description5": "The cancellation period is fourteen days from the day on which the CUSTOMER or a third party named by the CUSTOMER, who is not the carrier, took or has taken possession of the last goods.",
+    "terms_five_description6": "In order to exercise the right of cancellation, the CUSTOMER must notify TOPUS (Topus GmbH, Wassermasch 15, 38179 Schwülper, Germany; e-mail: &lt;email&gt;) by means of a clear statement about the CUSTOMER’s decision to cancel this contract (e.g. with a letter sent by post or an e-mail).",
+    "terms_five_description7": "In order to comply with the cancellation period, it is sufficient that the CUSTOMER sends the notification that the CUSTOMER exercises the right of cancellation before the end of the cancellation period.",
+    "terms_five_description8": "Consequences of cancellation",
+    "terms_five_description9": "If the CUSTOMER cancels this contract, TOPUS must reimburse the CUSTOMER for all payments TOPUS has received from the CUSTOMER, including delivery costs, immediately and at the latest within fourteen days of the day on which TOPUS received notification of the cancellation of this contract. TOPUS will use the same means of payment for this refund as the CUSTOMER used for the original transaction, unless expressly agreed otherwise; in no event will the CUSTOMER be charged for this refund.",
+    "terms_five_description10": "TOPUS may refuse to make any refund until TOPUS has received the LAMP back or until the CUSTOMER has provided proof that the CUSTOMER has returned the LAMP, whichever is earlier.",
+    "terms_five_description11": "The CUSTOMER must return or hand over the LAMP to TOPUS immediately and in any event no later than fourteen days from the date on which CUSTOMER notifies TOPUS of the cancellation of this agreement. This period shall be deemed to have been observed if the CUSTOMER dispatches the goods before the expiry of the fourteen-day period.",
+    "terms_five_description12": "The CUSTOMER shall bear the direct costs of returning the LAMP.",
+    "terms_five_description13": "The CUSTOMER shall only be liable for any loss in value of the goods if this loss in value is due to handling of the LAMP in a way that is unnecessary for testing their condition, properties and functionality.",
+    "terms_five_table_heading": "Standard cancellation form",
+    "terms_five_table_heading_description1": "— To Topus GmbH, Wassermasch 15, 38179 Schwülper, Germany; e-mail: &lt;email&gt;",
+    "terms_five_table_heading_description2": "I/we (*) hereby cancel the contract concluded by me/us (*) for the purchase of the following goods",
+    "terms_five_table_heading_description3": "— Ordered on",
+    "terms_five_table_heading_description4": "— Name of the consumer(s)",
+    "terms_five_table_heading_description5": "— Address of the consumer(s)",
+    "terms_five_table_heading_description6": "— Signature of the consumer(s) (only in case of communication on paper)",
+    "terms_five_table_heading_description7": "— Date",
+    "terms_five_table_heading_description8": "(*) Delete as appropriate",
+    "terms_six": "6. Exclusion of the right of cancellation",
+    "terms_six_description": "The right of cancellation does not apply to contracts for the delivery of goods which are not prefabricated and for the production of which an individual selection or specification by the CUSTOMER is decisive or which are clearly tailored to the CUSTOMER’s personal needs.",
+    "terms_seven": "7. Shipment and delivery conditions",
+    "terms_seven_description1": "The LAMP is shipped to the delivery address that the CUSTOMER indicates during the order process on the WEBSITE. Should delivery to the CUSTOMER not be possible, the assigned transport company returns the LAMP to TOPUS and the CUSTOMER bears the cost for the unsuccessful dispatch. This shall not apply if the CUSTOMER is not responsible for the event that entails the impossibility of delivery, or if he/she has been temporarily impeded to receive the ordered LAMP, unless TOPUS has given notice to the CUSTOMER in an adequate period of time prior to the delivery.",
+    "terms_seven_description2": "The risk of accidental destruction and accidental deterioration of the sold LAMP shall in principle be transferred to the CUSTOMER when the LAMP comes into the physical possession of the CUSTOMER or a person identified by the CUSTOMER to take possession of the LAMP. Should the CUSTOMER act as an entrepreneur within the meaning of the German Civil Code (Section 14 BGB), the risk of accidental destruction and accidental deterioration shall be transferred upon delivery of the LAMP to the transport company.",
+    "terms_seven_description3": "The estimated production and/or delivery times that are indicated on the WEBSITE or in the ORDER CONFIRMATION E-MAIL are no guaranteed times and should not be relied upon as such. Even if TOPUS makes every effort to produce and deliver the LAMP within the specified time frame, unforeseen delays may occur.",
+    "terms_eight": "8. Liability",
+    "terms_eight_description1": "TOPUS and its employees, representatives and vicarious agents shall only be liable for property damage and financial losses caused by negligence in the event of a breach of a material contractual obligation, but the amount of liability shall be limited to the losses foreseeable and typical for the contract at the time of conclusion of the contract.",
+    "terms_nine": "9. Applicable law and jurisdiction",
+    "terms_nine_description1": "The law of the Federal Republic of Germany applies to all legal relationships of the parties excluding the United Nations Convention on Contracts for the International Sale of Goods (CISG). The foregoing provisions regarding the governing law apply to consumers only to the extent that granted protection by mandatory statutory provisions of the country, in which the consumer maintains its customary residence is not withdrawn.",
+    "terms_nine_description2": "Exclusive place of jurisdiction for all disputes arising from the contractual relationship with entrepreneurs within the meaning of the German Civil Code (Section 14 BGB) shall be the domicile of TOPUS principal place of business; in the event of litigation initiated by TOPUS it may — at TOPUS’ discretion — also be the place of jurisdiction of the CUSTOMER, if this is not prescribed by law.",
+    "terms_ten": "10. Alternative dispute resolution",
+    "terms_ten_description": "The EU Commission provides an internet platform for the online settlement of disputes (so-called OS platform). This OS platform is intended to serve as a contact point for the out-of-court settlement of disputes in connection with contractual obligations arising from online purchase contracts in which a consumer is involved. The OS platform can be accessed via the following link: &lt;link&gt;.",
+    "terms_eleven": "11. Partial invalidity",
+    "terms_eleven_description": "If any provision of these terms and conditions is or should become invalid, this shall not affect the validity of the remaining provisions."
+  },
+
+  "Imprint": {
+    "heading": "Imprint",
+    "country": "Germany",
+    "Email": "E-mail:",
+    "Managing_director": "Managing Director:",
+    "Registered_at": "Registered at:",
+    "Registered_place": "Hildesheim local court",
+    "Registration_number": "Registration number:",
+    "VAT_ID": "VAT ID:",
+    "Personal_responsible_for_content": "Personal responsible for content:",
+    "address_above": "address see above"
+  },
+
   "PrivacyPolicy": {
     "privacy_policy": "Privacy Policy",
     "last_updated": "Last Updated On",
     "effective_date": "Effective Date",
-    "description": "This Privacy Policy describes the policies of {company}, {address}, email: {email}, on the collection, use and disclosure of your information that we collect when you use our website {website} (the \"Service\"). By accessing or using the Service, you are consenting to the collection, use and disclosure of your information in accordance with this Privacy Policy. If you do not consent to the same, please do not access or use the Service.",
+    "description": "This Privacy Policy describes the policies of Topus GmbH, Wassermasch 15, 38179 Schwülper, Germany, email: &lt;email&gt;, on the collection, use and disclosure of your information that we collect when you use our website (&lt;website&gt;) (the \"Service\"). By accessing or using the Service, you are consenting to the collection, use and disclosure of your information in accordance with this Privacy Policy. If you do not consent to the same, please do not access or use the Service.",
     "modification_notice": "We may modify this Privacy Policy at any time without any prior notice to you and will post the revised Privacy Policy on the Service. The revised Policy will be effective 180 days from when the revised Policy is posted in the Service and your continued access or use of the Service after such time will constitute your acceptance of the revised Privacy Policy. We therefore recommend that you periodically review this page.",
     "information_we_collect": "Information We Collect:",
     "personal_information": "To the extent provided by you, we will collect and process the following personal information about you:",
@@ -271,20 +359,23 @@
     "retention_info": "Retention Of Your Information:",
     "retention_policy": "We will retain your personal information with us for 90 days to 2 years after user terminates account or for as long as we need it to fulfill the purposes for which it was collected as detailed in this Privacy Policy. We may need to retain certain information for longer periods such as record-keeping / reporting in accordance with applicable law or for other legitimate reasons like enforcement of legal rights, fraud prevention, etc. Residual anonymous information and aggregate information, neither of which identifies you (directly or indirectly), may be stored indefinitely.",
     "your_rights": "Your Rights:",
-    "rights_description": "Depending on the law that applies, you may have a right to access and rectify or erase your personal data or receive a copy of your personal data, restrict or object to the active processing of your data, ask us to share (port) your personal information to another entity, withdraw any consent you provided to us to process your data, a right to lodge a complaint with a statutory authority and such other rights as may be relevant under applicable laws. To exercise these rights, you can write to us at {email}. We will respond to your request in accordance with applicable law.",
+    "rights_description": "Depending on the law that applies, you may have a right to access and rectify or erase your personal data or receive a copy of your personal data, restrict or object to the active processing of your data, ask us to share (port) your personal information to another entity, withdraw any consent you provided to us to process your data, a right to lodge a complaint with a statutory authority and such other rights as may be relevant under applicable laws. To exercise these rights, you can write to us at &lt;email&gt;. We will respond to your request in accordance with applicable law.",
+    "rights_note": "Do note that if you do not allow us to collect or process the required personal information or withdraw the consent to process the same for the required purposes, you may not be able to access or use the services for which your information was sought.",
     "cookie_policy": "Cookies:",
     "what_are_cookies": "What are cookies?",
     "cookies_description": "Cookies are small text files that are used to store small pieces of information. They are stored on your device when the website is loaded on your browser. These cookies help us make the website function properly, make it more secure, provide better user experience, and understand how the website performs and to analyze what works and where it needs improvement.",
     "how_we_use_cookies": "How do we use cookies?",
     "cookies_usage": "As most of the online services, our website uses first-party and third-party cookies for several purposes. First-party cookies are mostly necessary for the website to function the right way, and they do not collect any of your personally identifiable data.",
+    "cookies_usage_description": "The third-party cookies used on our website are mainly for understanding how the website performs, how you interact with our website, keeping our services secure, providing advertisements that are relevant to you, and all in all providing you with a better and improved user experience and help speed up your future interactions with our website.",
     "cookies_preferences": "Manage cookie preferences",
-    "cookie_settings": "You can change your {link} any time in the Cookie Settings. This will let you revisit the cookie consent banner and change your preferences or withdraw your consent right away.",
-    "browser_cookie_links": {
-      "chrome": "https://support.google.com/accounts/answer/32050",
-      "safari": "https://support.apple.com/en-in/guide/safari/sfri11471/mac",
-      "firefox": "https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox",
-      "ie": "https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc"
-    },
-    "other_browser_support": "If you are using any other web browser, please visit your browser’s official support documents."
+    "cookie_settings": "You can change your &lt;link&gt; any time in the Cookie Settings. This will let you revisit the cookie consent banner and change your preferences or withdraw your consent right away.",
+    "cookies_preferences_link": "cookie preferences",
+    "additional_browser_support": "In addition to this, different browsers provide different methods to block and delete cookies used by websites. You can change the settings of your browser to block/delete the cookies. Listed below are the links to the support documents on how to manage and delete cookies from the major web browsers.",
+    "other_browser_support": "If you are using any other web browser, please visit your browser’s official support documents.",
+    "security": "Security:",
+    "security_description": "The security of your information is important to us and we will use reasonable security measures to prevent the loss, misuse or unauthorized alteration of your information under our control. However, given the inherent risks, we cannot guarantee absolute security and consequently, we cannot ensure or warrant the security of any information you transmit to us and you do so at your own risk.",
+    "grievance": "Grievance / Data Protection Officer:",
+    "grievance_description": "If you have any queries or concerns about the processing of your information that is available with us, you may email our Grievance Officer at Topus GmbH, Wassermasch 15, 38179 Schwülper, email: &lt;email&gt;. We will address your concerns in accordance with applicable law.",
+    "generated_with": "Privacy Policy generated with CookieYes."
   }
 }

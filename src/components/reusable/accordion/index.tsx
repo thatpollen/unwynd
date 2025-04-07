@@ -36,14 +36,14 @@ const AccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "group flex flex-1 items-center justify-between py-4 text-base leading-[1.5em] font-medium text-[rgb(51,51,51)] text-left cursor-pointer",
+        "group flex flex-1 items-start md:items-center justify-between py-4 text-base leading-[1.5em] font-medium text-[rgb(51,51,51)] text-left cursor-pointer",
         className
       )}
       {...props}
     >
       {children}
       {/* <Minus className="h-4 w-4 shrink-0 text-current transition-transform duration-200 group-data-[state=closed]:hidden" /> */}
-      <Plus className="h-4 w-4 shrink-0 text-current transition-transform duration-200 group-data-[state=open]:rotate-45 group-data-[state=closed]:rotate-0" />
+      <Plus className="h-4 w-4 my-1 md:my-0 shrink-0 text-current transition-transform duration-200 group-data-[state=open]:rotate-45 group-data-[state=closed]:rotate-0" />
     </AccordionPrimitive.Trigger>
   </AccordionPrimitive.Header>
 ));

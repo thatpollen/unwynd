@@ -54,7 +54,7 @@ export default function Hero() {
       <div className="inner-full-width bg-gray-100 rounded-2xl h-auto md:h-dvh flex flex-col justify-center items-center gap-8 overflow-hidden">
         <div className="h-auto md:h-[56vh] mt-0 flex flex-col justify-end items-center gap-6 relative z-1 px-4">
           <h1 className="flex flex-col text-H2 md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
-            <div className="self-center block md:hidden py-3 mb-6">
+            <div className="self-center block md:hidden py-3 my-6">
               <NavLink href="/">
                 <NextImage
                   src="/images/navlogo/32.svg"
@@ -80,7 +80,7 @@ export default function Hero() {
               className="lamp-bg-gradient absolute inset-0"
               initial={{ opacity: 0 }}
               animate={{ opacity }}
-              transition={{ duration: 2, ease: "easeInOut" }}
+              transition={{ duration: 4, ease: "easeInOut" }}
             >
               <AnimatedBackground
                 backgroundType={backgroundType}
@@ -151,7 +151,7 @@ export default function Hero() {
                   opacity: isBreathingIn ? 1 : 0,
                   filter: isBreathingIn ? "brightness(1.5)" : "brightness(1)",
                 }}
-                transition={{ duration: 2, ease: "easeInOut" }}
+                transition={{ duration: 4, ease: "easeInOut" }}
               >
                 <AnimatedBackground
                   backgroundType={backgroundType}
@@ -183,7 +183,7 @@ export default function Hero() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 1, ease: "easeInOut" }}
+                      transition={{ duration: 2, ease: "easeInOut" }}
                       style={{ display: "block" }}
                     >
                       {text}

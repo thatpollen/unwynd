@@ -23,7 +23,9 @@ export default function Home() {
       <Advantages />
       <Testimonials />
       <FAQ />
-      <Footer />
+      <div className="mb-24 md:mb-0">
+        <Footer />
+      </div>
     </>
   );
 }
