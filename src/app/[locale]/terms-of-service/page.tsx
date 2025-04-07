@@ -26,7 +26,7 @@ export default function TermsConditions() {
               </NextLink>
             </div>
             <div className="flex justify-center items-center">
-              <h2 className="text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
+              <h2 className="text-H3 md:text-[44px] lg:text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
                 {t("heading")}
               </h2>
             </div>
