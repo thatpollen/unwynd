@@ -16,7 +16,10 @@ export async function POST(req: NextRequest) {
     const DATACENTER = process.env.NEXT_PUBLIC_MAILCHIMP_API_SERVER;
 
     if (!AUDIENCE_ID || !API_KEY || !DATACENTER) {
-      return NextResponse.json({ error: "Missing environment variables" }, { status: 500 });
+      return NextResponse.json(
+        { error: "Missing environment variables" },
+        { status: 500 }
+      );
     }
 
     const data = {
@@ -39,17 +42,30 @@ export async function POST(req: NextRequest) {
     const responseData = await response.json();
 
     if (response.status === 400 && responseData.title === "Member Exists") {
-      return NextResponse.json({ error: "This email is already subscribed." }, { status: 400 });
+      return NextResponse.json(
+        { error: "This email is already subscribed." },
+        { status: 400 }
+      );
     }
 
     if (response.status >= 400) {
-      return NextResponse.json({ error: responseData.detail || "Error subscribing to newsletter" }, { status: 400 });
+      console.log("Mailchimp error:", responseData);
+      return NextResponse.json(
+        { error: responseData.detail || "Error subscribing to newsletter" },
+        { status: 400 }
+      );
     }
 
-    return NextResponse.json({ message: "Subscription successful" }, { status: 200 });
+    return NextResponse.json(
+      { message: "Subscription successful" },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error subscribing user:", error);
-    return NextResponse.json({ error: "An unexpected error occurred." }, { status: 500 });
+    return NextResponse.json(
+      { error: "An unexpected error occurred." },
+      { status: 500 }
+    );
   }
 }
 
