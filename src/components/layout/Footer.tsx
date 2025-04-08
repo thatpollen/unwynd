@@ -5,12 +5,12 @@ import NextLink from "next/link";
 import { AnimateButton } from "../assets/buttons/AnimateButton";
 import NextImage from "next/image";
 import LargeContainer from "../container/largeContainer";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
 import NewsletterSignUpForm from "../assets/NewsletterSignUpForm";
 import ReactCountryFlag from "react-country-flag";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useTransition } from "react";
 
 const languages = [
   { code: "en", name: "English", countryCode: "GB" },
@@ -22,7 +22,6 @@ const languages = [
 
 export default function Footer() {
   const t = useTranslations("Footer");
-  const router = useRouter();
   const locale = useLocale();
 
   const [selectedLanguage, setSelectedLanguage] = useState(
@@ -37,10 +36,23 @@ export default function Footer() {
     }
   }, [locale]);
 
+  const pathname = usePathname();
+  const router = useRouter();
+  const [isPending, startTransition] = useTransition();
+
+  function getPathWithNewLocale(pathname: string, newLocale: string) {
+    const segments = pathname.split("/");
+    segments[1] = newLocale;
+    return segments.join("/") || `/${newLocale}`;
+  }
+
   const handleLanguageChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const newLocale = e.target.value;
 
-    router.replace(`/${newLocale}`, { scroll: false });
+    startTransition(() => {
+      const newPath = getPathWithNewLocale(pathname, newLocale);
+      router.replace(newPath, { scroll: false });
+    });
   };
 
   const scrollToTop = () => {
@@ -63,12 +75,12 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer className="w-full p-2 mb-24 md:mb-0">
-      <div className="flex flex-col">
+    <footer className="w-full p-2">
+      <div className="flex flex-col h-full">
         <div className="h-[200px]">
           <LargeContainer>
-            <div className="relative">
-              <div className="absolute z-1 top-0 md:top-[-72px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
+            <div className="relative -z-1">
+              <div className="absolute -z-2 top-0 md:top-[-72px] lg:left-[32px] left-1/2 w-fit -translate-x-1/2 lg:translate-x-0">
                 <figure className="relative w-[300px] h-[405px] md:w-auto md:h-auto aspect-auto">
                   <NextImage
                     src="/images/unwynd-footer-lamp.avif"
@@ -78,14 +90,14 @@ export default function Footer() {
                     className="max-w-full w-auto h-auto"
                     priority
                   />
-                  <div className="absolute w-[540px] max-w-[100vw] h-[150%] md:w-[720px] left-1/2 top-1/2 -translate-1/2 blur-[100px] opacity-20 -z-1 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
+                  <div className="absolute w-[540px] max-w-[100vw] h-[120%] md:w-[720px] left-1/2 top-1/2 -translate-1/2 blur-[100px] opacity-20 -z-5 bg-[linear-gradient(to_bottom_right,rgba(90,106,255,1),rgba(212,145,226,1),rgba(232,110,84,1),rgba(255,188,109,1))]"></div>
                 </figure>
               </div>
             </div>
           </LargeContainer>
         </div>
 
-        <div className="bg-surface-inverted-primary rounded-2xl relative z-2">
+        <div className="bg-surface-inverted-primary rounded-2xl relative z-1">
           <LargeContainer>
             <div className="flex flex-col lg:flex-row gap-20 px-6 py-12 md:p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
@@ -96,7 +108,7 @@ export default function Footer() {
                     {t("form.heading.part2")}
                   </span>
                 </h2>
-                <p className="text-sm text-text-inverted-tertiary tracking-tight text-center md:text-left">
+                <p className="text-sm text-text-inverted-secondary tracking-tight text-center md:text-left">
                   {t("form.subHeading")}
                 </p>
                 <NewsletterSignUpForm variant="footer" />
@@ -205,6 +217,7 @@ export default function Footer() {
                         className="appearance-none bg-neutral-800 text-sm text-text-inverted-primary p-2.5 pl-10 pr-8 rounded-[10px] border border-transparent 
                hover:border-surface-inverted-primary focus:ring-1 focus:ring-surface-inverted-tertiary focus:outline-none cursor-pointer"
                         id="language"
+                        disabled={isPending}
                         value={locale}
                         onChange={handleLanguageChange}
                       >

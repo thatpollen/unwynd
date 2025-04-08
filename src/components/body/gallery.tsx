@@ -141,7 +141,7 @@ export default function Gallery() {
                   className="max-w-full w-full h-full object-cover"
                   style={{
                     transform: `scale(${scales[1] || 1})`,
-                    transformOrigin: "10% 90%",
+                    transformOrigin: "5% 90%",
                   }}
                 />
               </figure>
@@ -154,7 +154,7 @@ export default function Gallery() {
                   width={550}
                   height={550}
                   alt="gallery-3"
-                  className="max-w-full w-full h-full object-cover"
+                  className="max-w-full w-full h-full object-cover object-bottom"
                   style={{
                     transform: `scale(${scales[2] || 1})`,
                     transformOrigin: "50% 100%",

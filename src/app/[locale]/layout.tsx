@@ -4,6 +4,7 @@ import "./globals.css";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import Script from "next/script";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -50,6 +51,14 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <Script
+          src={`https://cdn-cookieyes.com/client_data/jexda6-zykzam-tiKsyq/script.js`}
+          id="cookieyes"
+          strategy="beforeInteractive"
+          async
+        ></Script>
+      </head>
       <body className={`${poppins.className} ${caveat.variable} antialiased`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
