@@ -284,7 +284,7 @@ export default function Hero() {
         </div>
 
         <div className="grow flex flex-col justify-end w-full h-auto md:h-[44vh] relative">
-          <div className="flex flex-col justify-end items-center gap-2.5 relative h-[230px] md:h-[400px]">
+          <div className="flex flex-col justify-end items-center gap-2.5 relative h-[230px] md:h-[400px] overflow-hidden">
             {/* Background Animation - now controlled by opacity */}
             <motion.div
               className="lamp-bg-gradient absolute inset-0"
@@ -355,7 +355,7 @@ export default function Hero() {
             {/* Image Section */}
             <figure className="w-[272px] md:w-[400px] h-[300px] overflow-hidden relative">
               <motion.div
-                className="lamp-gradient absolute inset-0 opacity-80 z-2"
+                className="lamp-gradient absolute inset-0 opacity-90 z-2"
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity,

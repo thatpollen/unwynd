@@ -564,6 +564,16 @@ body {
   );
 }
 
+@media (max-width: 810px) {
+  .lamp-gradient {
+    mask: radial-gradient(
+      47% 50% at 50% 50%,
+      rgb(0, 0, 0) 0%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+}
+
 /* .testimonials_wrapper {
   mask-image: linear-gradient(
     rgba(0, 0, 0, 0) 0%,
