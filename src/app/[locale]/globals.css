@@ -558,19 +558,11 @@ body {
 
 .lamp-gradient {
   mask: radial-gradient(
-    50% 67% at 50% 50%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.3) 60%,
-    rgba(0, 0, 0, 0) 100%
-  );
-  -webkit-mask: radial-gradient(
-    50% 67% at 50% 50%,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 0.3) 60%,
+    40% 60% at 52% 52%,
+    rgb(0, 0, 0) 0%,
     rgba(0, 0, 0, 0) 100%
   );
 }
-
 
 /* .testimonials_wrapper {
   mask-image: linear-gradient(

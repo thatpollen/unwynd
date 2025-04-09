@@ -373,6 +373,8 @@ export default function Hero() {
                 />
               </motion.div>
 
+              {/* <div className="absolute inset-0 z-[-1] pointer-events-none blur-[300px] opacity-60 bg-[radial-gradient(circle_at_50%_60%,_#ff00ff_0%,_transparent_100%)]" /> */}
+
               <figure className="absolute bottom-[-172px] md:bottom-[-234px] aspect-auto">
                 <NextImage
                   src="/images/unwynd-lamp.avif"
