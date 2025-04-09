@@ -101,7 +101,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
       },
     },
     ripple: {
-      scale: [1, 1.2, 1],
+      scale: [1, 2.2, 1],
       opacity: [1, 0.5, 1],
       transition: {
         duration: animationDuration / animationSpeed,
@@ -148,10 +148,10 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
           ? animationVariants[animationStyle]
           : {}),
         opacity: [0.5, 1],
-        scale: [1, 1.2],
+        scale: [1, 2.2],
       }}
       transition={{
-        duration: 3,
+        duration: `${animationDuration / animationSpeed}`,
         repeat: Infinity,
         repeatType: "reverse",
         ease: "easeInOut",
