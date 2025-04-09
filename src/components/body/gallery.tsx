@@ -77,8 +77,8 @@ export default function Gallery() {
               >
                 <NextImage
                   src="/images/gallery-img-2.jpg"
-                  width={1024}
-                  height={1024}
+                  width={1440}
+                  height={1440}
                   alt="gallery-2"
                   className="max-w-full w-full h-full object-cover"
                   style={{

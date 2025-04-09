@@ -2,6 +2,7 @@
 import SubscribeButton from "./buttons/SubscribeButton";
 import { useRef, useState } from "react";
 import cn from "@/lib/utils/classname";
+import { useTranslations } from "next-intl";
 interface NewsletterSignUpFormProps {
   variant: "footer" | "modal";
 }
@@ -9,6 +10,8 @@ interface NewsletterSignUpFormProps {
 export default function NewsletterSignUpForm({
   variant,
 }: NewsletterSignUpFormProps) {
+  const t = useTranslations("subscribeForm");
+
   const inputRef = useRef<HTMLInputElement>(null);
   const [message, setMessage] = useState<string | null>(null);
 
@@ -60,7 +63,7 @@ export default function NewsletterSignUpForm({
             type="email"
             name="email"
             autoComplete="email"
-            placeholder="Enter your email"
+            placeholder={`${t("input")}`}
             required
           />
         </label>
@@ -74,7 +77,7 @@ export default function NewsletterSignUpForm({
           type="submit"
           name="subscribe"
         >
-          Subscribe
+          {t("btn")}
         </SubscribeButton>
       </div>
       {message && (

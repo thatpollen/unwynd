@@ -4,10 +4,11 @@ import SmallContainer from "@/components/container/smallContainer";
 import Footer from "@/components/layout/Footer";
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function TermsConditions() {
   const t = useTranslations("TermsOfService");
+  const locale = useLocale();
 
   return (
     <main>
@@ -15,7 +16,7 @@ export default function TermsConditions() {
         <SmallContainer>
           <div className="flex flex-col gap-10">
             <div className="self-center py-3 mb-6">
-              <NextLink href="/">
+              <NextLink href={`/${locale}`}>
                 <NextImage
                   src="/images/navlogo/32.svg"
                   alt="logo"

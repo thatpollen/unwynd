@@ -164,22 +164,24 @@ export default function Footer() {
                     </span>
                     <ul className="flex flex-col items-start gap-4 text-sm text-text-inverted-primary">
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/terms-of-service">
+                        <NextLink href={`/${locale}//terms-of-service`}>
                           {t("legal.termsConditions")}
                         </NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/imprint">
+                        <NextLink href={`/${locale}/imprint`}>
                           {t("legal.imprint")}
                         </NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/privacy-policy">
+                        <NextLink href={`/${locale}/privacy-policy`}>
                           {t("legal.privacyPolicy")}
                         </NextLink>
                       </li>
                       <li className="hover:text-brand-accent">
-                        <NextLink href="/">{t("legal.declaration")}</NextLink>
+                        <NextLink href={`/${locale}`}>
+                          {t("legal.declaration")}
+                        </NextLink>
                       </li>
                     </ul>
                   </div>

@@ -5,10 +5,11 @@ import Footer from "@/components/layout/Footer";
 import { CircleSmall } from "lucide-react";
 import NextLink from "next/link";
 import NextImage from "next/image";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function PrivacyPolicy() {
   const t = useTranslations("PrivacyPolicy");
+  const locale = useLocale();
 
   return (
     <main>
@@ -16,7 +17,7 @@ export default function PrivacyPolicy() {
         <SmallContainer>
           <div className="flex flex-col gap-10">
             <div className="self-center py-3 mb-6">
-              <NextLink href="/">
+              <NextLink href={`/${locale}`}>
                 <NextImage
                   src="/images/navlogo/32.svg"
                   alt="logo"
