@@ -89,6 +89,7 @@ export default function Advantages() {
   }, [isMobile]);
 */
 
+  /*
   useEffect(() => {
     if (!isMobile) return;
 
@@ -133,6 +134,48 @@ export default function Advantages() {
         if (ref) observer.unobserve(ref);
       });
     };
+  }, [isMobile]);
+*/
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let lastScrollY = window.scrollY;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const direction = scrollY > lastScrollY ? "down" : "up";
+      lastScrollY = scrollY;
+
+      const cards = cardRefs.current;
+      const viewportHeight = window.innerHeight;
+
+      const visibleCards = cards
+        .map((card, index) => {
+          if (!card) return null;
+          const rect = card.getBoundingClientRect();
+          const isVisible =
+            rect.top < viewportHeight * 0.7 &&
+            rect.bottom > viewportHeight * 0.3;
+          return isVisible ? { index, top: rect.top } : null;
+        })
+        .filter(Boolean) as { index: number; top: number }[];
+
+      if (visibleCards.length === 0) return;
+
+      let newIndex;
+
+      if (direction === "down") {
+        newIndex = visibleCards[0].index;
+      } else {
+        newIndex = visibleCards[visibleCards.length - 1].index;
+      }
+
+      setSelectedIndex(newIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isMobile]);
 
   const advantages: AdvantagesProps[] = [
