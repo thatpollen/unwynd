@@ -1,17 +1,18 @@
 import Container from "@/components/container/container";
 import Footer from "@/components/layout/Footer";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import NextImage from "next/image";
 import NextLink from "next/link";
 
 export default function Imprint() {
   const t = useTranslations("Imprint");
+  const locale = useLocale();
 
   return (
     <main>
       <div className="flex flex-col">
         <div className="self-center py-3 mt-8 mb-12">
-          <NextLink href="/">
+          <NextLink href={`/${locale}`}>
             <NextImage
               src="/images/navlogo/32.svg"
               alt="logo"

@@ -205,11 +205,12 @@ import NextImage from "next/image";
 import AnimatedBackground from "../assets/animation/AnimatedBackground";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import NavLink from "next/link";
 
 export default function Hero() {
   const t = useTranslations("Hero");
+  const locale = useLocale();
 
   const [text, setText] = useState("Breathe in");
 
@@ -264,7 +265,7 @@ export default function Hero() {
         <div className="h-auto md:h-[56vh] mt-0 flex flex-col justify-end items-center gap-6 relative z-1 px-4">
           <h1 className="flex flex-col text-H2 md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
             <div className="self-center block md:hidden py-3 my-6">
-              <NavLink href="/">
+              <NavLink href={`/${locale}`}>
                 <NextImage
                   src="/images/navlogo/32.svg"
                   alt="logo"

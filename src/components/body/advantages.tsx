@@ -54,6 +54,7 @@ export default function Advantages() {
 
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
+  /*
   useEffect(() => {
     if (!isMobile) return;
 
@@ -74,6 +75,53 @@ export default function Advantages() {
     );
 
     // Store current refs in a variable to use in cleanup
+    const currentRefs = cardRefs.current;
+
+    currentRefs.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      currentRefs.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
+  }, [isMobile]);
+*/
+
+  useEffect(() => {
+    if (!isMobile) return;
+
+    let lastScrollY = window.scrollY;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const scrollDown = window.scrollY > lastScrollY;
+        lastScrollY = window.scrollY;
+
+        // Filter intersecting entries
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+
+        if (visibleEntries.length > 0) {
+          const sorted = visibleEntries.sort((a, b) => {
+            const aIndex = Number(a.target.getAttribute("data-index"));
+            const bIndex = Number(b.target.getAttribute("data-index"));
+            return scrollDown ? aIndex - bIndex : bIndex - aIndex;
+          });
+
+          const firstVisibleIndex = Number(
+            sorted[0].target.getAttribute("data-index")
+          );
+          setSelectedIndex(firstVisibleIndex);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "-30% 0px -50% 0px",
+        threshold: 0.5,
+      }
+    );
+
     const currentRefs = cardRefs.current;
 
     currentRefs.forEach((ref) => {
@@ -146,7 +194,7 @@ export default function Advantages() {
                 ref={(el) => {
                   cardRefs.current[index] = el;
                 }}
-                className={`w-full flex flex-col gap-4 p-8 rounded-2xl transition-all ease-in-out duration-300 
+                className={`w-full flex flex-col gap-4 p-8 rounded-2xl transition-all ease-in-out duration-300
             ${
               isMobile && selectedIndex === index
                 ? "bg-[linear-gradient(135deg,rgba(30,63,235,0.05),rgba(103,31,234,0.05),rgba(234,31,201,0.05),rgba(234,31,93,0.05),rgba(234,173,31,0.05),rgba(170,234,31,0.05))]"

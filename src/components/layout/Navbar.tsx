@@ -3,13 +3,14 @@
 import OrderButton from "../assets/buttons/OrderButton";
 import { NavLogo } from "../assets/icons";
 import NextLink from "next/link";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
 import OrderModal from "../assets/Modal/OrderModal";
 import { useState } from "react";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -17,7 +18,7 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto w-full px-6">
         <div className="flex items-center justify-between py-2 px-4 md:py-3 rounded-full bg-white border border-border-blackOpacity8 shadow-[0_4px_64px_0px_rgba(0,0,0,0.16)] sticky top-4 z-10">
           <div className="hidden md:flex items-center gap-12">
-            <NextLink href="/">
+            <NextLink href={`/${locale}`}>
               <span>
                 <NavLogo />
               </span>
