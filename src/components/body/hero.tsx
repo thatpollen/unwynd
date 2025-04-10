@@ -263,7 +263,11 @@ export default function Hero() {
     <section className="p-2">
       <div className="inner-full-width bg-gray-100 rounded-2xl h-auto md:h-dvh flex flex-col justify-center items-center gap-8 overflow-hidden">
         <div className="h-auto md:h-[56vh] mt-0 flex flex-col justify-end items-center gap-6 relative z-1 px-4">
-          <h1 className="flex flex-col text-H2 md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent">
+          <h1
+            className={`flex flex-col ${
+              locale === "de" ? "text-H5" : "text-H2"
+            } md:text-[56px] lg:text-[64px] text-center font-semibold bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent`}
+          >
             <div className="self-center block md:hidden py-3 my-6">
               <NavLink href={`/${locale}`}>
                 <NextImage
@@ -284,7 +288,7 @@ export default function Hero() {
         </div>
 
         <div className="grow flex flex-col justify-end w-full h-auto md:h-[44vh] relative">
-          <div className="flex flex-col justify-end items-center gap-2.5 relative h-[230px] md:h-[400px]">
+          <div className="flex flex-col justify-end items-center gap-2.5 relative h-[230px] md:h-[400px] overflow-hidden">
             {/* Background Animation - now controlled by opacity */}
             <motion.div
               className="lamp-bg-gradient absolute inset-0"
@@ -355,7 +359,7 @@ export default function Hero() {
             {/* Image Section */}
             <figure className="w-[272px] md:w-[400px] h-[300px] overflow-hidden relative">
               <motion.div
-                className="lamp-gradient absolute inset-0 opacity-80 z-2"
+                className="lamp-gradient absolute inset-0 opacity-90 z-2"
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity,
@@ -387,7 +391,7 @@ export default function Hero() {
               </figure>
 
               <div className="absolute z-2 inset-0 flex justify-center items-center">
-                <div className="font-caveat text-2xl md:text-[32px] text-text-primary">
+                <div className="font-caveat text-2xl md:text-[32px] text-text-secondary">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={text}
