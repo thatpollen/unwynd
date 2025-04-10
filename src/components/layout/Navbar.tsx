@@ -59,7 +59,7 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-          <div className="grow md:grow-0 flex justify-between md:justify-start items-center">
+          <div className="grow md:grow-0 flex justify-between md:justify-start items-center gap-0 md:gap-8">
             <div className="hidden md:block grow w-px bg-stroke-opacity16"></div>
             <div className="flex flex-col gap-0.5 pl-4 md:pl-0">
               <span className="text-sm text-text-primary font-medium">
