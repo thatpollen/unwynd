@@ -21,19 +21,27 @@ interface AnimatedBackgroundProps {
 const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
   backgroundType = "gradient",
   solidColor = "#ffffff",
-  gradientColors = ["#ff7e5f", "#feb47b", "#6a11cb"],
-  // gradientColors = [
-  //   "#1F3FEA",
-  //   "#671FEA",
-  //   "#EA1FC9",
-  //   "#EA1F5E",
-  //   "#EAAD1F",
-  //   "#AAEA1F",
-  // ],
-  radialColors = ["#6a11cb", "#2575fc", "#ff7e5f"],
+  // gradientColors = ["#ff7e5f", "#feb47b", "#6a11cb"],
+  gradientColors = [
+    "#1F3FEA 0%",
+    "#671FEA 20%",
+    "#EA1FC9 40%",
+    "#EA1F5E 60%",
+    "#EAAD1F 80%",
+    "#AAEA1F 100%",
+  ],
+  // radialColors = ["#6a11cb", "#2575fc", "#ff7e5f"],
+  radialColors = [
+    "#1F3FEA 0%",
+    "#671FEA 20%",
+    "#EA1FC9 40%",
+    "#EA1F5E 60%",
+    "#EAAD1F 80%",
+    "#AAEA1F 100%",
+  ],
   autoAnimate = true,
   animationDuration = 5,
-  animationSpeed = 0.5,
+  animationSpeed = 1,
   animationStyle = "wave",
   easing = "easeInOut",
   animationLoop = "loop",
@@ -102,7 +110,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
       transformOrigin: "bottom center",
     },
     ripple: {
-      scale: [1, 2.2, 1],
+      scale: [1, 1.2, 1],
       opacity: [1, 0.5, 1],
       transition: {
         duration: animationDuration / animationSpeed,
@@ -134,7 +142,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
 
   return (
     <motion.div
-      className={`h-full w-full will-change-transform blur-[80px] ${className}`}
+      className={`h-full w-full will-change-transform blur-[100px] ${className}`}
       style={{
         background:
           backgroundType === "solid"
@@ -142,7 +150,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
             : backgroundType === "gradient"
             ? getGradientBackground()
             : getRadialGradientBackground(),
-        transition: "background 800ms ease-in-out",
+        // transition: "background 5s ease-in-out",
         transformOrigin: "bottom center",
       }}
       animate={{
@@ -151,7 +159,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
           ? animationVariants[animationStyle]
           : {}),
         opacity: [0.5, 1],
-        scale: [1, 2.2],
+        scale: [1, 1.2],
         transformOrigin: "bottom center",
       }}
       transition={{
