@@ -99,6 +99,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
         repeat: animationLoop === "loop" ? Infinity : 0,
         repeatType: "mirror" as const,
       },
+      transformOrigin: "bottom center",
     },
     ripple: {
       scale: [1, 2.2, 1],
@@ -109,6 +110,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
         repeat: animationLoop === "loop" ? Infinity : 0,
         repeatType: "mirror" as const,
       },
+      transformOrigin: "bottom center",
     },
     pulse: {
       opacity: [1, 0.5, 1],
@@ -132,7 +134,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
 
   return (
     <motion.div
-      className={`w-full h-full will-change-transform blur-[80px] ${className}`}
+      className={`h-full w-full will-change-transform blur-[80px] ${className}`}
       style={{
         background:
           backgroundType === "solid"
@@ -141,6 +143,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
             ? getGradientBackground()
             : getRadialGradientBackground(),
         transition: "background 800ms ease-in-out",
+        transformOrigin: "bottom center",
       }}
       animate={{
         ...(autoAnimate &&
@@ -149,6 +152,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
           : {}),
         opacity: [0.5, 1],
         scale: [1, 2.2],
+        transformOrigin: "bottom center",
       }}
       transition={{
         duration: `${animationDuration / animationSpeed}`,
