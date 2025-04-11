@@ -567,7 +567,7 @@ body {
 @media (max-width: 810px) {
   .lamp-gradient {
     mask: radial-gradient(
-      50% 100% at 50% 100%,
+      52% 100% at 50% 80%,
       rgb(0, 0, 0) 0%,
       rgba(0, 0, 0, 0) 100%
     );
