@@ -23,21 +23,21 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
   solidColor = "#ffffff",
   // gradientColors = ["#ff7e5f", "#feb47b", "#6a11cb"],
   gradientColors = [
-    "#1F3FEA 0%",
-    "#671FEA 20%",
-    "#EA1FC9 40%",
-    "#EA1F5E 60%",
-    "#EAAD1F 80%",
-    "#AAEA1F 100%",
+    "#1F3FEA",
+    "#671FEA",
+    "#EA1FC9",
+    "#EA1F5E",
+    "#EAAD1F",
+    "#AAEA1F",
   ],
   // radialColors = ["#6a11cb", "#2575fc", "#ff7e5f"],
   radialColors = [
-    "#1F3FEA 0%",
-    "#671FEA 20%",
-    "#EA1FC9 40%",
-    "#EA1F5E 60%",
-    "#EAAD1F 80%",
-    "#AAEA1F 100%",
+    "#1F3FEA",
+    "#671FEA",
+    "#EA1FC9",
+    "#EA1F5E",
+    "#EAAD1F",
+    "#AAEA1F",
   ],
   autoAnimate = true,
   animationDuration = 5,
@@ -107,7 +107,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
         repeat: animationLoop === "loop" ? Infinity : 0,
         repeatType: "mirror" as const,
       },
-      transformOrigin: "bottom center",
+      // transformOrigin: "bottom center",
     },
     ripple: {
       scale: [1, 1.2, 1],
@@ -151,7 +151,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
             ? getGradientBackground()
             : getRadialGradientBackground(),
         // transition: "background 5s ease-in-out",
-        transformOrigin: "bottom center",
+        // transformOrigin: "bottom center",
       }}
       animate={{
         ...(autoAnimate &&

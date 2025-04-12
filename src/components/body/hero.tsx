@@ -223,12 +223,12 @@ export default function Hero() {
   >("gradient");
   const [solidColor, setSolidColor] = useState("");
   const [gradientColors, setGradientColors] = useState([
-    "#1F3FEA 0%",
-    "#671FEA 20%",
-    "#EA1FC9 40%",
-    "#EA1F5E 60%",
-    "#EAAD1F 80%",
-    "#AAEA1F 100%",
+    "#1F3FEA",
+    "#671FEA",
+    "#EA1FC9",
+    "#EA1F5E",
+    "#EAAD1F",
+    "#AAEA1F",
   ]);
 
   useEffect(() => {
@@ -301,6 +301,7 @@ export default function Hero() {
                 solidColor={solidColor}
                 gradientColors={gradientColors}
                 animationDuration={5}
+                animationAngle={135}
                 animationStyle="wave"
               />
             </motion.div>
@@ -359,7 +360,7 @@ export default function Hero() {
             {/* Image Section */}
             <figure className="w-[272px] md:w-[400px] h-[300px] overflow-hidden relative">
               <motion.div
-                className="lamp-gradient absolute inset-0 top-12 md:inset-0 md:top-0 opacity-90 z-2 overflow-visible"
+                className="lamp-gradient absolute inset-0 top-12 md:inset-0 md:top-0 opacity-90 z-2"
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity,
@@ -376,8 +377,6 @@ export default function Hero() {
                   className="w-full h-full"
                 />
               </motion.div>
-
-              {/* <div className="absolute inset-0 z-[-1] pointer-events-none blur-[300px] opacity-60 bg-[radial-gradient(circle_at_50%_60%,_#ff00ff_0%,_transparent_100%)]" /> */}
 
               <figure className="absolute bottom-[-172px] md:bottom-[-234px] aspect-auto">
                 <NextImage
