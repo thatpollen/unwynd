@@ -191,7 +191,7 @@ export default function Footer() {
                     <span className="text-sm text-[rgba(255,255,255,0.5)]">
                       {t("contactUs")}
                     </span>
-                    <NextLink href="mailto:contact@unwynd.net" legacyBehavior>
+                    <NextLink legacyBehavior href="mailto:contact@unwynd.net">
                       <a className="text-sm text-brand-accent group relative hover:text-text-inverted-primary transition-all duration-100 linear">
                         contact@unwynd.net
                         <div className="h-px absolute left-0 w-0 bg-surface-primary group-hover:w-full transition-all duration-300 block z-2"></div>
