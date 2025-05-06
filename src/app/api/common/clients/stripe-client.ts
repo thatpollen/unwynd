@@ -6,6 +6,4 @@ const config: stripe.StripeConfig = {
   stripeAccount: systemConfig.stripeAccountId,
 };
 
-const StripeClient = new stripe(systemConfig.stripeDevApiKey, config);
-
-export default StripeClient;
+export const StripeClient = new stripe(systemConfig.stripeApiKey, config);
