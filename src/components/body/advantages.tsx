@@ -138,7 +138,7 @@ export default function Advantages() {
       <Container>
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
           <div className="w-full lg:w-1/3 sticky top-0 lg:top-[192px] bg-white lg:bg-transparent py-4 lg:py-0">
-            <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center">
+            <h2 className="text-heading-4 md:text-heading-3 lg:text-[42px] font-medium text-center">
               <span className="hidden md:block lg:hidden">Unwynd</span>
               {t("heading")}
             </h2>
@@ -172,7 +172,9 @@ export default function Advantages() {
                 }}
               >
                 <span>{advantage?.icon}</span>
-                <h6 className="text-H6 font-medium">{advantage?.title}</h6>
+                <h6 className="text-heading-6 font-medium">
+                  {advantage?.title}
+                </h6>
                 <p className="text-base text-text-secondary">
                   {advantage?.description}
                 </p>

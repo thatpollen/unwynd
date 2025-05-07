@@ -27,13 +27,13 @@ export default function TermsConditions() {
               </NextLink>
             </div>
             <div className="flex justify-center items-center">
-              <h2 className="text-H3 md:text-[44px] lg:text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
+              <h2 className="text-heading-3 md:text-[44px] lg:text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
                 {t("heading")}
               </h2>
             </div>
             <div className="flex flex-col gap-6">
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_one")}
                 </h5>
                 <p
@@ -135,7 +135,7 @@ export default function TermsConditions() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_five")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -245,7 +245,7 @@ export default function TermsConditions() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_seven")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -261,7 +261,7 @@ export default function TermsConditions() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_eight")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -269,7 +269,7 @@ export default function TermsConditions() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_nine")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -281,7 +281,7 @@ export default function TermsConditions() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_ten")}
                 </h5>
                 <p
@@ -295,7 +295,7 @@ export default function TermsConditions() {
                 />
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("terms_eleven")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">

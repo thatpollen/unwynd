@@ -118,7 +118,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
         repeat: animationLoop === "loop" ? Infinity : 0,
         repeatType: "mirror" as const,
       },
-      transformOrigin: "bottom center",
+      // transformOrigin: "bottom center",
     },
     pulse: {
       opacity: [1, 0.5, 1],
@@ -160,7 +160,7 @@ const AnimatedBackground: React.FC<AnimatedBackgroundProps> = ({
           : {}),
         opacity: [0.5, 1],
         scale: [1, 1.2],
-        transformOrigin: "bottom center",
+        // transformOrigin: "bottom center",
       }}
       transition={{
         duration: `${animationDuration / animationSpeed}`,

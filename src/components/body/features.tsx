@@ -156,7 +156,7 @@ export default function Features() {
   ];
 
   return (
-    <section id="features" className="w-full">
+    <section id="features" className="w-full py-24">
       <div className="max-w-[1440px] mx-auto">
         <div className="w-full h-[600px]">
           <Carousel
@@ -212,7 +212,7 @@ export default function Features() {
                             {item?.title}
                           </motion.span>
                           <motion.h5
-                            className={`text-H5 ${
+                            className={`text-heading-5 ${
                               isExpanded
                                 ? "text-text-primary"
                                 : item?.subtitleColor

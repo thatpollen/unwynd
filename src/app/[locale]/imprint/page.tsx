@@ -26,12 +26,12 @@ export default function Imprint() {
         <div className="max-w-full flex justify-center items-center px-6 pb-32 relative z-2">
           <Container>
             <div className="p-8 flex flex-col gap-12 rounded-2xl bg-white shadow-[0_4px_40px_0_rgba(0,0,0,0.08)]">
-              <h1 className="text-H3 md:text-[44px] lg:text-H1 font-medium text-text-primary">
+              <h1 className="text-heading-3 md:text-[44px] lg:text-heading-1 font-medium text-text-primary">
                 {t("heading")}
               </h1>
               <div className="w-full h-px bg-surface-tertiary"></div>
               <div className="flex flex-col items-start gap-6">
-                <h5 className="text-lg md:text-H6 lg:text-H5 font-medium text-text-primary">
+                <h5 className="text-lg md:text-heading-6 lg:text-H5 font-medium text-text-primary">
                   Topus GmbH
                 </h5>
                 <div className="w-full flex flex-col md:flex-row items-start justify-between gap-6 md:gap-0">
@@ -49,10 +49,11 @@ export default function Imprint() {
                       <span className="text-text-primary font-medium">
                         {t("Email")}
                       </span>
-                      <NextLink href="mailto:contact@unwynd.net" legacyBehavior>
-                        <a className="relative inline-block text-brand-orange hover:text-brand duration-200 transition-colors">
-                          contact@unwynd.net
-                        </a>
+                      <NextLink
+                        href="mailto:contact@unwynd.net"
+                        className="relative inline-block text-brand-orange hover:text-brand duration-200 transition-colors"
+                      >
+                        contact@unwynd.net
                       </NextLink>
                     </div>
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-2 text-base">
