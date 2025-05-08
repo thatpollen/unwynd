@@ -12,7 +12,6 @@ import ThreeD from "@/components/body/3d";
 import Testimonials from "@/components/body/testimonials";
 import GetNotified from "@/components/body/GetNotified";
 import WhyBack from "@/components/body/whyBack";
-import NewsletterPopup from "@/components/assets/Modal/NewsletterPopup";
 
 export default function Home() {
   return (
@@ -31,7 +30,6 @@ export default function Home() {
       <div className="mb-24 md:mb-0">
         <Footer />
       </div>
-      <NewsletterPopup />
     </>
   );
 }
