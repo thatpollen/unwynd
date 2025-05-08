@@ -19,11 +19,19 @@ import NextImage from "next/image";
 import NextLink from "next/link";
 import { useLocale } from "next-intl";
 
-export default function NewsletterPopup() {
+interface NewsletterPopupProps {
+  isOpen: boolean;
+  setIsOpen: (value: boolean) => void;
+}
+
+export default function NewsletterPopup({
+  isOpen,
+  setIsOpen,
+}: NewsletterPopupProps) {
   const locale = useLocale();
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogOverlay className="backdrop-blur bg-[rgba(0,0,0,0.6)]" />
       <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-4xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto">
         <div className="self-center py-3 mt-6 mb-6 block md:hidden">
@@ -34,6 +42,7 @@ export default function NewsletterPopup() {
               width={160}
               height={32}
               className="w-auto h-auto cursor-pointer"
+              priority
             />
           </NextLink>
         </div>
@@ -79,7 +88,11 @@ export default function NewsletterPopup() {
               </div>
             </div>
             <div className="flex flex-col items-center gap-2.5">
-              <button className="py-2.5 px-4 bg-[rgba(21,93,252,1)] rounded-full border border-border-whiteOpacity8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.16)] text-base font-medium text-text-inverted-primary cursor-pointer">
+              <button
+                className="py-2.5 px-4 bg-[rgba(21,93,252,1)] rounded-full border border-border-whiteOpacity8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.16)] text-base font-medium text-text-inverted-primary cursor-pointer"
+                // type=""
+                // name=""
+              >
                 Reserve My Unwynd Lamp Now
               </button>
               <p className="text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer">

@@ -1,8 +1,25 @@
 import SubscribeButton from "../assets/buttons/SubscribeButton";
 import Container from "../container/container";
 import cn from "@/lib/utils/classname";
+import { useState } from "react";
+import NewsletterPopup from "../assets/Modal/NewsletterPopup";
 
 export default function GetNotified() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+
+    if (emailInput && emailInput.checkValidity()) {
+      setIsOpen(true);
+    } else {
+      emailInput.reportValidity();
+    }
+  };
+
   return (
     <section className="p-2">
       <div className="py-4 sm:py-6 md:py-24 rounded-2xl bg-surface-tertiary">
@@ -19,7 +36,7 @@ export default function GetNotified() {
                 </p>
               </div>
               <div className="w-full md:w-1/2">
-                <form className="flex flex-col gap-4">
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
                   <label className="relative w-full inline-flex items-center">
                     <input
                       className={cn(
@@ -35,13 +52,14 @@ export default function GetNotified() {
                       required
                     />
                   </label>
-                  <SubscribeButton
-                    className="bg-[rgba(21,93,252,1)] text-text-inverted-primary text-base font-medium py-2"
+                  <button
+                    className="bg-[rgb(21,93,252)] py-2 px-4 text-text-inverted-primary text-base font-medium rounded-[28px] cursor-pointer"
+                    // onClick={() => setIsOpen(true)}
                     type="submit"
-                    name=""
                   >
-                    Get Notified
-                  </SubscribeButton>
+                    Book Now
+                  </button>
+                  <NewsletterPopup isOpen={isOpen} setIsOpen={setIsOpen} />
                 </form>
               </div>
             </div>
