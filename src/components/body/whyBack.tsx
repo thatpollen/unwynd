@@ -80,9 +80,10 @@ export default function WhyBack() {
                 <Image
                   src="/images/unwynd-lamp.avif"
                   alt="unwynd-lamp"
-                  width={600}
-                  height={800}
+                  width={768}
+                  height={1024}
                   className="max-w-full w-auto h-auto"
+                  priority
                 />
               </figure>
             </div>
