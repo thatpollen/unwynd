@@ -55,6 +55,7 @@ export default function NewsletterPopup({
               width={1024}
               height={1024}
               className="w-auto h-auto origin-center"
+              priority
             />
           </figure>
 
