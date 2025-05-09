@@ -20,7 +20,7 @@ export default function GetNotified() {
   };
 
   return (
-    <section className="p-2">
+    <section>
       <div className="py-4 sm:py-6 md:py-24 rounded-2xl bg-surface-tertiary">
         <Container>
           <div className="px-4 sm:px-6 lg:px-0">
