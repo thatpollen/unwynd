@@ -12,6 +12,12 @@ class CustomerService {
 
     return customer;
   }
+
+  async getCustomers() {
+    const customers = await this.action.getAllCustomers();
+
+    return customers;
+  }
 }
 
 export default CustomerService;
