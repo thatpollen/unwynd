@@ -52,7 +52,7 @@ export default function GetNotified() {
                     />
                   </label>
                   <button
-                    className="bg-[rgb(21,93,252)] py-2 px-4 text-text-inverted-primary text-base font-medium rounded-[28px] cursor-pointer"
+                    className="bg-[rgb(21,93,252)] py-2.5 px-4 text-text-inverted-primary text-base font-medium rounded-[28px] cursor-pointer"
                     // onClick={() => setIsOpen(true)}
                     type="submit"
                   >
