@@ -101,7 +101,7 @@ export default function Footer() {
           <LargeContainer>
             <div className="flex flex-col lg:flex-row gap-20 px-6 py-12 md:p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
-                <h2 className="text-H2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
+                <h2 className="text-heading-2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
                   {t("form.heading.part1")}
                   <br />
                   <span className="text-transparent bg-[linear-gradient(to_bottom_right,rgb(89,106,255),rgb(211,144,225),rgb(232,109,84),rgb(255,187,108))] bg-clip-text">
@@ -191,11 +191,12 @@ export default function Footer() {
                     <span className="text-sm text-[rgba(255,255,255,0.5)]">
                       {t("contactUs")}
                     </span>
-                    <NextLink href="mailto:contact@unwynd.net" legacyBehavior>
-                      <a className="text-sm text-brand-accent group relative hover:text-text-inverted-primary transition-all duration-100 linear">
-                        contact@unwynd.net
-                        <div className="h-px absolute left-0 w-0 bg-surface-primary group-hover:w-full transition-all duration-300 block z-2"></div>
-                      </a>
+                    <NextLink
+                      href="mailto:contact@unwynd.net"
+                      className="text-sm text-brand-accent group relative hover:text-text-inverted-primary transition-all duration-100 linear"
+                    >
+                      contact@unwynd.net
+                      <div className="h-px absolute left-0 w-0 bg-surface-primary group-hover:w-full transition-all duration-300 block z-2"></div>
                     </NextLink>
                   </div>
                   <div className="self-auto md:self-start flex justify-between md:justify-start items-center gap-6">

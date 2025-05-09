@@ -45,7 +45,7 @@ export default function Gallery() {
       <Container>
         <div className="flex flex-col gap-12">
           <div className="self-auto md:self-end w-full md:w-1/2 flex flex-col gap-2.5 px-4">
-            <span className="text-H5 md:text-[28px] lg:text-H3 font-medium">
+            <span className="text-heading-5 md:text-[28px] lg:text-heading-3 font-medium">
               {t("heading")}
             </span>
             <p className="text-base text-text-secondary">{t("subHeading")}</p>

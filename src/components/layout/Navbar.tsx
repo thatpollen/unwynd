@@ -1,17 +1,39 @@
 "use client";
 
-import OrderButton from "../assets/buttons/OrderButton";
+// import OrderButton from "../assets/buttons/OrderButton";
+// import OrderModal from "../assets/Modal/OrderModal";
+// import { useState } from "react";
 import { NavLogo } from "../assets/icons";
 import NextLink from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
-import OrderModal from "../assets/Modal/OrderModal";
-import { useState } from "react";
+import { Popover, PopoverContent, PopoverTrigger } from "../reusable/popover";
+import NewsletterSignUpForm from "../assets/NewsletterSignUpForm";
+import { useState, useEffect } from "react";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
+  const t2 = useTranslations("OrderModal");
   const locale = useLocale();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isMediumScreen, setIsMediumScreen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+  // const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 800);
+      setIsMediumScreen(window.innerWidth <= 640);
+      setIsSmallScreen(window.innerWidth <= 360);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <nav className="w-full fixed bottom-4 top-auto md:bottom-auto md:top-4 z-10">
@@ -69,7 +91,8 @@ export default function Navbar() {
                 {t("meditationLamp")}
               </span>
             </div>
-            <OrderButton
+            {/* <OrderButton
+              
               variant="primary"
               type="button"
               onClick={() => {
@@ -78,7 +101,49 @@ export default function Navbar() {
             >
               {t("orderNow")}
             </OrderButton>
-            <OrderModal isOpen={isOpen} setIsOpen={setIsOpen} />
+            <OrderModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
+            <Popover>
+              <PopoverTrigger>
+                <div
+                  className="
+                    text-sm text-white px-4 py-3.5 md:py-2 rounded-full cursor-pointer
+                         bg-brand hover:bg-brand-hover"
+                >
+                  {t("orderNow")}
+                </div>
+              </PopoverTrigger>
+
+              <PopoverContent
+                align="end"
+                alignOffset={
+                  isSmallScreen
+                    ? -35
+                    : isMediumScreen
+                    ? -30
+                    : isMobile
+                    ? -25
+                    : 0
+                }
+                sideOffset={20}
+                className="orderModal w-[96vw] max-w-5xl md:max-w-[520px] flex flex-col gap-8 p-6 sm:p-10"
+              >
+                <div className="flex flex-col space-y-2.5">
+                  <span className="text-2xl font-medium text-text-primary">
+                    {t2("headingOne")}
+                    <span className="text-text-tertiary">
+                      {t2("headingTwo")}
+                    </span>
+                  </span>
+                  <p className="text-sm text-text-secondary">
+                    {t2("subHeading")}
+                  </p>
+                </div>
+
+                <div className="flex flex-col space-y-2.5">
+                  <NewsletterSignUpForm variant="modal" />
+                </div>
+              </PopoverContent>
+            </Popover>
           </div>
         </div>
       </div>

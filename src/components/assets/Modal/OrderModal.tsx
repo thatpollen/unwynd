@@ -9,7 +9,6 @@ import {
 // import SubscribeButton from "@/components/assets/buttons/SubscribeButton";
 import NewsletterSignUpForm from "../NewsletterSignUpForm";
 import { useTranslations } from "next-intl";
-
 interface OrderModalProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;

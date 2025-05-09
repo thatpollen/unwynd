@@ -161,7 +161,7 @@ export default function LargeText() {
       <Container>
         <div>
           <div
-            className="text-H3 lg:text-H2 leading-[1.3em] font-light text-text-primary text-center whitespace-pre-wrap"
+            className="text-heading-3 lg:text-heading-2 leading-[1.3em] font-light text-text-primary text-center whitespace-pre-wrap"
             ref={elementsToSplitRef}
           >
             {t("text")}
