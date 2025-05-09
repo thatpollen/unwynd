@@ -18,7 +18,7 @@ export default function SubscribeButton({
   return (
     <button
       className={cn(
-        `flex justify-center items-center text-sm text-text-primary px-4 py-2.5 rounded-full cursor-pointer ${
+        `flex justify-center items-center text-sm text-text-primary px-4 py-3 md:py-2.5 rounded-full cursor-pointer ${
           variant === "disabled"
             ? "disabled:opacity-50 disabled:cursor-not-allowed"
             : variant === "success"
