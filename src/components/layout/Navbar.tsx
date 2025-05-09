@@ -106,7 +106,7 @@ export default function Navbar() {
               <PopoverTrigger>
                 <div
                   className="
-                    text-sm text-white px-4 py-3.5 md:py-2 rounded-full cursor-pointer
+                    text-sm text-white px-4 py-3.5 md:py-2.5 rounded-full cursor-pointer
                          bg-brand hover:bg-brand-hover"
                 >
                   {t("orderNow")}

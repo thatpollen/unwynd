@@ -115,7 +115,7 @@ export default function WhyBack() {
                   </label>
                   <SubscribeButton
                     className={cn(
-                      "relative md:absolute md:right-2.5 bg-surface-inverted-primary text-text-inverted-primary py-2 px-4"
+                      "relative md:absolute md:right-2.5 bg-surface-inverted-primary text-text-inverted-primary py-2.5 px-4"
                     )}
                     type="submit"
                     name="subscribe"
