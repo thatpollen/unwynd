@@ -21,7 +21,7 @@ export default function GetNotified() {
 
   return (
     <section>
-      <div className="py-4 sm:py-6 md:py-24 rounded-2xl bg-surface-tertiary">
+      <div className="py-4 sm:py-6 md:py-24 bg-surface-tertiary">
         <Container>
           <div className="px-4 sm:px-6 lg:px-0">
             <div className="flex flex-col md:flex-row items-center gap-6 rounded-2xl p-12 bg-surface-primary">
