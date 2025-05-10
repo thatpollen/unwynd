@@ -13,7 +13,7 @@ export default function WhyBack() {
   return (
     <section className="w-full">
       <Container>
-        <div className="flex flex-col md:flex-row gap-12 px-6 py-24 border-y border-border-blackOpacity12">
+        <div className="flex flex-col md:flex-row gap-12 px-6 py-24 border-t border-border-blackOpacity12">
           <div className="w-full md:w-[56%] flex flex-col space-y-6">
             <h2 className="text-heading-4 md:text-heading-3 lg:text-heading-2 font-medium text-text-primary">
               Why Back Unwynd?

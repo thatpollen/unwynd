@@ -24,8 +24,8 @@ export default function Home() {
       <Gallery />
       <ThreeD />
       <Advantages />
-      <Testimonials />
       <WhyBack />
+      <Testimonials />
       <FAQ />
       <div className="mb-24 md:mb-0">
         <Footer />

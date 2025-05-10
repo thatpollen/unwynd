@@ -101,12 +101,8 @@ export default function Footer() {
           <LargeContainer>
             <div className="flex flex-col lg:flex-row gap-20 px-6 py-12 md:p-20">
               <div className="flex flex-col justify-center gap-6 w-1/1">
-                <h2 className="text-heading-2 leading-14 tracking-[-0.04em] text-text-inverted-primary text-center md:text-left">
-                  {t("form.heading.part1")}
-                  <br />
-                  <span className="text-transparent bg-[linear-gradient(to_bottom_right,rgb(89,106,255),rgb(211,144,225),rgb(232,109,84),rgb(255,187,108))] bg-clip-text">
-                    {t("form.heading.part2")}
-                  </span>
+                <h2 className="text-heading-2 leading-14 tracking-[-0.04em] text-transparent bg-[linear-gradient(to_bottom_right,rgb(89,106,255),rgb(211,144,225),rgb(232,109,84),rgb(255,187,108))] bg-clip-text text-center md:text-left">
+                  {t("form.heading")}
                 </h2>
                 <p className="text-sm text-text-inverted-secondary tracking-tight text-center md:text-left">
                   {t("form.subHeading")}
