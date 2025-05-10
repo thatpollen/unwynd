@@ -4,6 +4,7 @@
     "view3d": "Vue 3D",
     "advantages": "Avantages",
     "meditationLamp": "Lampe de Méditation",
+    "launchingSoon": "Lancement prochain",
     "orderNow": "Commander"
   },
 
@@ -220,10 +221,7 @@
 
   "Footer": {
     "form": {
-      "heading": {
-        "part1": "S'abonner à la",
-        "part2": "lettre d'information d'Unwynd"
-      },
+      "heading": "Participez au lancement d'Unwynd",
       "subHeading": "Inscrivez-vous pour recevoir les dernières nouvelles et les annonces importantes directement dans votre boîte de réception."
     },
     "sitemap": {

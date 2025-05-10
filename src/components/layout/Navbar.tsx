@@ -82,15 +82,16 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="grow md:grow-0 flex justify-between md:justify-start items-center gap-0 md:gap-8">
-            <div className="hidden md:block grow w-px bg-stroke-opacity16"></div>
             <div className="flex flex-col gap-0.5 pl-4 md:pl-0">
               <span className="text-sm text-text-primary font-medium">
                 Unwynd
               </span>
-              <span className="text-xs leading-4 text-text-tertiary break-keep">
-                {t("meditationLamp")}
+              <span className="text-xs leading-4 bg-[linear-gradient(to_bottom_right,#1F3FEA,#671FEA,#EA1FC9,#EA1F5E,#EAAD1F,#AAEA1F)] bg-clip-text text-transparent break-keep">
+                {t("launchingSoon")}
               </span>
             </div>
+
+            <div className="hidden md:block h-6 w-px bg-stroke-opacity16"></div>
             {/* <OrderButton
               
               variant="primary"
