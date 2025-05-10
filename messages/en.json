@@ -222,7 +222,7 @@
   "Footer": {
     "form": {
       "heading": "Be part of the Unwynd launch",
-      "subHeading": "Sign up to receive the latest news and important announcements directly in your inbox."
+      "subHeading": "Sign up to get notified about the launch and be the first in line for early bird discounts:"
     },
     "sitemap": {
       "heading": "Sitemap",
@@ -249,7 +249,8 @@
 
   "subscribeForm": {
     "input": "Enter your email",
-    "btn": "Subscribe"
+    "btn": "Subscribe",
+    "btn2": "Get Notified"
   },
 
   "TermsOfService": {

@@ -6,8 +6,7 @@ import {
   Discount,
 } from "../assets/icons";
 import Image from "next/image";
-import SubscribeButton from "@/components/assets/buttons/SubscribeButton";
-import cn from "@/lib/utils/classname";
+import GetNotifiedForm from "../assets/forms/GetNotifiedForm";
 
 export default function WhyBack() {
   return (
@@ -93,7 +92,7 @@ export default function WhyBack() {
                 stay informed and be the first to know about the launch to
                 profit from early bird discounts!
               </p>
-              <form
+              {/* <form
                 // onSubmit={subscribeUser}
                 className={cn("flex flex-col gap-1.5")}
               >
@@ -123,7 +122,8 @@ export default function WhyBack() {
                     Get Notified
                   </SubscribeButton>
                 </div>
-              </form>
+              </form> */}
+              <GetNotifiedForm variant="whyback" />
             </div>
           </div>
         </div>

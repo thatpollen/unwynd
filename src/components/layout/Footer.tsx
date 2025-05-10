@@ -8,9 +8,9 @@ import LargeContainer from "../container/largeContainer";
 import { useRouter, usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
-import NewsletterSignUpForm from "../assets/NewsletterSignUpForm";
 import ReactCountryFlag from "react-country-flag";
 import { useState, useEffect, useTransition } from "react";
+import GetNotifiedForm from "../assets/forms/GetNotifiedForm";
 
 const languages = [
   { code: "en", name: "English", countryCode: "GB" },
@@ -107,7 +107,8 @@ export default function Footer() {
                 <p className="text-sm text-text-inverted-secondary tracking-tight text-center md:text-left">
                   {t("form.subHeading")}
                 </p>
-                <NewsletterSignUpForm variant="footer" />
+                {/* <NewsletterSignUpForm variant="footer" /> */}
+                <GetNotifiedForm variant="footer" />
               </div>
               <div className="flex flex-col gap-12 w-1/1">
                 <div className="flex justify-start gap-16 md:gap-0">

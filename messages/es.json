@@ -5,7 +5,7 @@
     "advantages": "Ventajas",
     "meditationLamp": "Lámpara de Meditación",
     "launchingSoon": "Próximamente",
-    "orderNow": "Haz tu pedido"
+    "orderNow": "Ser notificado(a)"
   },
 
   "Hero": {
@@ -222,7 +222,7 @@
   "Footer": {
     "form": {
       "heading": "Sea parte del lanzamiento de Unwynd",
-      "subHeading": "Regístrate para recibir las últimas noticias y anuncios importantes directamente en tu bandeja de entrada."
+      "subHeading": "Regístrate para recibir las últimas noticias y anuncios importantes directamente en tu bandeja de entrada:"
     },
     "sitemap": {
       "heading": "Mapa del sitio",
@@ -249,7 +249,8 @@
 
   "subscribeForm": {
     "input": "Introduce tu correo electrónico",
-    "btn": "Suscríbete"
+    "btn": "Suscríbete",
+    "btn2": "Ser notificado(a)"
   },
 
   "TermsOfService": {

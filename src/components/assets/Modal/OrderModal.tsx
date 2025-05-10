@@ -7,7 +7,7 @@ import {
   DialogDescription,
 } from "@/components/reusable/dialog";
 // import SubscribeButton from "@/components/assets/buttons/SubscribeButton";
-import NewsletterSignUpForm from "../NewsletterSignUpForm";
+import NewsletterSignUpForm from "../forms/NewsletterSignUpForm";
 import { useTranslations } from "next-intl";
 interface OrderModalProps {
   isOpen: boolean;
@@ -29,7 +29,7 @@ export default function OrderModal({ isOpen, setIsOpen }: OrderModalProps) {
         </DialogHeader>
 
         <DialogFooter>
-          <NewsletterSignUpForm variant="modal" />
+          <NewsletterSignUpForm variant="popover" />
         </DialogFooter>
       </DialogContent>
     </Dialog>
