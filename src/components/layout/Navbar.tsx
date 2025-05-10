@@ -8,8 +8,8 @@ import NextLink from "next/link";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "react-scroll";
 import { Popover, PopoverContent, PopoverTrigger } from "../reusable/popover";
-import NewsletterSignUpForm from "../assets/NewsletterSignUpForm";
 import { useState, useEffect } from "react";
+import GetNotifiedForm from "../assets/forms/GetNotifiedForm";
 
 export default function Navbar() {
   const t = useTranslations("Navbar");
@@ -141,7 +141,8 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex flex-col space-y-2.5">
-                  <NewsletterSignUpForm variant="modal" />
+                  {/* <NewsletterSignUpForm variant="popover" /> */}
+                  <GetNotifiedForm variant="popover" />
                 </div>
               </PopoverContent>
             </Popover>

@@ -96,8 +96,11 @@ export default function NewsletterPopup({
               >
                 Reserve My Unwynd Lamp Now
               </button>
-              <p className="text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer">
-                No thanks, I‘ll just follow along
+              <p
+                className="text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
+                onClick={() => setIsOpen(false)}
+              >
+                No thanks, I&apos;ll just follow along
               </p>
             </div>
           </div>

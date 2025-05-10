@@ -1,10 +1,11 @@
 "use client";
-import SubscribeButton from "./buttons/SubscribeButton";
+import SubscribeButton from "../buttons/SubscribeButton";
 import { useRef, useState } from "react";
 import cn from "@/lib/utils/classname";
 import { useTranslations } from "next-intl";
+
 interface NewsletterSignUpFormProps {
-  variant: "footer" | "modal";
+  variant: "footer" | "popover" | "getnotified";
 }
 
 export default function NewsletterSignUpForm({
@@ -46,17 +47,21 @@ export default function NewsletterSignUpForm({
         "flex flex-col gap-1.5",
         variant === "footer"
           ? "footerForm w-auto md:w-[525px]"
-          : "orderModalForm w-auto"
+          : variant === "popover"
+          ? "orderModalForm w-auto"
+          : "w-auto"
       )}
     >
       <div className="w-auto relative flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
         <label className="relative w-full inline-flex items-center">
           <input
             className={cn(
-              "w-full placeholder:text-text-inverted-tertiary rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:border-dotted autofill",
+              "w-full rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:border-dotted autofill",
               variant === "footer"
-                ? "text-white hover:bg-surface-inverted-secondary transition-all duration-100"
-                : "text-text-primary bg-surface-tertiary"
+                ? "text-white hover:bg-surface-inverted-secondary transition-all duration-100 placeholder:text-text-inverted-tertiary"
+                : variant === "popover"
+                ? "text-text-primary bg-surface-tertiary placeholder:text-text-inverted-tertiary"
+                : "bg-surface-primary placeholder:text-text-tertiary"
             )}
             id="email"
             ref={inputRef}
@@ -72,7 +77,9 @@ export default function NewsletterSignUpForm({
             "relative md:absolute md:right-2.5",
             variant === "footer"
               ? "bg-white hover:bg-brand hover:text-text-inverted-primary"
-              : "bg-surface-inverted-primary text-text-inverted-primary"
+              : variant === "popover"
+              ? "bg-surface-inverted-primary text-text-inverted-primary"
+              : "bg-surface-inverted-primary text-text-inverted-primary py-2.5 px-4"
           )}
           type="submit"
           name="subscribe"
