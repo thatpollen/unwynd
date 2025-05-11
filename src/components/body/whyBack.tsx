@@ -92,37 +92,7 @@ export default function WhyBack() {
                 stay informed and be the first to know about the launch to
                 profit from early bird discounts!
               </p>
-              {/* <form
-                // onSubmit={subscribeUser}
-                className={cn("flex flex-col gap-1.5")}
-              >
-                <div className="w-auto relative flex flex-col gap-4 md:flex-row md:items-center md:gap-0">
-                  <label className="relative w-full inline-flex items-center">
-                    <input
-                      className={cn(
-                        "w-full bg-surface-primary placeholder:text-text-tertiary rounded-full p-4 border border-border-whiteOpacity12 focus:outline-none focus:border-dotted autofill"
-                      )}
-                      id="email"
-                      // ref={inputRef}
-                      type="email"
-                      name="email"
-                      autoComplete="email"
-                      // placeholder={`${t("input")}`}
-                      placeholder="Please enter your email"
-                      required
-                    />
-                  </label>
-                  <SubscribeButton
-                    className={cn(
-                      "relative md:absolute md:right-2.5 bg-surface-inverted-primary text-text-inverted-primary py-2.5 px-4"
-                    )}
-                    type="submit"
-                    name="subscribe"
-                  >
-                    Get Notified
-                  </SubscribeButton>
-                </div>
-              </form> */}
+
               <GetNotifiedForm variant="whyback" />
             </div>
           </div>
