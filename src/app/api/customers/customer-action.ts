@@ -28,6 +28,26 @@ class CustomerAction {
       throw HttpError.InternalServerError("An unexpected error occurred!");
     }
   }
+
+  async getAllCustomers() {
+    logger.info("Action::Get-All-Customers::Start");
+
+    try {
+      const customers = await StripeClient.customers.list({
+        limit: 100,
+      });
+
+      return customers;
+    } catch (error) {
+      logger.error(`Action::Get-All-Customers::Error: ${error}`);
+      
+      if (error instanceof StripeClient.errors.StripeError) {
+        throw HttpError(error.statusCode || 500, error.message);
+      }
+
+      throw HttpError.InternalServerError("An unexpected error occurred!");
+    }
+  }
 }
 
 export default CustomerAction;
