@@ -1,5 +1,4 @@
 import { logger, mailchimpClient } from "../common/clients";
-import { PaymentStatusType } from "../common/types";
 import systemConfig from "../common/configs";
 import HttpError from "http-errors";
 
