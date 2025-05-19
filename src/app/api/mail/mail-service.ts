@@ -49,6 +49,25 @@ class MailService {
 
     return res;
   }
+
+  /**
+   * Adds a contact to a Automation/Workflow queue
+   * @param {string} email - Contact email address
+   * @param {string} automationId - Mailchimp automation Id
+   * @param {string} workflowEmailId - Unique workflow email Id
+   * @returns
+   */
+  async addAutomationContact(
+    email: string,
+    automationId: string,
+    workflowEmailId: string,
+  ) {
+    return await this.action.addToAutomationQueue({
+      email,
+      automationId,
+      workflowEmailId,
+    });
+  }
 }
 
 export default MailService;
