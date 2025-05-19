@@ -4,7 +4,8 @@
     "view3d": "Vista 3D",
     "advantages": "Ventajas",
     "meditationLamp": "Lámpara de Meditación",
-    "orderNow": "Haz tu pedido"
+    "launchingSoon": "Próximamente",
+    "orderNow": "Ser notificado(a)"
   },
 
   "Hero": {
@@ -220,11 +221,8 @@
 
   "Footer": {
     "form": {
-      "heading": {
-        "part1": "Suscríbete al",
-        "part2": "Uboletín de Unwynd"
-      },
-      "subHeading": "Regístrate para recibir las últimas noticias y anuncios importantes directamente en tu bandeja de entrada."
+      "heading": "Sea parte del lanzamiento de Unwynd",
+      "subHeading": "Regístrate para recibir las últimas noticias y anuncios importantes directamente en tu bandeja de entrada:"
     },
     "sitemap": {
       "heading": "Mapa del sitio",
@@ -251,7 +249,8 @@
 
   "subscribeForm": {
     "input": "Introduce tu correo electrónico",
-    "btn": "Suscríbete"
+    "btn": "Suscríbete",
+    "btn2": "Ser notificado(a)"
   },
 
   "TermsOfService": {

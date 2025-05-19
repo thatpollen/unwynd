@@ -101,7 +101,7 @@ export default function Testimonials() {
             <Container>
               <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-12 md:gap-0 w-full p-4">
                 <div className="flex flex-col gap-4">
-                  <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center md:text-left">
+                  <h2 className="text-heading-4 md:text-heading-3 lg:text-[42px] font-medium text-center md:text-left">
                     {t("heading")}
                   </h2>
                   <p className="text-base text-text-secondary text-center md:text-left">
@@ -254,7 +254,7 @@ function Testimonial(props: TestimonialProps) {
           <Graphic />
         </span>
         <div className="w-full flex flex-col gap-2">
-          <h6 className="text-H6 font-medium">{testimonial?.title}</h6>
+          <h6 className="text-heading-6 font-medium">{testimonial?.title}</h6>
           <p className="text-sm text-text-secondary">
             {testimonial?.description}
           </p>

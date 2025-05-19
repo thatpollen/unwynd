@@ -4,12 +4,13 @@
     "view3d": "Vista 3D",
     "advantages": "Vantaggi",
     "meditationLamp": "Lampada da Meditazione",
-    "orderNow": "Ordina ora"
+    "launchingSoon": "Lancio imminente",
+    "orderNow": "Ricevi notifiche"
   },
 
   "Hero": {
     "heading": "Lampada da Meditazione",
-    "subHeading": "Che tu pratichi la respirazione, la mindfulness o cerchi semplicemente un momento di calma, questa lampada crea l’atmosfera perfetta.",
+    "subHeading": "Che tu pratichi la respirazione, la mindfulness o cerchi semplicemente un momento di calma, questa lampada crea l’atmosfera perfetta",
     "breatheIn": "inspira",
     "breatheOut": "espira"
   },
@@ -219,11 +220,8 @@
 
   "Footer": {
     "form": {
-      "heading": {
-        "part1": "Iscriviti alla",
-        "part2": "newsletter di Unwynd"
-      },
-      "subHeading": "Iscriviti per ricevere le ultime notizie e gli annunci importanti direttamente nella tua casella di posta elettronica."
+      "heading": "Partecipa al lancio di Unwynd",
+      "subHeading": "Iscriviti per ricevere le ultime notizie e gli annunci importanti direttamente nella tua casella di posta elettronica:"
     },
     "sitemap": {
       "heading": "Mappa del sito",
@@ -250,7 +248,8 @@
 
   "subscribeForm": {
     "input": "Inserisci la tua email",
-    "btn": "Iscriviti"
+    "btn": "Iscriviti",
+    "btn2": "Ricevi notifiche"
   },
 
   "TermsOfService": {

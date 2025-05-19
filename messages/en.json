@@ -4,7 +4,8 @@
     "view3d": "3D View",
     "advantages": "Advantages",
     "meditationLamp": "Meditation Lamp",
-    "orderNow": "Order Now"
+    "launchingSoon": "Launching soon",
+    "orderNow": "Get Notified"
   },
 
   "Hero": {
@@ -194,7 +195,7 @@
     "heading": "FAQ",
     "faqOne": {
       "question": "Would the Unwynd Lamp be a good fit for someone new to meditation?",
-      "answer": "Absolutely! Our customers have consistently affirmed that the Unwynd Lamp is incredibly helpful for beginners. Through the companion app, users can access a wide range of breathing exercises and guided meditations that provide easy guidance for those just starting out on their meditation journey."
+      "answer": "Absolutely! The Unwynd Lamp is incredibly helpful for beginners. Through the companion app, users can access a wide range of breathing exercises and guided meditations that provide easy guidance for those just starting out on their meditation journey."
     },
     "faqTwo": {
       "question": "Can I use my own meditation music with the Unwynd Lamp?",
@@ -220,11 +221,8 @@
 
   "Footer": {
     "form": {
-      "heading": {
-        "part1": "Subscribe to the",
-        "part2": "Unwynd newsletter"
-      },
-      "subHeading": "Sign up to receive the latest news and important announcements directly in your inbox."
+      "heading": "Be part of the Unwynd launch",
+      "subHeading": "Sign up to get notified about the launch and be the first in line for early bird discounts:"
     },
     "sitemap": {
       "heading": "Sitemap",
@@ -251,7 +249,8 @@
 
   "subscribeForm": {
     "input": "Enter your email",
-    "btn": "Subscribe"
+    "btn": "Subscribe",
+    "btn2": "Get Notified"
   },
 
   "TermsOfService": {

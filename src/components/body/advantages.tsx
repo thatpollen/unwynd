@@ -54,89 +54,6 @@ export default function Advantages() {
 
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  /*
-  useEffect(() => {
-    if (!isMobile) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = Number(entry.target.getAttribute("data-index"));
-            setSelectedIndex(index);
-          }
-        });
-      },
-      {
-        root: null,
-        rootMargin: "-30% 0px -50% 0px",
-        threshold: 0.5, // Adjust as needed
-      }
-    );
-
-    // Store current refs in a variable to use in cleanup
-    const currentRefs = cardRefs.current;
-
-    currentRefs.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, [isMobile]);
-*/
-
-  /*
-  useEffect(() => {
-    if (!isMobile) return;
-
-    let lastScrollY = window.scrollY;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const scrollDown = window.scrollY > lastScrollY;
-        lastScrollY = window.scrollY;
-
-        // Filter intersecting entries
-        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
-
-        if (visibleEntries.length > 0) {
-          const sorted = visibleEntries.sort((a, b) => {
-            const aIndex = Number(a.target.getAttribute("data-index"));
-            const bIndex = Number(b.target.getAttribute("data-index"));
-            return scrollDown ? aIndex - bIndex : bIndex - aIndex;
-          });
-
-          const firstVisibleIndex = Number(
-            sorted[0].target.getAttribute("data-index")
-          );
-          setSelectedIndex(firstVisibleIndex);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "-30% 0px -50% 0px",
-        threshold: 0.5,
-      }
-    );
-
-    const currentRefs = cardRefs.current;
-
-    currentRefs.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, [isMobile]);
-*/
-
   useEffect(() => {
     if (!isMobile) return;
 
@@ -221,7 +138,7 @@ export default function Advantages() {
       <Container>
         <div className="w-full flex flex-col items-center lg:items-start lg:flex-row gap-12 flex-nowrap">
           <div className="w-full lg:w-1/3 sticky top-0 lg:top-[192px] bg-white lg:bg-transparent py-4 lg:py-0">
-            <h2 className="text-H4 md:text-H3 lg:text-[42px] font-medium text-center">
+            <h2 className="text-heading-4 md:text-heading-3 lg:text-[42px] font-medium text-center">
               <span className="hidden md:block lg:hidden">Unwynd</span>
               {t("heading")}
             </h2>
@@ -255,7 +172,9 @@ export default function Advantages() {
                 }}
               >
                 <span>{advantage?.icon}</span>
-                <h6 className="text-H6 font-medium">{advantage?.title}</h6>
+                <h6 className="text-heading-6 font-medium">
+                  {advantage?.title}
+                </h6>
                 <p className="text-base text-text-secondary">
                   {advantage?.description}
                 </p>

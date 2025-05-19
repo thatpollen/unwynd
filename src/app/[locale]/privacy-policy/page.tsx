@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
               </NextLink>
             </div>
             <div className="flex justify-center items-center">
-              <h2 className="text-H3 md:text-[44px] lg:text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
+              <h2 className="text-heading-3 md:text-[44px] lg:text-[64px] leading-18 tracking-[-0.04em] text-text-primary text-center">
                 {t("privacy_policy")}
               </h2>
             </div>
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
                 </p>
               </div>
               <div className="flex flex-col gap-4 mb-2">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("information_we_collect")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -96,7 +96,7 @@ export default function PrivacyPolicy() {
                 </ul>
               </div>
               <div className="flex flex-col gap-4 mb-2">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("how_we_use_info")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -137,7 +137,7 @@ export default function PrivacyPolicy() {
                 {t("consent_notice")}
               </div>
               <div className="flex flex-col gap-4 mb-2">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("how_we_share_info")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -169,7 +169,7 @@ export default function PrivacyPolicy() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("retention_info")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -177,7 +177,7 @@ export default function PrivacyPolicy() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("your_rights")}
                 </h5>
                 <p
@@ -195,7 +195,7 @@ export default function PrivacyPolicy() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("cookie_policy")}
                 </h5>
                 <div className="flex flex-col gap-6">
@@ -249,14 +249,10 @@ export default function PrivacyPolicy() {
 
                       <NextLink
                         href="https://support.google.com/accounts/answer/32050"
-                        legacyBehavior
+                        target="_blank"
+                        className="text-lg text-brand break-words"
                       >
-                        <a
-                          target="_blank"
-                          className="text-lg text-brand break-words"
-                        >
-                          https://support.google.com/accounts/answer/32050
-                        </a>
+                        https://support.google.com/accounts/answer/32050
                       </NextLink>
                     </div>
                     <br />
@@ -268,11 +264,10 @@ export default function PrivacyPolicy() {
 
                       <NextLink
                         href="https://support.apple.com/en-in/guide/safari/sfri11471/mac"
-                        legacyBehavior
+                        target="_blank"
+                        className="text-lg text-brand"
                       >
-                        <a target="_blank" className="text-lg text-brand">
-                          https://support.apple.com/en-in/guide/safari/sfri11471/mac
-                        </a>
+                        https://support.apple.com/en-in/guide/safari/sfri11471/mac
                       </NextLink>
                     </div>
                     <br />
@@ -283,11 +278,10 @@ export default function PrivacyPolicy() {
                       </span>
                       <NextLink
                         href="https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox?redirectslug=delete-cookies-remove-info-websites-stored&redirectlocale=en-US"
-                        legacyBehavior
+                        target="_blank"
+                        className="text-lg text-brand"
                       >
-                        <a target="_blank" className="text-lg text-brand">
-                          https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox?redirectslug=delete-cookies-remove-info-websites-stored&redirectlocale=en-US
-                        </a>
+                        https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox?redirectslug=delete-cookies-remove-info-websites-stored&redirectlocale=en-US
                       </NextLink>
                     </div>
                     <br />
@@ -298,11 +292,10 @@ export default function PrivacyPolicy() {
                       </span>
                       <NextLink
                         href="https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc"
-                        legacyBehavior
+                        target="_blank"
+                        className="text-lg text-brand"
                       >
-                        <a target="_blank" className="text-lg text-brand">
-                          https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc
-                        </a>
+                        https://support.microsoft.com/en-us/topic/how-to-delete-cookie-files-in-internet-explorer-bca9446f-d873-78de-77ba-d42645fa52fc
                       </NextLink>
                     </div>
                     <br />
@@ -314,7 +307,7 @@ export default function PrivacyPolicy() {
                 </div>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("security")}
                 </h5>
                 <p className="text-lg text-text-primary text-left">
@@ -322,7 +315,7 @@ export default function PrivacyPolicy() {
                 </p>
               </div>
               <div className="flex flex-col gap-4">
-                <h5 className="text-H5 text-text-primary text-left">
+                <h5 className="text-heading-5 text-text-primary text-left">
                   {t("grievance")}
                 </h5>
                 <p
