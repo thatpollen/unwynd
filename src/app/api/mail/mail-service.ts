@@ -68,6 +68,18 @@ class MailService {
       workflowEmailId,
     });
   }
+
+  /**
+   * Get mailchimp Automation/Workflow contacts
+   * @param {string} automationId - Mailchim automation Id
+   * @param {string} workflowEmailId - Unique workflow email Id
+   */
+  async getAutomationContacts(automationId: string, workflowEmailId: string) {
+    return this.action.getAutomationQueueSubscribers({
+      automationId,
+      workflowEmailId,
+    });
+  }
 }
 
 export default MailService;
