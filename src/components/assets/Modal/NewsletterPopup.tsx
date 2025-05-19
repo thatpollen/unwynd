@@ -89,13 +89,15 @@ export default function NewsletterPopup({
               </div>
             </div>
             <div className="flex flex-col items-center gap-2.5">
-              <button
+              <NextLink
+                href="https://buy.stripe.com/test_5kQ6oIcO9ajb9RhgtRcfK00"
                 className="py-2.5 px-4 bg-[rgba(21,93,252,1)] rounded-full border border-border-whiteOpacity8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.16)] text-base font-medium text-text-inverted-primary cursor-pointer"
-                // type=""
-                // name=""
+                passHref
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 Reserve My Unwynd Lamp Now
-              </button>
+              </NextLink>
               <p
                 className="text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
                 onClick={() => setIsOpen(false)}
