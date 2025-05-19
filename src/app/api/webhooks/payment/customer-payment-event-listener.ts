@@ -7,9 +7,9 @@ export const eventListener = async (event: Stripe.Event) => {
   const syncService = new SyncService();
 
   switch (type) {
-    case "charge.succeeded":
+    case "payment_intent.succeeded":
       logger.info(`PaymentEvent::${type}`);
-      const chargeSucceeded = data.object as Stripe.Charge;
+      const chargeSucceeded = data.object as Stripe.PaymentIntent;
       const customerId = chargeSucceeded.customer;
 
       if (customerId) {
@@ -18,13 +18,24 @@ export const eventListener = async (event: Stripe.Event) => {
 
       break;
 
-    case "charge.failed":
+    case "payment_intent.payment_failed":
       logger.info(`PaymentEvent::${type}`);
-      const chargeFailed = data.object as Stripe.Charge;
+      const chargeFailed = data.object as Stripe.PaymentIntent;
       const failedCustomerId = chargeFailed.customer;
 
       if (failedCustomerId) {
         await syncService.eventSync(failedCustomerId as string, "failed");
+      }
+
+      break;
+
+    case "payment_intent.canceled":
+      logger.info(`PaymentEvent::${type}`);
+      const chargeCanceled = data.object as Stripe.PaymentIntent;
+      const canceledCustomerId = chargeCanceled.customer;
+
+      if (canceledCustomerId) {
+        await syncService.eventSync(canceledCustomerId as string, "incomplete");
       }
 
       break;
