@@ -80,6 +80,15 @@ class MailService {
       workflowEmailId,
     });
   }
+
+  /**
+   * Deletes a contact from Automation/Workflow
+   * @param {string} automationId - Mailchimp automation/worflow Id
+   * @param {string} email - Email address to delete
+   */
+  async deleteAutomationContact(automationId: string, email: string) {
+    return await this.action.removeFromAutomationQueue({ automationId, email });
+  }
 }
 
 export default MailService;
