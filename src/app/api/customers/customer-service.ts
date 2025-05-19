@@ -13,6 +13,10 @@ class CustomerService {
     return customer;
   }
 
+  async getCustomer(id: string) {
+    return this.action.get(id);
+  }
+
   async getCustomers() {
     const customers = await this.action.getAllCustomers();
 

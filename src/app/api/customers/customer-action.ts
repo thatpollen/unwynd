@@ -1,5 +1,6 @@
 import HttpError from "http-errors";
 import { logger, StripeClient } from "../common/clients";
+import Stripe from "stripe";
 
 class CustomerAction {
   constructor() {}
@@ -13,19 +14,33 @@ class CustomerAction {
         preferred_locales: [lang],
         metadata: {
           preferred_lang: lang,
-          createdBy: 'unwynd_api'
-        }
+          createdBy: "unwynd_api",
+        },
       });
 
       return customer;
     } catch (error) {
       logger.error(`Action::Create-Customer::Error: ${error}`);
-      
+
       if (error instanceof StripeClient.errors.StripeError) {
         throw HttpError(error.statusCode || 500, error.message);
       }
 
       throw HttpError.InternalServerError("An unexpected error occurred!");
+    }
+  }
+
+  async get(id: string) {
+    logger.info("Action::Get-Customer::Start");
+
+    try {
+      const customer = await StripeClient.customers.retrieve(id);
+
+      return customer as Stripe.Customer;
+    } catch (error) {
+      logger.info(`Action::Get-Customer::Error: ${JSON.stringify(error)}`);
+
+      throw HttpError.InternalServerError("Failed to retrieve a customer!");
     }
   }
 
@@ -40,7 +55,7 @@ class CustomerAction {
       return customers;
     } catch (error) {
       logger.error(`Action::Get-All-Customers::Error: ${error}`);
-      
+
       if (error instanceof StripeClient.errors.StripeError) {
         throw HttpError(error.statusCode || 500, error.message);
       }
