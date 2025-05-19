@@ -167,16 +167,11 @@ class MailAction {
 
   /**
    * Add batch contacts to List
-   * @param paymentStatus
    * @param tags
    * @param contacts
    * @returns
    */
-  async addBatchContactsWithTags(
-    paymentStatus: PaymentStatusType,
-    tags: string[],
-    contacts: string[],
-  ) {
+  async addBatchContacts(tags: string[], contacts: string[]) {
     try {
       const res = await this.mailClient.lists.batchListMembers(this.listId, {
         members: contacts.map((contact) => ({
@@ -191,6 +186,8 @@ class MailAction {
       return res;
     } catch (err) {
       logger.error(`MailAction::AddContacts::Error: ${JSON.stringify(err)}`);
+
+      throw HttpError.InternalServerError("Failed ot add contacts!");
     }
   }
 }

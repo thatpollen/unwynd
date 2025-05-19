@@ -8,7 +8,7 @@ class MailService {
   }
 
   /**
-   *
+   * Adds a new contact to a Mailchimp Audience/List
    * @param param {Object} contact - Contact data
    * @param {string} contact.email - Contact email
    * @param {Array<string>} contact.tags - Contact tags
@@ -30,6 +30,24 @@ class MailService {
     const member = this.action.addContact({ email, mergeFields, tags });
 
     return member;
+  }
+
+  /**
+   * Add batch contacts to a Mailchimp Audience/List
+   * @param param {Object} data - Contacts
+   * @param {Array<string>} data.contacts - Contact List
+   * @param {Array<string>} data.tags - Contact tags
+   */
+  async addBatchContacts({
+    contacts,
+    tags,
+  }: {
+    tags: string[];
+    contacts: string[];
+  }) {
+    const res = await this.action.addBatchContacts(tags, contacts);
+
+    return res;
   }
 }
 
