@@ -1,23 +1,35 @@
 import Stripe from "stripe";
 import { logger } from "../../common/clients";
+import SyncService from "../../sync/sync-service";
 
 export const eventListener = async (event: Stripe.Event) => {
   const { type, data } = event;
+  const syncService = new SyncService();
 
   switch (type) {
-    case "payment_intent.succeeded":
-      let paymentIntent = data.object as Stripe.PaymentIntent;
-      logger.info(`PaymentIntent: ${JSON.stringify(paymentIntent)}`);
+    case "charge.succeeded":
+      logger.info(`PaymentEvent::${type}`);
+      const chargeSucceeded = data.object as Stripe.Charge;
+      const customerId = chargeSucceeded.customer;
+
+      if (customerId) {
+        await syncService.eventSync(customerId as string, "success");
+      }
+
       break;
-    case "payment_intent.payment_failed":
-      paymentIntent = data.object as Stripe.PaymentIntent;
-      logger.info(`PaymentIntent: ${JSON.stringify(paymentIntent)}`);
-      console.log("PaymentIntent failed.");
+
+    case "charge.failed":
+      logger.info(`PaymentEvent::${type}`);
+      const chargeFailed = data.object as Stripe.Charge;
+      const failedCustomerId = chargeFailed.customer;
+
+      if (failedCustomerId) {
+        await syncService.eventSync(failedCustomerId as string, "failed");
+      }
+
       break;
-    case "payment_method.attached":
-      console.log("PaymentMethod was attached to a Customer!");
-      break;
+
     default:
       console.log(`Unhandled event type ${type}`);
   }
-}
+};

@@ -23,11 +23,11 @@ class MailService {
   }: {
     email: string;
     tags: string[];
-    firstName: string;
-    lastName: string;
+    firstName?: string;
+    lastName?: string;
   }) {
     const mergeFields = { firstName, lastName };
-    const member = this.action.addContact({ email, mergeFields, tags });
+    const member = await this.action.addContact({ email, mergeFields, tags });
 
     return member;
   }
