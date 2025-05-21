@@ -3,7 +3,11 @@ import { logger, StripeClient } from "../common/clients";
 import Stripe from "stripe";
 
 class CustomerAction {
-  constructor() {}
+  readonly client;
+
+  constructor() {
+    this.client = StripeClient;
+  }
 
   async create({ email, lang }: { email: string; lang: string }) {
     logger.info("Action::Create-Customer::Start");
@@ -41,6 +45,30 @@ class CustomerAction {
       logger.info(`Action::Get-Customer::Error: ${JSON.stringify(error)}`);
 
       throw HttpError.InternalServerError("Failed to retrieve a customer!");
+    }
+  }
+
+  async findCustomer(email: string) {
+    logger.info("Action::Find-Customer::Start");
+
+    try {
+      const customers = await this.client.customers.list({
+        email: email,
+        limit: 1,
+      });
+      logger.info(
+        `Action::Find-Customer::Customers: ${JSON.stringify(customers)}`,
+      );
+
+      return customers.data;
+    } catch (error) {
+      logger.error(`Action::Find-Customer::Error: ${JSON.stringify(error)}`);
+
+      if (error instanceof StripeClient.errors.StripeError) {
+        throw HttpError(error.statusCode || 500, error.message);
+      }
+
+      throw HttpError.InternalServerError("Failed to query customers!");
     }
   }
 

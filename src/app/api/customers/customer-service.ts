@@ -8,6 +8,12 @@ class CustomerService {
   }
 
   async createCustomer({ email, lang }: { email: string; lang: string }) {
+    const existingCustomers = await this.action.findCustomer(email);
+
+    if (existingCustomers.length > 0) {
+      return existingCustomers[0];
+    }
+
     const customer = await this.action.create({ email, lang });
 
     return customer;
