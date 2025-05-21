@@ -22,12 +22,12 @@ export default function SubscribeButton({
           variant === "disabled"
             ? "disabled:opacity-50 disabled:cursor-not-allowed"
             : variant === "success"
-            ? "font-semibold"
-            : variant === "error"
-            ? "bg-background-error text-error font-semibold"
-            : ""
+              ? "font-semibold"
+              : variant === "error"
+                ? "bg-background-error text-error font-semibold"
+                : ""
         } transition-colors duration-200`,
-        className
+        className,
       )}
       type={type}
       name={name}
