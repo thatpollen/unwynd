@@ -32,6 +32,29 @@ export default function NewsletterPopup({
 }: NewsletterPopupProps) {
   const locale = useLocale();
   const [showCheckout, setShowCheckout] = useState(false);
+  const [customerId, setCustomerId] = useState<string | null>(null);
+
+  const handleReserve = async () => {
+    const emailInput = document.querySelector(
+      'input[name="email"]'
+    ) as HTMLInputElement;
+    if (!emailInput?.value) return;
+
+    const res = await fetch("/api/customers", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: emailInput.value,
+        lang: locale,
+      }),
+    });
+
+    const data = await res.json();
+    if (data.customerId) {
+      setCustomerId(data.customerId);
+      setShowCheckout(true);
+    }
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -114,12 +137,14 @@ export default function NewsletterPopup({
               </div>
               <div className="w-full flex flex-col gap-2.5">
                 <button
-                  onClick={() => setShowCheckout(true)}
+                  onClick={handleReserve}
                   className="py-2.5 px-4 bg-[rgba(21,93,252,1)] rounded-full border border-border-whiteOpacity8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.16)] text-base font-medium text-text-inverted-primary text-center cursor-pointer"
                 >
                   Reserve My Unwynd Lamp Now
                 </button>
-                {showCheckout && <Checkout />}
+                {showCheckout && customerId && (
+                  <Checkout customerId={customerId} />
+                )}
                 <p
                   className="self-center text-center text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
                   onClick={() => setIsOpen(false)}

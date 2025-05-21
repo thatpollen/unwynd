@@ -6,7 +6,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-import { fetchClientSecret } from "@/app/api/actions/stripe";
+import { fetchClientSecret } from "@/app/actions/payment-actions";
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 if (!publishableKey) {
@@ -17,21 +17,25 @@ if (!publishableKey) {
 
 const stripePromise = loadStripe(publishableKey);
 
+interface CheckoutProps {
+  customerId: string;
+}
+
 // Wrapper to ensure fetchClientSecret always returns a string
-const fetchClientSecretWrapper = async () => {
-  const secret = await fetchClientSecret();
+const fetchClientSecretWrapper = (customerId: string) => async () => {
+  const secret = await fetchClientSecret(customerId);
   if (!secret) {
     throw new Error("Failed to create checkout session");
   }
   return secret;
 };
 
-export default function Checkout() {
+export default function Checkout({ customerId }: CheckoutProps) {
   return (
     <div id="checkout">
       <EmbeddedCheckoutProvider
         stripe={stripePromise}
-        options={{ fetchClientSecret: fetchClientSecretWrapper }}
+        options={{ fetchClientSecret: fetchClientSecretWrapper(customerId) }}
       >
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>
