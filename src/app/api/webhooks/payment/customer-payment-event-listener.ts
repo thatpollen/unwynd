@@ -7,6 +7,38 @@ export const eventListener = async (event: Stripe.Event) => {
   const syncService = new SyncService();
 
   switch (type) {
+    case "checkout.session.completed":
+      logger.info(`PaymentEvent::${type}`);
+      const checkoutData = data.object as Stripe.Checkout.Session;
+
+      logger.info(`Checkout data: ${JSON.stringify(checkoutData)}`);
+
+      break;
+
+    case "checkout.session.async_payment_succeeded":
+      logger.info(`PaymentEvent::${type}`);
+      const paymentSuccessData = data.object as Stripe.Checkout.Session;
+
+      if (paymentSuccessData.customer) {
+        await syncService.eventSync(
+          paymentSuccessData.customer as string,
+          "success",
+        );
+      }
+
+      break;
+    case "checkout.session.async_payment_failed":
+      logger.info(`PaymentEvent::${type}`);
+      const paymentFailedData = data.object as Stripe.Checkout.Session;
+
+      if (paymentFailedData.customer) {
+        await syncService.eventSync(
+          paymentFailedData.customer as string,
+          "failed",
+        );
+      }
+
+      break;
     case "payment_intent.succeeded":
       logger.info(`PaymentEvent::${type}`);
       const chargeSucceeded = data.object as Stripe.PaymentIntent;

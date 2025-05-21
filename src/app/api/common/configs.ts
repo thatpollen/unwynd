@@ -36,6 +36,8 @@ const config = {
   mailchimpApiKey: process.env.MAILCHIMP_API_KEY || "",
   mailchimpServerPrefix: process.env.MAILCHIMP_SERVER_PREFIX || "",
   mailchimpAudienceId: process.env.MAILCHIMP_AUDIENCE_ID || "",
+  // product
+  productPriceId: process.env.PRODUCT_PRICE_ID!,
   automationIds,
 };
 
