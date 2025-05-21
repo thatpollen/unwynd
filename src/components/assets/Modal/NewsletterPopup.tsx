@@ -18,6 +18,8 @@ import {
 import NextImage from "next/image";
 import NextLink from "next/link";
 import { useLocale } from "next-intl";
+import Checkout from "../checkout/Checkout";
+import { useState } from "react";
 
 interface NewsletterPopupProps {
   isOpen: boolean;
@@ -29,6 +31,30 @@ export default function NewsletterPopup({
   setIsOpen,
 }: NewsletterPopupProps) {
   const locale = useLocale();
+  const [showCheckout, setShowCheckout] = useState(false);
+  const [customerId, setCustomerId] = useState<string | null>(null);
+
+  const handleReserve = async () => {
+    const emailInput = document.querySelector(
+      'input[name="email"]'
+    ) as HTMLInputElement;
+    if (!emailInput?.value) return;
+
+    const res = await fetch("/api/customers", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email: emailInput.value,
+        lang: locale,
+      }),
+    });
+
+    const data = await res.json();
+    if (data.customerId) {
+      setCustomerId(data.customerId);
+      setShowCheckout(true);
+    }
+  };
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -83,27 +109,49 @@ export default function NewsletterPopup({
                   <NewsletterPopupTwo />
                 </span>
                 <DialogDescription className="text-base font-medium text-text-secondary">
-                  So you‘ll pay: 39€ plus shipping (will ship from within the
-                  EU).
+                  So you&apos;ll pay: 39€ per lamp plus shipping (will ship from
+                  within the EU).
                 </DialogDescription>
               </div>
             </div>
-            <div className="flex flex-col items-center gap-2.5">
-              <NextLink
-                href="https://buy.stripe.com/test_5kQ6oIcO9ajb9RhgtRcfK00"
-                className="py-2.5 px-4 bg-[rgba(21,93,252,1)] rounded-full border border-border-whiteOpacity8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.16)] text-base font-medium text-text-inverted-primary cursor-pointer"
-                passHref
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Reserve My Unwynd Lamp Now
-              </NextLink>
-              <p
-                className="text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
-                onClick={() => setIsOpen(false)}
-              >
-                No thanks, I&apos;ll just follow along
-              </p>
+            <div className="w-full flex flex-col gap-4 p-6 rounded-2xl bg-surface-primary border border-border-blackOpacity8">
+              <div className="w-full">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm text-neutral-700">Quantity</span>
+                  <div className="w-11 h-11 flex items-center justify-center rounded-xl bg-surface-secondary border border-border-blackOpacity12 text-base font-medium text-neutral-500">
+                    1
+                  </div>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <span className="text-sm text-neutral-700">Per lamp</span>
+                  <span className="text-base font-medium text-text-primary">
+                    1,00€
+                  </span>
+                </div>
+                <div className="flex items-center justify-between py-2">
+                  <span className="text-sm text-neutral-700">Total price</span>
+                  <span className="text-base font-medium text-text-primary">
+                    1,00€
+                  </span>
+                </div>
+              </div>
+              <div className="w-full flex flex-col gap-2.5">
+                <button
+                  onClick={handleReserve}
+                  className="py-2.5 px-4 bg-[rgba(21,93,252,1)] rounded-full border border-border-whiteOpacity8 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.16)] text-base font-medium text-text-inverted-primary text-center cursor-pointer"
+                >
+                  Reserve My Unwynd Lamp Now
+                </button>
+                {showCheckout && customerId && (
+                  <Checkout customerId={customerId} />
+                )}
+                <p
+                  className="self-center text-center text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  No thanks, I&apos;ll just follow along
+                </p>
+              </div>
             </div>
           </div>
         </DialogHeader>
