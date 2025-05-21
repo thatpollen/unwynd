@@ -14,15 +14,13 @@ export default function GetNotifiedForm({ variant }: GetNotifiedFormProps) {
   const t = useTranslations("subscribeForm");
   const lang = useLocale();
   const [isOpen, setIsOpen] = useState(false);
+  const [customerId, setCustomerId] = useState("");
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const form = e.currentTarget;
     const emailInput = form.elements.namedItem("email") as HTMLInputElement;
-
-    console.log("Subscription mail: ", emailInput.value);
-
     const res = await fetch("/api/customers", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -32,9 +30,10 @@ export default function GetNotifiedForm({ variant }: GetNotifiedFormProps) {
       }),
     });
 
-    const data = await res.json();
-
-    console.log("Data: ", JSON.stringify(data));
+    if (res) {
+      const data = await res.json();
+      setCustomerId(data.id);
+    }
 
     if (emailInput && emailInput.checkValidity()) {
       setIsOpen(true);
@@ -107,7 +106,11 @@ export default function GetNotifiedForm({ variant }: GetNotifiedFormProps) {
           {" "}
           Get Notified
         </button> */}
-        <NewsletterPopup isOpen={isOpen} setIsOpen={setIsOpen} />
+        <NewsletterPopup
+          customerId={customerId}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+        />
       </div>
     </form>
   );
