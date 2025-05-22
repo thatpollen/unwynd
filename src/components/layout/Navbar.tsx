@@ -18,6 +18,7 @@ export default function Navbar() {
   const [isMobile, setIsMobile] = useState(false);
   const [isMediumScreen, setIsMediumScreen] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(false);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   // const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -103,7 +104,7 @@ export default function Navbar() {
               {t("orderNow")}
             </OrderButton>
             <OrderModal isOpen={isOpen} setIsOpen={setIsOpen} /> */}
-            <Popover>
+            <Popover open={isPopoverOpen} onOpenChange={setIsPopoverOpen}>
               <PopoverTrigger>
                 <div
                   className="
@@ -142,7 +143,10 @@ export default function Navbar() {
 
                 <div className="flex flex-col space-y-2.5">
                   {/* <NewsletterSignUpForm variant="popover" /> */}
-                  <GetNotifiedForm variant="popover" />
+                  <GetNotifiedForm
+                    variant="popover"
+                    setIsPopoverOpen={setIsPopoverOpen}
+                  />
                 </div>
               </PopoverContent>
             </Popover>

@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogDescription,
+  DialogClose,
 } from "@/components/reusable/dialog";
 import Image from "next/image";
 import {
@@ -20,10 +21,12 @@ import NextLink from "next/link";
 import { useLocale } from "next-intl";
 import { useState } from "react";
 import Checkout from "../checkout/Checkout";
+import { X } from "lucide-react";
 
 interface NewsletterPopupProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
+  setIsPopoverOpen: (value: boolean) => void;
   customerId: string;
 }
 
@@ -31,6 +34,7 @@ export default function NewsletterPopup({
   isOpen,
   setIsOpen,
   customerId,
+  setIsPopoverOpen,
 }: NewsletterPopupProps) {
   const locale = useLocale();
   const [showCheckout, setShowCheckout] = useState(false);
@@ -46,11 +50,16 @@ export default function NewsletterPopup({
       <DialogOverlay className="backdrop-blur bg-[rgba(0,0,0,0.6)]" />
 
       {showCheckout ? (
-        <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-4xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto">
+        <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-3xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto w-full">
+          <DialogClose className="absolute right-1.5 top-1.5 rounded-sm focus:outline-none disabled:pointer-events-none p-2 cursor-pointer">
+            <X className="h-4 w-4" />
+            <span className="sr-only">Close</span>
+          </DialogClose>
+          <DialogTitle className="hidden"></DialogTitle>
           <Checkout customerId={customerId} />{" "}
         </DialogContent>
       ) : (
-        <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-4xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto">
+        <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-3xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto">
           <div className="self-center py-3 mt-6 mb-6 block md:hidden">
             <NextLink href={`/${locale}`}>
               <NextImage
@@ -142,7 +151,10 @@ export default function NewsletterPopup({
 
                   <p
                     className="self-center text-center text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      setIsOpen(false);
+                      setIsPopoverOpen(false);
+                    }}
                   >
                     No thanks, I&apos;ll just follow along
                   </p>
