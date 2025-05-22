@@ -9,13 +9,9 @@ const createCustomer = async (req: Request) => {
 
   const { email, lang } = await req.json();
 
-  const result = await service.createCustomer({email, lang});
-
-  logger.info(`Handler::Create-Customer::Customer: \n ${JSON.stringify(result)}`);
+  const result = await service.createCustomer({ email, lang });
 
   return NextResponse.json(result);
-}
+};
 
-export {
-  createCustomer,
-}
+export { createCustomer };

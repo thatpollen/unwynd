@@ -1,10 +1,13 @@
+import MailAction from "../mail/mail-action";
 import CustomerAction from "./customer-action";
 
 class CustomerService {
   private readonly action: CustomerAction;
+  private readonly mailAction: MailAction;
 
   constructor() {
     this.action = new CustomerAction();
+    this.mailAction = new MailAction();
   }
 
   async createCustomer({ email, lang }: { email: string; lang: string }) {
@@ -15,6 +18,7 @@ class CustomerService {
     }
 
     const customer = await this.action.create({ email, lang });
+    await this.mailAction.addContact({ email, tags: [lang, "incomplete"] });
 
     return customer;
   }

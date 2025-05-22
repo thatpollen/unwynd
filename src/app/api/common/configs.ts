@@ -38,6 +38,9 @@ const config = {
   mailchimpAudienceId: process.env.MAILCHIMP_AUDIENCE_ID || "",
   // product
   productPriceId: process.env.PRODUCT_PRICE_ID!,
+
+  // locale
+  defaultLocal: process.env.DEFAULT_LOCALE || "",
   automationIds,
 };
 
