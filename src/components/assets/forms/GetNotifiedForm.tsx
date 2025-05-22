@@ -8,7 +8,7 @@ import { useLocale, useTranslations } from "next-intl";
 
 interface GetNotifiedFormProps {
   variant: "footer" | "popover" | "comingsoon" | "whyback";
-  setIsPopoverOpen: (value: boolean) => void;
+  setIsPopoverOpen?: (value: boolean) => void;
 }
 
 export default function GetNotifiedForm({

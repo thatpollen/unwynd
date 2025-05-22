@@ -26,7 +26,7 @@ import { X } from "lucide-react";
 interface NewsletterPopupProps {
   isOpen: boolean;
   setIsOpen: (value: boolean) => void;
-  setIsPopoverOpen: (value: boolean) => void;
+  setIsPopoverOpen?: (value: boolean) => void;
   customerId: string;
 }
 
@@ -153,7 +153,7 @@ export default function NewsletterPopup({
                     className="self-center text-center text-sm font-medium text-text-inverted-tertiary border-b border-border-blackOpacity12 cursor-pointer"
                     onClick={() => {
                       setIsOpen(false);
-                      setIsPopoverOpen(false);
+                      setIsPopoverOpen?.(false);
                     }}
                   >
                     No thanks, I&apos;ll just follow along
