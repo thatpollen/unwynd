@@ -21,7 +21,9 @@ class SyncService {
     );
     if (customer) {
       const email = customer.email;
-      const language = customer.metadata?.preferred_lang;
+      const language = customer.preferred_locales?.length
+        ? customer.preferred_locales[0]
+        : "en";
       // const automationId = systemConfig.automationIds[language].success;
 
       if (email) {
