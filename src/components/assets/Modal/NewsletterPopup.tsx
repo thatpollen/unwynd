@@ -82,7 +82,7 @@ export default function NewsletterPopup({
                 lamp today!
               </DialogTitle>
               <div className="flex flex-col gap-4">
-                <div className="flex justify-between items-start gap-2.5">
+                <div className="flex items-start gap-2.5">
                   <span className="w-8 h-8">
                     <NewsletterPopupOne />
                   </span>
@@ -95,7 +95,7 @@ export default function NewsletterPopup({
                     suggested retail price of 89€.
                   </DialogDescription>
                 </div>
-                <div className="flex justify-between items-start gap-2.5">
+                <div className="flex items-start gap-2.5">
                   <span className="w-8 h-8">
                     <NewsletterPopupTwo />
                   </span>
