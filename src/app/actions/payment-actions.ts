@@ -17,14 +17,18 @@ export async function fetchClientSecret(customerId: string) {
         quantity: 1,
       },
     ],
+    currency: "EUR",
     customer: customerId,
     customer_update: {
       name: "auto",
       address: "auto",
       shipping: "auto",
     },
-    customer_creation: "always",
+    // consent_collection: {
+    //   terms_of_service: "required",
+    // },
     mode: "payment",
+    redirect_on_completion: "never",
     // return_url: `${origin}/return?session_id={CHECKOUT_SESSION_ID}`,
   });
 

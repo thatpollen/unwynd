@@ -9,9 +9,10 @@ import { loadStripe } from "@stripe/stripe-js";
 import { fetchClientSecret } from "@/app/actions/payment-actions";
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
+
 if (!publishableKey) {
   throw new Error(
-    "Missing NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY environment variable"
+    "Missing NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY environment variable",
   );
 }
 
@@ -23,6 +24,7 @@ interface CheckoutProps {
 
 // Wrapper to ensure fetchClientSecret always returns a string
 const fetchClientSecretWrapper = (customerId: string) => async () => {
+  console.log("Checkout Component:: CustomerId: ", customerId);
   const secret = await fetchClientSecret(customerId);
   if (!secret) {
     throw new Error("Failed to create checkout session");
