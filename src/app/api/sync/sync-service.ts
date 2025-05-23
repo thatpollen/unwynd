@@ -28,12 +28,6 @@ class SyncService {
 
       if (email) {
         try {
-          await this.mailService.createOrUpdateContact({
-            email,
-            language,
-            eventType: eventType,
-          });
-
           await this.mailService.updateContactTags({
             email,
             tags: [language, eventType],
