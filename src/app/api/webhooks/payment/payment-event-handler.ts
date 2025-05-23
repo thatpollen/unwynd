@@ -39,11 +39,6 @@ const handlePaymentEvent = async (req: Request) => {
     );
   }
 
-  logger.info(`Handler::Payment-Event::Body: \n ${JSON.stringify(event)}`);
-
-  // Handle the event
-  eventListener(event);
-
   return NextResponse.json({ received: true });
 };
 
