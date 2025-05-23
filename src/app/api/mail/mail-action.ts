@@ -1,6 +1,7 @@
 import { logger, mailchimpClient } from "../common/clients";
 import systemConfig from "../common/configs";
 import HttpError from "http-errors";
+import { getMd5Hash } from "../common/utils";
 
 export interface MailchimpMergeFields {
   firstName?: string;
@@ -133,10 +134,12 @@ class MailAction {
     email,
     mergeFields,
     tags,
+    language,
   }: {
     email: string;
     mergeFields?: MailchimpMergeFields;
     tags: string[];
+    language?: string;
   }) {
     logger.info("MailAction::AddContact::Start");
 
@@ -150,6 +153,7 @@ class MailAction {
           status: "subscribed",
           merge_fields: mergeFields,
           tags: tags,
+          language: language,
         },
         {
           skipMergeValidation: true,
@@ -161,6 +165,44 @@ class MailAction {
       logger.info(`MailAction::AddContact::Error: ${JSON.stringify(err)}`);
 
       throw HttpError.InternalServerError("Failed ot add contact!");
+    }
+  }
+
+  /**
+   * Update a existing contact
+   * @param {object} param
+   * @param {string} param.email - Email address of the contact
+   * @param {string[]} param.tags - Tags to update to the contact
+   */
+  async updateTags({ email, tags }: { email: string; tags: string[] }) {
+    logger.info("MailAction::UpdateContact::Start");
+
+    const hashedMail = getMd5Hash(email);
+
+    try {
+      const updatedContact = await this.mailClient.lists.updateListMemberTags(
+        this.listId,
+        hashedMail,
+        {
+          tags: tags.map((tag) => ({
+            name: tag,
+            status: "active",
+          })),
+        },
+      );
+
+      logger.info("MailAction::UpdateContact::Success");
+      logger.info(
+        `MailAction::UpdatedContact: ${JSON.stringify(updatedContact)}`,
+      );
+
+      return updatedContact;
+    } catch (error) {
+      logger.error(
+        `MailAction::UpdateContact::Error: ${JSON.stringify(error)}`,
+      );
+
+      throw HttpError.InternalServerError("Failed ot update contact!");
     }
   }
 
