@@ -51,12 +51,15 @@ export default function NewsletterPopup({
 
       {showCheckout ? (
         <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-3xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto w-full">
-          <DialogClose className="absolute right-1.5 top-1.5 rounded-sm focus:outline-none disabled:pointer-events-none p-2 cursor-pointer">
+          <DialogClose
+            className="absolute right-1.5 top-1.5 rounded-sm focus:outline-none disabled:pointer-events-none p-2 cursor-pointer"
+            onClick={() => setIsPopoverOpen?.(false)}
+          >
             <X className="h-4 w-4" />
             <span className="sr-only">Close</span>
           </DialogClose>
           <DialogTitle className="hidden"></DialogTitle>
-          <Checkout customerId={customerId} />{" "}
+          <Checkout customerId={customerId} />
         </DialogContent>
       ) : (
         <DialogContent className="max-w-[1200px] h-full lg:h-[90vh] min-[1536px]:h-max rounded-none lg:rounded-3xl p-8 flex flex-col gap-6 bg-background-primary overflow-auto">
