@@ -1,7 +1,7 @@
 "use client";
 
 import NewsletterPopup from "../Modal/NewsletterPopup";
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import cn from "@/lib/utils/classname";
 import SubscribeButton from "../buttons/SubscribeButton";
 import { useLocale, useTranslations } from "next-intl";
@@ -19,13 +19,6 @@ export default function GetNotifiedForm({
   const lang = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [customerId, setCustomerId] = useState("");
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (inputRef.current && variant !== "popover") {
-      inputRef.current.focus();
-    }
-  }, [variant]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -86,12 +79,11 @@ export default function GetNotifiedForm({
                 ? "text-base placeholder:font-medium border-border-blackOpacity8 placeholder:text-text-quaternary bg-surface-secondary h-14 md:h-12"
                 : "bg-surface-primary placeholder:text-text-tertiary border-border-whiteOpacity12"
             )}
-            ref={inputRef}
             id="email"
             type="email"
             name="email"
             autoComplete="email"
-            // autoFocus={false}
+            autoFocus={false}
             placeholder={`${t("input")}`}
             required
           />
