@@ -2,6 +2,7 @@ import { logger, mailchimpClient } from "../common/clients";
 import systemConfig from "../common/configs";
 import HttpError from "http-errors";
 import { getMd5Hash } from "../common/utils";
+import type { lists } from "@mailchimp/mailchimp_marketing";
 
 export interface MailchimpMergeFields {
   firstName?: string;
@@ -165,6 +166,42 @@ class MailAction {
       logger.info(`MailAction::AddContact::Error: ${JSON.stringify(err)}`);
 
       throw HttpError.InternalServerError("Failed ot add contact!");
+    }
+  }
+
+  async createOrUpdate({
+    email,
+    language,
+  }: {
+    email: string;
+    language: string;
+  }) {
+    logger.info("MailAction::CreateOrUpdate::Start");
+
+    const subscriberHash = getMd5Hash(email);
+
+    try {
+      const contact = await this.mailClient.lists.setListMember(
+        this.listId,
+        subscriberHash,
+        {
+          email_address: email,
+          status: "subscribed",
+          status_if_new: "subscribed",
+          language: language,
+        },
+        {
+          skipMergeValidation: true,
+        },
+      );
+
+      return contact as lists.MembersSuccessResponse;
+    } catch (error) {
+      logger.info(
+        `MailAction::CreateOrUpdate::Error: ${JSON.stringify(error)}`,
+      );
+
+      throw HttpError.InternalServerError("Failed ot update contact!");
     }
   }
 

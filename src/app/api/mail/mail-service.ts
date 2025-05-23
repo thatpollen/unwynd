@@ -32,6 +32,27 @@ class MailService {
     return member;
   }
 
+  async updateContactTags({ email, tags }: { email: string; tags: string[] }) {
+    const member = await this.action.updateTags({ email, tags });
+
+    return member;
+  }
+
+  async createOrUpdateContact({
+    email,
+    language,
+    eventType,
+  }: {
+    email: string;
+    language: string;
+    eventType: string;
+  }) {
+    const contact = await this.action.createOrUpdate({ email, language });
+    await this.action.updateTags({ email, tags: [language, eventType] });
+
+    return contact;
+  }
+
   /**
    * Add batch contacts to a Mailchimp Audience/List
    * @param param {Object} data - Contacts
