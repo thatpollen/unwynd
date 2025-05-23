@@ -61,16 +61,16 @@ export const eventListener = async (event: Stripe.Event) => {
 
       break;
 
-    case "payment_intent.canceled":
-      logger.info(`PaymentEvent::${type}`);
-      const chargeCanceled = data.object as Stripe.PaymentIntent;
-      const canceledCustomerId = chargeCanceled.customer;
+    // case "payment_intent.canceled":
+    //   logger.info(`PaymentEvent::${type}`);
+    //   const chargeCanceled = data.object as Stripe.PaymentIntent;
+    //   const canceledCustomerId = chargeCanceled.customer;
 
-      if (canceledCustomerId) {
-        await syncService.eventSync(canceledCustomerId as string, "incomplete");
-      }
+    //   if (canceledCustomerId) {
+    //     await syncService.eventSync(canceledCustomerId as string, "incomplete");
+    //   }
 
-      break;
+    //   break;
 
     default:
       console.log(`Unhandled event type ${type}`);

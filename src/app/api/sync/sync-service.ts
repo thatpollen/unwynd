@@ -19,27 +19,25 @@ class SyncService {
     const customer = await this.customerService.getCustomer(
       customerId.toString(),
     );
+
     if (customer) {
       const email = customer.email;
       const language = customer.preferred_locales?.length
         ? customer.preferred_locales[0]
         : "en";
-      // const automationId = systemConfig.automationIds[language].success;
 
       if (email) {
         try {
-          const contact = await this.mailService.addContact({
+          await this.mailService.createOrUpdateContact({
+            email,
+            language,
+            eventType: eventType,
+          });
+
+          await this.mailService.updateContactTags({
             email,
             tags: [language, eventType],
           });
-
-          logger.info(`EventSync::Contact:: ${JSON.stringify(contact.status)}`);
-
-          // await this.mailService.addAutomationContact(
-          //   email,
-          //   automationId,
-          //   workflowEmailId,
-          // );
         } catch (err) {
           logger.error(
             `PaymentEvent::${eventType}::Error: ${JSON.stringify(err)}`,
