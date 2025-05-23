@@ -9,10 +9,6 @@ export const eventListener = async (event: Stripe.Event) => {
   switch (type) {
     case "checkout.session.completed":
       logger.info(`PaymentEvent::${type}`);
-      const checkoutData = data.object as Stripe.Checkout.Session;
-
-      logger.info(`Checkout data: ${JSON.stringify(checkoutData)}`);
-
       break;
 
     case "checkout.session.async_payment_succeeded":
