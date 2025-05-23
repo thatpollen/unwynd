@@ -212,25 +212,32 @@ class MailAction {
    * @param {string[]} param.tags - Tags to update to the contact
    */
   async updateTags({ email, tags }: { email: string; tags: string[] }) {
-    logger.info("MailAction::UpdateContact::Start");
+    logger.info("MailAction::Update-Tags::Start");
 
     const hashedMail = getMd5Hash(email);
 
     try {
+      const existingTags = (await this.mailClient.lists.getListMemberTags(
+        this.listId,
+        hashedMail,
+      )) as lists.ListMemberTagsResponse;
+      const updatedTags = existingTags.tags.map((tag) => ({
+        name: tag.name,
+        status: tags.includes(tag.name) ? "active" : "inactive",
+      }));
+
       const updatedContact = await this.mailClient.lists.updateListMemberTags(
         this.listId,
         hashedMail,
         {
-          tags: tags.map((tag) => ({
-            name: tag,
-            status: "active",
-          })),
+          tags: [
+            ...updatedTags,
+            ...tags.map((tag) => ({
+              name: tag,
+              status: "active",
+            })),
+          ],
         },
-      );
-
-      logger.info("MailAction::UpdateContact::Success");
-      logger.info(
-        `MailAction::UpdatedContact: ${JSON.stringify(updatedContact)}`,
       );
 
       return updatedContact;
