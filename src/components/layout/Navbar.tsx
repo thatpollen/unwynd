@@ -128,6 +128,9 @@ export default function Navbar() {
                 }
                 sideOffset={20}
                 className="orderModal w-[96vw] max-w-5xl md:max-w-[520px] flex flex-col gap-8 p-6 sm:p-10"
+                onOpenAutoFocus={(event: Event) => {
+                  event.preventDefault();
+                }}
               >
                 <div className="flex flex-col space-y-2.5">
                   <span className="text-2xl font-medium text-text-primary">
