@@ -7,12 +7,14 @@ import {
 import { loadStripe } from "@stripe/stripe-js";
 
 import { fetchClientSecret } from "@/app/actions/payment-actions";
+import config from "@/app/api/common/configs";
+import { redirect } from "next/navigation";
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
 if (!publishableKey) {
   throw new Error(
-    "Missing NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY environment variable"
+    "Missing NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY environment variable",
   );
 }
 
@@ -37,7 +39,17 @@ export default function Checkout({ customerId }: CheckoutProps) {
     <div id="checkout">
       <EmbeddedCheckoutProvider
         stripe={stripePromise}
-        options={{ fetchClientSecret: fetchClientSecretWrapper(customerId) }}
+        options={{
+          fetchClientSecret: fetchClientSecretWrapper(customerId),
+          onComplete: () => {
+            console.log("Checkout completed");
+
+            // dealy to redirect
+            setTimeout(() => {
+              redirect(config.origin);
+            }, parseInt(config.redirectDelay));
+          },
+        }}
       >
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>

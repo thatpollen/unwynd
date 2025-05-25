@@ -27,17 +27,20 @@ const config = {
   apiUrl: "https://api.example.com",
   timeout: 5000,
   logLevel: process.env.LOG_LEVEL || "info",
+  origin: process.env.NEXT_PUBLIC_URL || "http://localhost:3000",
+  redirectDelay: process.env.NEXT_PUBLIC_REDIRECT_DELAY || "10000",
+  // stripe
+  productPriceId: process.env.PRODUCT_PRICE_ID!,
   stripeAccountId: process.env.STRIPE_ACCOUNT_ID || "acct_123456789",
   stripeApiKey:
     process.env.NODE_ENV === "production"
       ? process.env.STRIPE_API_KEY_PROD || "sk_live_"
       : process.env.STRIPE_API_KEY_DEV || "sk_test_",
   stripeWebhookSecret: process.env.STRIPE_WEBHOOK_SECRET || "whsec_uMq7Y",
+  // mailchimp
   mailchimpApiKey: process.env.MAILCHIMP_API_KEY || "",
   mailchimpServerPrefix: process.env.MAILCHIMP_SERVER_PREFIX || "",
   mailchimpAudienceId: process.env.MAILCHIMP_AUDIENCE_ID || "",
-  // product
-  productPriceId: process.env.PRODUCT_PRICE_ID!,
 
   // locale
   defaultLocal: process.env.DEFAULT_LOCALE || "",
