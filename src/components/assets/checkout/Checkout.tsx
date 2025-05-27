@@ -8,7 +8,6 @@ import { loadStripe } from "@stripe/stripe-js";
 
 import { fetchClientSecret } from "@/app/actions/payment-actions";
 import config from "@/app/api/common/configs";
-import { redirect } from "next/navigation";
 
 const publishableKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
 
@@ -46,7 +45,7 @@ export default function Checkout({ customerId }: CheckoutProps) {
 
             // dealy to redirect
             setTimeout(() => {
-              redirect(config.origin);
+              document.location.href = "/";
             }, parseInt(config.redirectDelay));
           },
         }}
