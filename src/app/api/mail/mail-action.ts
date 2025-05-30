@@ -1,8 +1,8 @@
-import { logger, mailchimpClient } from "../common/clients";
-import systemConfig from "../common/configs";
-import HttpError from "http-errors";
-import { getMd5Hash } from "../common/utils";
-import type { lists } from "@mailchimp/mailchimp_marketing";
+import { logger, mailchimpClient } from '../common/clients';
+import systemConfig from '../common/configs';
+import HttpError from 'http-errors';
+import { getMd5Hash } from '../common/utils';
+import type { lists } from '@mailchimp/mailchimp_marketing';
 
 export interface MailchimpMergeFields {
   firstName?: string;
@@ -12,18 +12,18 @@ export interface MailchimpMergeFields {
 class MailAction {
   readonly mailClient;
   readonly listId: string;
-  readonly emailType: "html" | "text";
+  readonly emailType: 'html' | 'text';
 
   constructor() {
     this.mailClient = mailchimpClient;
-    this.emailType = "html";
+    this.emailType = 'html';
     this.listId = systemConfig.mailchimpAudienceId;
   }
 
   private generateMailChimpTags(tags: string[]) {
     return tags.map((tag) => ({
       name: tag,
-      status: "active" as const,
+      status: 'active' as const,
     }));
   }
 
@@ -39,7 +39,7 @@ class MailAction {
     workflowEmailId: string;
     automationId: string;
   }) {
-    logger.info("MailAction::AddToAutomationQueue::Start");
+    logger.info('MailAction::AddToAutomationQueue::Start');
 
     try {
       //@ts-expect-error - automation types not defined in client.
@@ -55,7 +55,7 @@ class MailAction {
         `MailAction::AddToAutomationQueue::Error: ${JSON.stringify(err)}`,
       );
 
-      throw HttpError.InternalServerError("Failed to add to automation queue!");
+      throw HttpError.InternalServerError('Failed to add to automation queue!');
     }
   }
 
@@ -66,7 +66,7 @@ class MailAction {
     automationId: string;
     workflowEmailId: string;
   }) {
-    logger.info("MailAction::GetAutomationQueueSubscribers::Start");
+    logger.info('MailAction::GetAutomationQueueSubscribers::Start');
 
     try {
       const res =
@@ -93,7 +93,7 @@ class MailAction {
       );
 
       throw HttpError.InternalServerError(
-        "Failed to get autiomation queue subscribers!",
+        'Failed to get autiomation queue subscribers!',
       );
     }
   }
@@ -109,7 +109,7 @@ class MailAction {
     automationId: string;
     email: string;
   }) {
-    logger.info("MailAction::RemoveFromAutomationQueue::Start");
+    logger.info('MailAction::RemoveFromAutomationQueue::Start');
 
     try {
       //@ts-expect-error - automation not defined in client type
@@ -122,7 +122,7 @@ class MailAction {
         `MailAction::RemoveFromAutomationQueue::Error: ${JSON.stringify(err)}`,
       );
 
-      throw HttpError("Failed to remove mail from atuomation queue!");
+      throw HttpError('Failed to remove mail from atuomation queue!');
     }
   }
 
@@ -142,7 +142,7 @@ class MailAction {
     tags: string[];
     language?: string;
   }) {
-    logger.info("MailAction::AddContact::Start");
+    logger.info('MailAction::AddContact::Start');
 
     const lowerCaseEmail = email.toLowerCase();
 
@@ -151,7 +151,7 @@ class MailAction {
         this.listId,
         {
           email_address: lowerCaseEmail,
-          status: "subscribed",
+          status: 'subscribed',
           merge_fields: mergeFields,
           tags: tags,
           language: language,
@@ -165,7 +165,7 @@ class MailAction {
     } catch (err) {
       logger.info(`MailAction::AddContact::Error: ${JSON.stringify(err)}`);
 
-      throw HttpError.InternalServerError("Failed ot add contact!");
+      throw HttpError.InternalServerError('Failed ot add contact!');
     }
   }
 
@@ -176,7 +176,7 @@ class MailAction {
     email: string;
     language: string;
   }) {
-    logger.info("MailAction::CreateOrUpdate::Start");
+    logger.info('MailAction::CreateOrUpdate::Start');
 
     const subscriberHash = getMd5Hash(email);
 
@@ -186,8 +186,8 @@ class MailAction {
         subscriberHash,
         {
           email_address: email,
-          status: "subscribed",
-          status_if_new: "subscribed",
+          status: 'subscribed',
+          status_if_new: 'subscribed',
           language: language,
         },
         {
@@ -201,7 +201,7 @@ class MailAction {
         `MailAction::CreateOrUpdate::Error: ${JSON.stringify(error)}`,
       );
 
-      throw HttpError.InternalServerError("Failed ot update contact!");
+      throw HttpError.InternalServerError('Failed ot update contact!');
     }
   }
 
@@ -212,7 +212,7 @@ class MailAction {
    * @param {string[]} param.tags - Tags to update to the contact
    */
   async updateTags({ email, tags }: { email: string; tags: string[] }) {
-    logger.info("MailAction::Update-Tags::Start");
+    logger.info('MailAction::Update-Tags::Start');
 
     const hashedMail = getMd5Hash(email);
 
@@ -223,7 +223,7 @@ class MailAction {
       )) as lists.ListMemberTagsResponse;
       const updatedTags = existingTags.tags.map((tag) => ({
         name: tag.name,
-        status: tags.includes(tag.name) ? "active" : "inactive",
+        status: tags.includes(tag.name) ? 'active' : 'inactive',
       }));
 
       const updatedContact = await this.mailClient.lists.updateListMemberTags(
@@ -234,7 +234,7 @@ class MailAction {
             ...updatedTags,
             ...tags.map((tag) => ({
               name: tag,
-              status: "active",
+              status: 'active',
             })),
           ],
         },
@@ -246,7 +246,7 @@ class MailAction {
         `MailAction::UpdateContact::Error: ${JSON.stringify(error)}`,
       );
 
-      throw HttpError.InternalServerError("Failed ot update contact!");
+      throw HttpError.InternalServerError('Failed ot update contact!');
     }
   }
 
@@ -263,16 +263,17 @@ class MailAction {
           email_address: contact,
           email_type: this.emailType,
           tags: tags,
-          status: "subscribed",
+          status: 'subscribed',
         })),
         update_existing: true,
+        sync_tags: true,
       });
 
       return res;
     } catch (err) {
       logger.error(`MailAction::AddContacts::Error: ${JSON.stringify(err)}`);
 
-      throw HttpError.InternalServerError("Failed ot add contacts!");
+      throw HttpError.InternalServerError('Failed ot add contacts!');
     }
   }
 }

@@ -1,5 +1,5 @@
-import MailAction from "../mail/mail-action";
-import CustomerAction from "./customer-action";
+import MailAction from '../mail/mail-action';
+import CustomerAction from './customer-action';
 
 class CustomerService {
   private readonly action: CustomerAction;
@@ -18,7 +18,7 @@ class CustomerService {
     }
 
     const customer = await this.action.create({ email, lang });
-    await this.mailAction.addContact({ email, tags: [lang, "incomplete"] });
+    await this.mailAction.addContact({ email, tags: [lang, 'incomplete'] });
 
     return customer;
   }
@@ -27,8 +27,8 @@ class CustomerService {
     return this.action.get(id);
   }
 
-  async getCustomers() {
-    const customers = await this.action.getAllCustomers();
+  async getCustomers({ lastId, limit }: { lastId?: string; limit?: number }) {
+    const customers = await this.action.getAllCustomers({ lastId, limit });
 
     return customers;
   }

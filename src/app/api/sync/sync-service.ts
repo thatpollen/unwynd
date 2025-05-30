@@ -1,8 +1,9 @@
 // import systemConfig from "../common/configs";
-import MailService from "../mail/mail-service";
-import CustomerService from "../customers/customer-service";
-import { logger } from "../common/clients";
-import { PaymentStatusType } from "../common/types";
+import type Stripe from 'stripe';
+import { logger } from '../common/clients';
+import { PaymentStatusType } from '../common/types';
+import CustomerService from '../customers/customer-service';
+import MailService from '../mail/mail-service';
 
 class SyncService {
   readonly mailService: MailService;
@@ -14,7 +15,7 @@ class SyncService {
   }
 
   async eventSync(customerId: string, eventType: PaymentStatusType) {
-    logger.info("EventSync::Start");
+    logger.info('EventSync::Start');
 
     const customer = await this.customerService.getCustomer(
       customerId.toString(),
@@ -24,7 +25,7 @@ class SyncService {
       const email = customer.email;
       const language = customer.preferred_locales?.length
         ? customer.preferred_locales[0]
-        : "en";
+        : 'en';
 
       if (email) {
         try {
@@ -39,6 +40,30 @@ class SyncService {
         }
       }
     }
+  }
+
+  async getCustomers() {
+    logger.info('Sync-Customer::Start');
+
+    const customers: Stripe.Customer[] = [];
+    let lastId: string | undefined;
+
+    do {
+      const stripeCustomers = await this.customerService.getCustomers({
+        limit: 5,
+      });
+      customers.concat(stripeCustomers.data);
+
+      if (stripeCustomers.has_more) {
+        lastId = stripeCustomers.data[stripeCustomers.data.length - 1].id;
+      } else {
+        lastId = undefined;
+      }
+    } while (lastId);
+
+    Promise.all(customers);
+
+    return customers;
   }
 }
 

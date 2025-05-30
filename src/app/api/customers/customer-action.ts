@@ -72,12 +72,19 @@ class CustomerAction {
     }
   }
 
-  async getAllCustomers() {
+  async getAllCustomers({
+    lastId,
+    limit = 100,
+  }: {
+    lastId?: string;
+    limit?: number;
+  }) {
     logger.info("Action::Get-All-Customers::Start");
 
     try {
       const customers = await StripeClient.customers.list({
-        limit: 100,
+        limit: limit,
+        starting_after: lastId,
       });
 
       return customers;
