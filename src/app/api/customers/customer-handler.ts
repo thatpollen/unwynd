@@ -1,11 +1,11 @@
-import { NextResponse } from "next/server";
-import CustomerService from "./customer-service";
-import { logger } from "../common/clients";
+import { NextResponse } from 'next/server';
+import CustomerService from './customer-service';
+import { logger } from '../common/clients';
 
 const service = new CustomerService();
 
 const createCustomer = async (req: Request) => {
-  logger.info("Handler::Create-Customer::Start");
+  logger.info('Handler::Create-Customer::Start');
 
   const { email, lang } = await req.json();
 
@@ -14,4 +14,12 @@ const createCustomer = async (req: Request) => {
   return NextResponse.json(result);
 };
 
-export { createCustomer };
+const listCharges = async () => {
+  logger.info('Handler::List-Charges::Start');
+
+  const result = await service.listCharges();
+
+  return NextResponse.json(result);
+};
+
+export { createCustomer, listCharges };

@@ -32,6 +32,18 @@ class CustomerService {
 
     return customers;
   }
+
+  async listCharges() {
+    const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
+    const twentyFourHoursAgo = now - 24 * 60 * 60; // Unix timestamp 24 hours ago
+
+    const charges = await this.action.listCharges({
+      from: twentyFourHoursAgo,
+      to: now,
+    });
+
+    return charges;
+  }
 }
 
 export default CustomerService;

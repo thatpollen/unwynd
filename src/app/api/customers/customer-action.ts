@@ -1,6 +1,6 @@
-import HttpError from "http-errors";
-import { logger, StripeClient } from "../common/clients";
-import Stripe from "stripe";
+import HttpError from 'http-errors';
+import { logger, StripeClient } from '../common/clients';
+import Stripe from 'stripe';
 
 class CustomerAction {
   readonly client;
@@ -10,7 +10,7 @@ class CustomerAction {
   }
 
   async create({ email, lang }: { email: string; lang: string }) {
-    logger.info("Action::Create-Customer::Start");
+    logger.info('Action::Create-Customer::Start');
 
     try {
       const customer = await StripeClient.customers.create({
@@ -18,7 +18,7 @@ class CustomerAction {
         preferred_locales: [lang],
         metadata: {
           preferred_lang: lang,
-          createdBy: "unwynd_api",
+          createdBy: 'unwynd_api',
         },
       });
 
@@ -30,12 +30,12 @@ class CustomerAction {
         throw HttpError(error.statusCode || 500, error.message);
       }
 
-      throw HttpError.InternalServerError("An unexpected error occurred!");
+      throw HttpError.InternalServerError('An unexpected error occurred!');
     }
   }
 
   async get(id: string) {
-    logger.info("Action::Get-Customer::Start");
+    logger.info('Action::Get-Customer::Start');
 
     try {
       const customer = await StripeClient.customers.retrieve(id);
@@ -44,12 +44,12 @@ class CustomerAction {
     } catch (error) {
       logger.info(`Action::Get-Customer::Error: ${JSON.stringify(error)}`);
 
-      throw HttpError.InternalServerError("Failed to retrieve a customer!");
+      throw HttpError.InternalServerError('Failed to retrieve a customer!');
     }
   }
 
   async findCustomer(email: string) {
-    logger.info("Action::Find-Customer::Start");
+    logger.info('Action::Find-Customer::Start');
 
     try {
       const customers = await this.client.customers.list({
@@ -68,7 +68,7 @@ class CustomerAction {
         throw HttpError(error.statusCode || 500, error.message);
       }
 
-      throw HttpError.InternalServerError("Failed to query customers!");
+      throw HttpError.InternalServerError('Failed to query customers!');
     }
   }
 
@@ -79,7 +79,7 @@ class CustomerAction {
     lastId?: string;
     limit?: number;
   }) {
-    logger.info("Action::Get-All-Customers::Start");
+    logger.info('Action::Get-All-Customers::Start');
 
     try {
       const customers = await StripeClient.customers.list({
@@ -95,7 +95,36 @@ class CustomerAction {
         throw HttpError(error.statusCode || 500, error.message);
       }
 
-      throw HttpError.InternalServerError("An unexpected error occurred!");
+      throw HttpError.InternalServerError('An unexpected error occurred!');
+    }
+  }
+
+  async listCharges({ from, to }: { from: number; to: number }) {
+    // const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
+    // const twentyFourHoursAgo = now - (24 * 60 * 60); // Unix timestamp 24 hours ago
+
+    try {
+      const charges = await this.client.charges.list({
+        created: {
+          gte: from,
+          lte: to,
+        },
+        limit: 100, // Adjust limit as needed, or implement pagination
+      });
+
+      logger.info(
+        `Charges in the last 24 hours:  ${JSON.stringify(charges.data)}`,
+      );
+
+      return charges.data;
+    } catch (error) {
+      logger.error(`Error listing charges: ${error}`);
+
+      if (error instanceof StripeClient.errors.StripeError) {
+        throw HttpError(error.statusCode || 500, error.message);
+      }
+
+      throw HttpError.InternalServerError('An unexpected error occurred!');
     }
   }
 }
