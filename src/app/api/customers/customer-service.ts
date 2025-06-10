@@ -38,7 +38,7 @@ class CustomerService {
     let lastId;
     const chargeList: Stripe.Charge[] = [];
     const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
-    const twentyFourHoursAgo = now - 24 * 60 * 60; // Unix timestamp 24 hours ago
+    const twentyFourHoursAgo = now - 48 * 60 * 60; // Unix timestamp 48 hours ago
 
     do {
       const charges = await this.action.listCharges({
