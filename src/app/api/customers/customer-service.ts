@@ -1,3 +1,4 @@
+import Stripe from 'stripe';
 import MailAction from '../mail/mail-action';
 import CustomerAction from './customer-action';
 
@@ -34,15 +35,26 @@ class CustomerService {
   }
 
   async listCharges() {
+    let lastId;
+    const chargeList: Stripe.Charge[] = [];
     const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
     const twentyFourHoursAgo = now - 24 * 60 * 60; // Unix timestamp 24 hours ago
 
-    const charges = await this.action.listCharges({
-      from: twentyFourHoursAgo,
-      to: now,
-    });
+    do {
+      const charges = await this.action.listCharges({
+        lastId,
+        from: twentyFourHoursAgo,
+        to: now,
+      });
 
-    return charges;
+      chargeList.concat(charges.data);
+
+      if (charges.has_more) {
+        lastId = charges.data[charges.data.length - 1].id;
+      }
+    } while (lastId);
+
+    return chargeList;
   }
 }
 

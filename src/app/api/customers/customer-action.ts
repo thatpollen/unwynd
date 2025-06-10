@@ -99,12 +99,21 @@ class CustomerAction {
     }
   }
 
-  async listCharges({ from, to }: { from: number; to: number }) {
+  async listCharges({
+    lastId,
+    from,
+    to,
+  }: {
+    lastId?: string;
+    from: number;
+    to: number;
+  }) {
     // const now = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
     // const twentyFourHoursAgo = now - (24 * 60 * 60); // Unix timestamp 24 hours ago
 
     try {
       const charges = await this.client.charges.list({
+        starting_after: lastId,
         created: {
           gte: from,
           lte: to,
@@ -116,7 +125,7 @@ class CustomerAction {
         `Charges in the last 24 hours:  ${JSON.stringify(charges.data)}`,
       );
 
-      return charges.data;
+      return charges;
     } catch (error) {
       logger.error(`Error listing charges: ${error}`);
 
